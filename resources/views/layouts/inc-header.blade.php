@@ -13,11 +13,11 @@
                                 <div class="account-wishlist">
                                       @if (Auth::guest())
                                       @else
-                                      <a href="account.html">My Account</a>
+                                      <a href="{{url('user_profile')}}">My Account</a>
                                       @endif
 
-                                    <a href="wishlist.html">My Wish List</a>
-                                    <a href="account.html">Sign In</a>
+                                    <a href="#">My Wish List</a>
+                                    <a href="{{url('login')}}">Sign In</a>
                                 </div>
 
 
