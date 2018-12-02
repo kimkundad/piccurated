@@ -38,4 +38,7 @@
     color: #fff;
     content: ">";
 }
+.header-area .logo {
+    padding: 10px 0;
+}
         </style>

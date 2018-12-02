@@ -6,7 +6,7 @@
                         <div class="col-lg-3 col-md-5">
                             <div class="single-footer-widget">
                                 <div class="footer-logo">
-                                    <a href="#"><img src="{{url('assets/image/logo-website.png')}}" style="height:44px" alt=""></a>
+                                    <a href="#"><img src="{{url('assets/image/logo-website.png')}}" style="height:84px" alt=""></a>
                                 </div>
                                 <div class="single-footer-text">
                                     <span>Addresss: 222/390 Soi Ruammitpattana yaak 5 Tarang Bangkhaen BKK 10220</span>

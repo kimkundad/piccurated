@@ -64,15 +64,32 @@ class HomeController extends Controller
                   ->limit(6)
                   ->get();
 
+                  $cat_group = DB::table('products')->select(
+                        'products.*',
+                        'products.id as id_p'
+                        )
+                        ->where('products.pro_status_show', 3)
+                        ->where('products.pro_status', 1)
+                        ->limit(6)
+                        ->get();
+
+                  $cat_award = DB::table('products')->select(
+                        'products.*',
+                        'products.id as id_p'
+                        )
+                        ->where('products.pro_status_show', 2)
+                        ->where('products.pro_status', 1)
+                        ->limit(15)
+                        ->get();
 
 
             $cat_new = DB::table('products')->select(
                   'products.*',
                   'products.id as id_p'
                   )
-                  ->where('products.pro_status_show', 2)
+                  ->where('products.pro_status_show', 5)
                   ->where('products.pro_status', 1)
-                  ->limit(3)
+                  ->limit(10)
                   ->get();
 
                   $cat_rec = DB::table('products')->select(
@@ -84,11 +101,22 @@ class HomeController extends Controller
                         ->limit(8)
                         ->get();
 
-
-
+      $data['objs_group'] = $cat_group;
+      $data['objs_award'] = $cat_award;
       $data['objs_new'] = $cat_new;
       $data['objs_rec'] = $cat_rec;
       $data['blog_new'] = $blog_new;
+
+      $banner = DB::table('banners')->select(
+            'banners.*'
+            )
+            ->where('status_banner', 1)
+            ->limit(3)
+            ->orderBy('banner_sort', 'asc')
+            ->get();
+
+
+    $data['banner'] = $banner;
 
 
       $slide = DB::table('slide_shows')->select(

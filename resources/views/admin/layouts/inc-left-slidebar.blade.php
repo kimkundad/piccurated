@@ -94,6 +94,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/banner*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/banner/')}}"  >
+											<i class="fa fa-coffee" aria-hidden="true"></i>
+											<span>Banner Show</span>
+										</a>
+									</li>
+
                   <li {{ (Request::is('admin/b_category*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/b_category/')}}"  >
 											<i class="fa fa-tasks" aria-hidden="true"></i>

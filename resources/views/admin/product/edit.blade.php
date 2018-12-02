@@ -108,26 +108,24 @@
           													<div class="col-md-8">
           														<select name="pro_status_show" class="form-control mb-md" required>
 
-                                        <option value="1"
-                                        @if( $objs->pro_status_show == 1)
+                                      
+
+
+                                        <option value="1" @if( $objs->pro_status_show == 1)
                                         selected='selected'
-                                        @endif
-                                        >สินค้าทั่วไป</option>
-                                        <option value="2"
-                                        @if( $objs->pro_status_show == 2)
+                                        @endif>สินค้าทั่วไป</option>
+                                        <option value="2" @if( $objs->pro_status_show == 2)
                                         selected='selected'
-                                        @endif
-                                        >NEW ITEM!</option>
-                                        <option value="3"
-                                        @if( $objs->pro_status_show == 3)
+                                        @endif>Award Photo!</option>
+                                        <option value="3" @if( $objs->pro_status_show == 3)
                                         selected='selected'
-                                        @endif
-                                        >LIMITED OFFER</option>
-                                        <option value="4"
-                                        @if( $objs->pro_status_show == 4)
+                                        @endif>Group Photo</option>
+                                        <option value="4" @if( $objs->pro_status_show == 4)
                                         selected='selected'
-                                        @endif
-                                        >RECOMMENDED ITEM</option>
+                                        @endif>RECOMMENDED Photo</option>
+                                        <option value="5" @if( $objs->pro_status_show == 5)
+                                        selected='selected'
+                                        @endif>New Products</option>
 
 
   								                    </select>

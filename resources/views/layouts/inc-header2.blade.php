@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="welcome-text">Welcome you to Piccurated store!</span>
+                            <span class="welcome-text">Welcome you to ArtFurniture store!</span>
                         </div>
                         <div class="col-md-8">
                             <div class="header-top-links">
@@ -34,13 +34,13 @@
                         <div class="col-md-3">
                             <div class="logo">
 
-                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:100px"></a>
+                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu"></a>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <span class="email-image">
-                                <span><img src="{{url('home/assets/img/icon/email.png')}}" alt=""></span>
-                                <span><span>Email: </span>Piccurated@gmail.com</span>
+                                <span><img src="assets/img/icon/email.png" alt=""></span>
+                                <span><span>Email: </span>admin@artfurniture.com</span>
                             </span>
                         </div>
 
@@ -56,11 +56,8 @@
                              ?>
                             <div class="cart-box-wrapper">
                                 <a class="cart-info" >
-                                  <span>
-                                    <img src="{{url('home/assets/img/icon/cart.png')}}" alt="">
+                                    <img src="{{url('home/assets/img/icon/cart-2.png')}}" alt="">
                                     <span>{{$set_num_date}}</span>
-                                    </span>
-                                    <span>My Cart</span>
                                 </a>
                                 <div class="cart-dropdown">
                                 <?php
