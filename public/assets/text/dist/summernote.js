@@ -6730,13 +6730,13 @@
 			var data = new FormData();
 		    data.append('files', files[0]);
 		    $.ajax({
-		        url: 'https://fulryu.com/admin/file/posts',
+		        url: 'https://piccurated.com/admin/file/posts',
 		        method: 'POST',
 		        data: data,
 		        processData: false,
 		        contentType: false,
 		        success: function(response) {
-              var image1 = 'https://www.fulryu.com/assets/image/blog/'+response;
+              var image1 = 'https://piccurated.com/assets/image/blog/'+response;
 		          $editor.summernote('insertImage', image1);
 		        }
 		    });
