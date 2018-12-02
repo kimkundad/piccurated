@@ -604,6 +604,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	                            </div>
 	                        </div>
 	                    </div>
+                      
 	                    <div class="col-md-3">
 	                        <div class="single-information">
 	                            <div class="s-info-img"><img src="home/assets/img/icon/online.png" alt=""></div>
