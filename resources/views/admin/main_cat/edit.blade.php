@@ -63,38 +63,20 @@
                                           {{ method_field($method) }}
                                           {{ csrf_field() }}
 
-          											<h4 class="mb-xlg">แก้ไขหมวดหมู่</h4>
+          											<h4 class="mb-xlg">แก้ไขหมวดหมู่หลัก</h4>
 
           											<fieldset>
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">ชื่อหมวดหมู่*</label>
           													<div class="col-md-8">
-          														<input type="text" class="form-control" name="name_cat" value="{{$objs->name_cat}}">
+          														<input type="text" class="form-control" name="name_cat" value="{{$objs->name_main}}">
           														</div>
-          												</div>
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่หลัก*</label>
-          													<div class="col-md-8">
-          														<select name="id_main" class="form-control mb-md" required>
-
-                                        <option value="">-- เลือกหมวดหมู่หลัก --</option>
-  								                        @foreach($main_cat as $main_cats)
-  													                 <option value="{{$main_cats->id}}"
-                                               @if( $objs->id_main == $main_cats->id)
-                                               selected='selected'
-                                               @endif
-                                               >{{$main_cats->name_main}}</option>
-  													              @endforeach
-  								                    </select>
-
-          													</div>
           												</div>
                                   <br>
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">รูป*</label>
           													<div class="col-md-8">
-          														<img src="{{url('assets/image/category_img/'.$objs->image_cat)}}" class="img-responsive">
+          														<img src="{{url('assets/image/image_main/'.$objs->image_main)}}" class="img-responsive">
           														</div>
           												</div>
 

@@ -2,7 +2,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{url('home/assets/img/favicon.png')}}">
 
 		<!-- all css here -->
-        <link href="https://fonts.googleapis.com/css?family=Prompt:200,700,400,500" rel="stylesheet">
+      
         <link rel="stylesheet" href="{{url('home/assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/owl.carousel.min.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/font-awesome.min.css')}}">

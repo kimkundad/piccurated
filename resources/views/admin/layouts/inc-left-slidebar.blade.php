@@ -42,6 +42,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/main_category*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/main_category/')}}"  >
+											<i class="fa fa-tasks" aria-hidden="true"></i>
+											<span>หมวดหมู่หลัก</span>
+										</a>
+									</li>
+
                   <li {{ (Request::is('admin/category*') ? 'class=nav-expanded' : '') }} >
 										<a href="{{url('admin/category/')}}"  >
 											<i class="fa fa-tasks" aria-hidden="true"></i>

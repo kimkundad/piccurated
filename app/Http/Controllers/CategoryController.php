@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\category;
+use App\main_cat;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
@@ -53,6 +54,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
+      $main_cat = main_cat::All();
+      $data['main_cat'] = $main_cat;
       $data['method'] = "post";
       $data['url'] = url('admin/category');
       $data['datahead'] = "สร้างหมวดหมู่ ";
@@ -87,6 +90,7 @@ class CategoryController extends Controller
         $package = new category();
         $package->name_cat = $request['name_cat'];
         $package->image_cat = $input['imagename'];
+        $package->id_main = $request['id_main'];
         $package->save();
         return redirect(url('admin/category'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
     }
@@ -111,6 +115,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $main_cat = main_cat::All();
+        $data['main_cat'] = $main_cat;
       $obj = category::find($id);
       $data['url'] = url('admin/category/'.$id);
       $data['datahead'] = "แก้ไขหมวดหมู่";
@@ -139,6 +145,7 @@ class CategoryController extends Controller
 
           $package = category::find($id);
           $package->name_cat = $request['name_cat'];
+          $package->id_main = $request['id_main'];
           $package->save();
 
         }else{
@@ -165,6 +172,7 @@ class CategoryController extends Controller
 
           $package = category::find($id);
           $package->name_cat = $request['name_cat'];
+          $package->id_main = $request['id_main'];
           $package->image_cat = $input['imagename'];
           $package->save();
 

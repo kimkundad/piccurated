@@ -778,6 +778,118 @@ return response()->json($response);
     }
 
 
+    public function category_main(Request $request, $id){
+
+      $Sort_by = $request['Sort_by'];
+
+      $obj1 = DB::table('categories')->select(
+            'categories.*'
+            )
+            ->where('id_main', $id)
+            ->get();
+
+            foreach($obj1 as $u){
+
+
+              $get_count = DB::table('products')->select(
+                    'products.*'
+                    )
+                    ->where('pro_category', $u->id)
+                    ->count();
+            $u->count = $get_count;
+
+            }
+      $data['cat1'] = $obj1;
+
+
+      $main_cats = DB::table('main_cats')->select(
+            'main_cats.*'
+            )
+            ->where('id', $id)
+            ->first();
+
+
+            $main_cats_count = DB::table('products')->select(
+                  'products.*',
+                  'products.id as id_pro',
+                  'categories.*',
+                  'categories.id as id_cat'
+                  )
+                  ->leftjoin('categories', 'categories.id',  'products.pro_category')
+                  ->where('categories.id_main', $main_cats->id)
+                  ->count();
+
+                  if($Sort_by == null){
+                    $sort_set = 1;
+                    $product = DB::table('products')->select(
+                          'products.*',
+                          'products.id as id_pro',
+                          'categories.*',
+                          'categories.id as id_cat'
+                          )
+                      ->leftjoin('categories', 'categories.id',  'products.pro_category')
+                      ->where('categories.id_main', $main_cats->id)
+                      ->orderBy('products.pro_name', 'asc')
+                      ->paginate(16);
+                  }else{
+
+
+                    if($Sort_by == 'p-name'){
+                      $sort_set = 1;
+
+                      $product = DB::table('products')->select(
+                            'products.*',
+                            'products.id as id_pro',
+                            'categories.*',
+                            'categories.id as id_cat'
+                            )
+                        ->leftjoin('categories', 'categories.id',  'products.pro_category')
+                        ->where('categories.id_main', $main_cats->id)
+                        ->orderBy('products.pro_name', 'asc')
+                        ->paginate(16);
+
+                    }else{
+                      $sort_set = 2;
+
+                      $product = DB::table('products')->select(
+                            'products.*',
+                            'products.id as id_pro',
+                            'categories.*',
+                            'categories.id as id_cat'
+                            )
+                        ->leftjoin('categories', 'categories.id',  'products.pro_category')
+                        ->where('categories.id_main', $main_cats->id)
+                        ->orderBy('products.pro_price', 'asc')
+                        ->paginate(16);
+
+                    }
+
+                  }
+
+                  $data['sort_set'] = $sort_set;
+
+                  $data['category_count'] = $main_cats_count;
+                  $data['category'] = $main_cats;
+                  $data['product'] = $product;
+
+                  $hot = DB::table('products')->select(
+                        'products.*',
+                        'products.id as id_pro',
+                        'categories.*',
+                        'categories.id as id_cat'
+                        )
+                    ->leftjoin('categories', 'categories.id',  'products.pro_category')
+                    ->where('categories.id_main', $main_cats->id)
+                        ->limit(4)
+                        ->orderBy('products.views', 'desc')
+                        ->get();
+                  $data['hot'] = $hot;
+
+
+      return view('category2', $data);
+    }
+
+
     public function category(Request $request, $id){
 
       $Sort_by = $request['Sort_by'];
@@ -790,11 +902,7 @@ return response()->json($response);
             ->get();
 
             foreach($obj1 as $u){
-              $options = DB::table('products')
-                ->where('pro_category', $u->id)
-                ->limit(2)
-                ->get();
-              $u->options = $options;
+
 
               $get_count = DB::table('products')->select(
                     'products.*'

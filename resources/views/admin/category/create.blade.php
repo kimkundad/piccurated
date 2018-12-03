@@ -75,6 +75,21 @@
 
 
                                   <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่หลัก*</label>
+          													<div class="col-md-8">
+          														<select name="id_main" class="form-control mb-md" required>
+
+                                        <option value="">-- เลือกหมวดหมู่หลัก --</option>
+  								                        @foreach($main_cat as $main_cats)
+  													                 <option value="{{$main_cats->id}}">{{$main_cats->name_main}}</option>
+  													              @endforeach
+  								                    </select>
+          								            </select>
+          													</div>
+          												</div>
+
+
+                                  <div class="form-group">
                                     <label class="col-md-3 control-label" for="exampleInputEmail1">รูปภาพ*</label>
                                     <div class="col-md-8">
                                       <p class="text-danger">

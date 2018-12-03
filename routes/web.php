@@ -34,6 +34,7 @@ Route::get('/paypal_success', 'HomeController@paypal_success');
 
 
 Route::get('category/{id}', 'HomeController@category')->name('category');
+Route::get('category_main/{id}', 'HomeController@category_main')->name('category_main');
 Route::get('clear_cart', 'HomeController@clear_cart')->name('clear_cart');
 Route::get('about', 'HomeController@about')->name('about');
 Route::get('contact', 'HomeController@contact')->name('contact');
@@ -79,6 +80,8 @@ Route::group(['middleware' => 'admin'], function() {
   Route::get('admin/dashboard', 'DashboardController@index')->name('dashboard');
   Route::resource('admin/user', 'StudentController');
   Route::resource('admin/banner', 'BannerController');
+  Route::resource('admin/main_category', 'McatController');
+
   Route::post('api/api_banner_status', 'BannerController@api_banner_status');
 
   Route::resource('admin/option_product', 'Option_productController');

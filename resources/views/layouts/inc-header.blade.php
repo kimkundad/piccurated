@@ -153,27 +153,18 @@
                                     <li><a href="{{url('/')}}">Home</a>
 
                                     </li>
-                                    <li class="megamenu"><a href="#">Product</a>
-                                        <ul>
-                                            <li>
-                                                <ul>
-                                                @if($cat1)
-                                                  @foreach($cat1 as $j)
-                                                  <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
-                                                  @endforeach
-                                                @endif
-                                                </ul>
-                                            </li>
 
-                                        </ul>
-                                    </li>
+                                    <li><a href="{{url('category_main/1')}}">PRINT</a></li>
+                                    <li><a href="{{url('category_main/4')}}">BOOK</a></li>
+                                    <li><a href="{{url('category_main/3')}}">ART</a></li>
+
                                     <li><a href="{{url('get_blog')}}">Blog</a>
 
                                     </li>
-                                    <li><a href="{{url('/about')}}">About</a></li>
+
 
                                     <li><a href="{{url('/contact')}}">Contact</a></li>
-                                    <li><a href="{{url('/confirm_payment')}}">Payment</a></li>
+
 
                                 </ul>
                             </nav>
@@ -191,20 +182,14 @@
                           <li ><a href="{{url('/')}}">Home</a>
                           </li>
 
-                          <li><a >Product</a>
-                              <ul>
-                                @if($cat1)
-                                  @foreach($cat1 as $j)
-                                  <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
-                                  @endforeach
-                                @endif
-                              </ul>
-                          </li>
+                          <li><a href="{{url('category_main/1')}}">PRINT</a></li>
+                          <li><a href="{{url('category_main/4')}}">BOOK</a></li>
+                          <li><a href="{{url('category_main/3')}}">ART</a></li>
+
                           <li ><a href="{{url('get_blog')}}">Blog</a>
                           </li>
 
-                            <li ><a href="{{url('/about')}}">About</a>
-                            </li>
+
                             <li ><a href="{{url('/contact')}}">Contact</a>
                             </li>
                       </ul>

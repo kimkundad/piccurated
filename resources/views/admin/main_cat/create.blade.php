@@ -63,38 +63,13 @@
                                           {{ method_field($method) }}
                                           {{ csrf_field() }}
 
-          											<h4 class="mb-xlg">แก้ไขหมวดหมู่</h4>
+          											<h4 class="mb-xlg">เพิ่มหมวดหมู่หลัก</h4>
 
           											<fieldset>
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">ชื่อหมวดหมู่*</label>
           													<div class="col-md-8">
-          														<input type="text" class="form-control" name="name_cat" value="{{$objs->name_cat}}">
-          														</div>
-          												</div>
-
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่หลัก*</label>
-          													<div class="col-md-8">
-          														<select name="id_main" class="form-control mb-md" required>
-
-                                        <option value="">-- เลือกหมวดหมู่หลัก --</option>
-  								                        @foreach($main_cat as $main_cats)
-  													                 <option value="{{$main_cats->id}}"
-                                               @if( $objs->id_main == $main_cats->id)
-                                               selected='selected'
-                                               @endif
-                                               >{{$main_cats->name_main}}</option>
-  													              @endforeach
-  								                    </select>
-
-          													</div>
-          												</div>
-                                  <br>
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">รูป*</label>
-          													<div class="col-md-8">
-          														<img src="{{url('assets/image/category_img/'.$objs->image_cat)}}" class="img-responsive">
+          														<input type="text" class="form-control" name="name_cat">
           														</div>
           												</div>
 
@@ -123,6 +98,7 @@
                                   </div>
 
 
+                                  <br>
 
 
 
@@ -139,7 +115,7 @@
           											<div class="panel-footer">
           												<div class="row">
           													<div class="col-md-9 col-md-offset-3">
-          														<button type="submit" class="btn btn-primary">แก้ไขข้อมูล</button>
+          														<button type="submit" class="btn btn-primary">เพิ่มข้อมูล</button>
           														<button type="reset" class="btn btn-default">ยกเลิก</button>
           													</div>
           												</div>
@@ -174,20 +150,33 @@
 <script src="{{asset('/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
 
 
-@if ($message = Session::get('edit_success'))
+@if ($message = Session::get('success'))
 <script type="text/javascript">
-
-  var stack_topleft = {"dir1": "down", "dir2": "right", "push": "top"};
-      var notice = new PNotify({
-            title: 'ทำรายการสำเร็จ',
-            text: 'ยินดีด้วย ได้ทำการแก้ไขข้อมูล สำเร็จเรียบร้อยแล้วค่ะ',
-            type: 'success',
-            addclass: 'stack-topright'
-          });
+var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+var notice = new PNotify({
+      title: 'ยินดีด้วยค่ะ',
+      text: '{{$message}}',
+      type: 'success',
+      addclass: 'stack-bar-top',
+      stack: stack_bar_top,
+      width: "100%"
+    });
 </script>
 @endif
 
 
-
+@if ($message = Session::get('delete'))
+<script type="text/javascript">
+var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+var notice = new PNotify({
+      title: 'ยินดีด้วยค่ะ',
+      text: '{{$message}}',
+      type: 'success',
+      addclass: 'stack-bar-top',
+      stack: stack_bar_top,
+      width: "100%"
+    });
+</script>
+@endif
 
 @stop('scripts')
