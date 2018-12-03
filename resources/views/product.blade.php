@@ -178,7 +178,7 @@
                             <div class="row">
 
 
-                            @if($objs->id_main == 1 || $objs->id_main == 3)
+                            @if($objs->id_main == 1)
                             @foreach($my_option as $k)
                             <div class="col-md-6">
                               <p class="model-stock">
