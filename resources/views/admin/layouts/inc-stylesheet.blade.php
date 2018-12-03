@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="{{asset('./assets/vendor/bootstrap-datepicker/css/datepicker3.css')}}">
         <link rel="stylesheet" href="{{asset('./assets/vendor/isotope/jquery.isotope.css')}}">
         <link rel="stylesheet" href="{{asset('./assets/vendor/pnotify/pnotify.custom.css')}}">
+        <link rel="stylesheet" href="{{url('assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" />
         <!-- Theme Custom CSS -->
         <link rel="stylesheet" href="{{asset('./assets/stylesheets/theme-custom.css')}}">
 
@@ -74,8 +75,25 @@
     background: none;
     border: 0;
 }
+.label-info {
+    background: #5bc0de;
+    color: #FFF;
+}
 a:hover, a:focus {
     color: #2a6496;
     text-decoration: none;
+}.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #5bc0de;
+    border-radius: 10px;
 }
 </style>

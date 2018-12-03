@@ -80,6 +80,32 @@
           														</div>
           												</div>
 
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">สีของสินค้า*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="pro_color" value="{{ old('pro_color')}}" placeholder="RED">
+          														</div>
+          												</div>
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">ค่าจัดส่งสินค้า*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="shipping_price" value="{{ old('shipping_price')}}" placeholder="150">
+          														</div>
+          												</div>
+
+                                  <div class="form-group ">
+            												<label for="tags-input" class="col-md-3 control-label text-lg-right pt-2">Tags Search</label>
+            												<div class="col-md-8">
+
+                                      <input name="search_tag" id="tags-input" data-role="tagsinput" data-tag-class="badge badge-primary" class="form-control" value="{{ old('search_tag') }}" />
+
+            													<p>
+            														ป้อนคำที่ต้องการให้เจอ <code> ตัดคำด้วยเครื่องหมาย  " , "</code> จะได้ทำใหม่ขึ้นมา.
+            													</p>
+            												</div>
+            											</div>
+
 
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่*</label>
@@ -235,6 +261,7 @@
 
 @section('scripts')
 <script src="{{asset('/assets/javascripts/tables/examples.datatables.default.js')}}"></script>
+
 
 
 @if ($message = Session::get('success'))

@@ -48,6 +48,10 @@
         padding: 10px 41px;
     text-transform: uppercase;
 }
+.p-image {
+    padding: 0 0px 0px;
+    width: 24%;
+}
 .qty-cart-add > form > label {
     -ms-flex-item-align: center;
     align-self: center;

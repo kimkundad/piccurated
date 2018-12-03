@@ -596,8 +596,8 @@ class HomeController extends Controller
 
             $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-            $email_sender   = 'fulryumail@gmail.com';
-            $email_pass     = 'aeychingking';
+            $email_sender   = 'Piccurated@gmail.com';
+            $email_pass     = 'kingmeanae';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
             $email_pass     = 'Iaminfoacmeinvestor';  */
@@ -629,10 +629,10 @@ class HomeController extends Controller
 
                         Mail::send('mail.contact', $data_toview, function($message) use ($data)
                         {
-                            $message->from($data['sender'], 'มีข้อความจาก fulryu');
+                            $message->from($data['sender'], 'มีข้อความจาก Piccurated');
                             $message->to($data['emailto'])
-                            ->replyTo($data['emailto'], 'มีข้อความจาก fulryu.')
-                            ->subject('มีข้อความจาก fulryu.com เข้าสู่ะบบ');
+                            ->replyTo($data['emailto'], 'มีข้อความจาก Piccurated.')
+                            ->subject('มีข้อความจาก Piccurated.com เข้าสู่ะบบ');
 
                             //echo 'Confirmation email after registration is completed.';
                         });
@@ -1069,6 +1069,7 @@ return response()->json($response);
         $total_item = 0;
         $sum_weight = 0;
         $price_s = 0;
+        $total_sum = 0;
 
         foreach(Session::get('cart') as $u){
 
@@ -1079,151 +1080,36 @@ return response()->json($response);
             ->first();
 
 
-          $sum_weight += ($product->pro_weight * $u['data'][1]['sum_item']);
+        //  $sum_weight += ($product->pro_weight * $u['data'][1]['sum_item']);
 
-          $shipping_price = ($product->pro_weight * $u['data'][1]['sum_item']);
-
-          if($shipping_price < 20){
-                  $price_s = 20;
-                }elseif($shipping_price > 20 && $shipping_price < 100){
-                  $price_s = 25;
-                }elseif($shipping_price > 100 && $shipping_price < 250){
-                  $price_s = 30.00;
-                }elseif($shipping_price > 250 && $shipping_price < 500){
-                  $price_s = 40.00;
-                }elseif($shipping_price > 500 && $shipping_price < 1000){
-                  $price_s = 55.00;
-                }elseif($shipping_price > 1000 && $shipping_price < 1500){
-                  $price_s = 70.00;
-                }elseif($shipping_price > 1500 && $shipping_price < 2000){
-                  $price_s = 85.00;
-                }elseif($shipping_price > 2000 && $shipping_price < 2500){
-                  $price_s = 100.00;
-                }elseif($shipping_price > 2500 && $shipping_price < 3000){
-                  $price_s = 115.00;
-                }elseif($shipping_price > 3000 && $shipping_price < 3500){
-                  $price_s = 135.00;
-                }elseif($shipping_price > 3500 && $shipping_price < 4000){
-                  $price_s = 155;
-                }elseif($shipping_price > 4000 && $shipping_price < 4500){
-                  $price_s = 175;
-                }elseif($shipping_price > 4500 && $shipping_price < 5000){
-                  $price_s = 200;
-                }elseif($shipping_price > 5000 && $shipping_price < 5500){
-                  $price_s = 220;
-                }elseif($shipping_price > 5500 && $shipping_price < 6000){
-                  $price_s = 245;
-                }elseif($shipping_price > 6000 && $shipping_price < 6500){
-                  $price_s = 270;
-                }elseif($shipping_price > 6500 && $shipping_price < 7000){
-                  $price_s = 295;
-                }elseif($shipping_price > 7000 && $shipping_price < 7500){
-                  $price_s = 320;
-                }elseif($shipping_price > 7500 && $shipping_price < 8000){
-                  $price_s = 345;
-                }elseif($shipping_price > 8000 && $shipping_price < 8500){
-                  $price_s = 375;
-                }elseif($shipping_price > 8500 && $shipping_price < 9000){
-                  $price_s = 405;
-                }elseif($shipping_price > 9000 && $shipping_price < 9500){
-                  $price_s = 435;
-                }elseif($shipping_price > 9500 && $shipping_price < 10000){
-                  $price_s = 465;
-                }else{
-
-                }
+      //    $shipping_price = ($product->pro_weight * $u['data'][1]['sum_item']);
 
 
 
 
-          $total += $u['data'][2]['sum_price'];
-        //  $total_sum = $u['data']['price']*$u['data'][1]['sum_item'];
+
+
+      //    $total += $u['data'][2]['sum_price'];
+          $total_sum += $u['data'][2]['sum_price']*$u['data'][1]['sum_item'];
           $total_item += $u['data'][1]['sum_item'];
 
 
         }
 
-        $size = $u['data']['size'];
-        $color = $u['data']['color'];
-
-        if($size != null && $color != null){
-
-
-          $get_name_size = DB::table('option_items')->select(
-            'option_items.*'
-            )
-            ->where('id', $size)
-            ->first();
-
-
-            $get_name_color = DB::table('option_items')->select(
-              'option_items.*'
-              )
-              ->where('id', $color)
-              ->first();
-
-              $size = $get_name_size->item_name;
-              $color = $get_name_color->item_name;
-
-              $size1 = $get_name_size->id;
-              $color1 = $get_name_color->id;
-
-
-
-        }elseif($size == null && $color != null){
 
 
 
 
-            $get_name_color = DB::table('option_items')->select(
-              'option_items.*'
-              )
-              ->where('id', $color)
-              ->first();
+        $total_price = $total_sum;
 
-              $size = 0;
-              $color = $get_name_color->item_name;
-
-              $size1 = 0;
-              $color1 = $get_name_color->id;
-
-        }elseif($size != null && $color == null){
-
-          $get_name_size = DB::table('option_items')->select(
-            'option_items.*'
-            )
-            ->where('id', $size)
-            ->first();
-
-
-
-
-              $size = $get_name_size->item_name;
-              $color = 0;
-
-              $size1 = $get_name_size->id;
-              $color1 = 0;
-
-        }else{
-
-          $size = 0;
-          $color = 0;
-          $size1 = 0;
-          $color1 = 0;
-
-        }
-
-        $total_price = $total+$price_s;
-        $data['sum_weight'] = $sum_weight;
-        $data['price_s'] = $price_s;
-        $data['total_price'] = $total_price;
-        $data['total'] = $total;
+       $data['price_s'] = 0;
+    $data['total_price'] = $total_sum;
+        $data['total_sum'] = $total_sum;
+        $data['total'] = $total_item;
         $data['num_order'] = $set_cart;
       //  dd($size);
-        $data['size'] = $size;
-        $data['color'] = $color;
-        $data['size1'] = $size1;
-        $data['color1'] = $color1;
+
+
 
 
       }
@@ -1303,8 +1189,8 @@ return response()->json($response);
         $data_toview['data'] = $package;
         $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-          $email_sender   = 'fulryumail@gmail.com';
-          $email_pass     = 'aeychingking';
+        $email_sender   = 'Piccurated@gmail.com';
+        $email_pass     = 'kingmeanae';
 
       /*    $email_sender   = 'info@acmeinvestor.com';
           $email_pass     = 'Iaminfoacmeinvestor';  */
@@ -1333,10 +1219,10 @@ return response()->json($response);
 
                       Mail::send('mail.confirm_payment_admin', $data_toview, function($message) use ($data)
                       {
-                          $message->from($data['sender'], 'fulryu แจ้งการโอนเงิน');
+                          $message->from($data['sender'], 'Piccurated แจ้งการโอนเงิน');
                           $message->to($data['sender'])
-                          ->replyTo($data['sender'], 'fulryu แจ้งการโอนเงิน.')
-                          ->subject('แจ้งการโอนเงิน fulryu ');
+                          ->replyTo($data['sender'], 'Piccurated แจ้งการโอนเงิน.')
+                          ->subject('แจ้งการโอนเงิน Piccurated ');
 
                           //echo 'Confirmation email after registration is completed.';
                       });
@@ -1344,10 +1230,10 @@ return response()->json($response);
 
                       Mail::send('mail.confirm_payment_customer', $data_toview, function($message) use ($data)
                       {
-                          $message->from($data['sender'], 'fulryu แจ้งการโอนเงิน');
+                          $message->from($data['sender'], 'Piccurated แจ้งการโอนเงิน');
                           $message->to($data['emailto'])
-                          ->replyTo($data['sender'], 'fulryu แจ้งการโอนเงิน.')
-                          ->subject('แจ้งการโอนเงิน fulryu');
+                          ->replyTo($data['sender'], 'Piccurated แจ้งการโอนเงิน.')
+                          ->subject('แจ้งการโอนเงิน Piccurated');
 
                           //echo 'Confirmation email after registration is completed.';
                       });
@@ -1422,8 +1308,6 @@ return response()->json($response);
        $package->phone = $request['phone'];
        $package->discount = $request['discount'];
        $package->total_money = $request['total_money'];
-       $package->order_weight = $request['sum_weight'];
-       $package->shipping_price = $request['shipping_price'];
        $package->save();
 
        $the_id = $package->id;
@@ -1453,8 +1337,10 @@ return response()->json($response);
          $obj = new order_detail();
          $obj->order_id = $the_id;
          $obj->product_id = $product->id;
-         $obj->size = $request['size'];
-         $obj->color = $request['color'];
+         $obj->size = $u['data']['size'];
+         $obj->color = $u['data']['paper'];
+         $obj->frame = $u['data']['frame'];
+         $obj->frame_color = $u['data']['frame_color'];
          $obj->product_id = $product->id;
          $obj->product_name = $product->pro_name;
          $obj->sum_item = $u['data'][1]['sum_item'];
@@ -1487,8 +1373,8 @@ return response()->json($response);
           $data_toview['data'] = $package;
           $data_toview['datatime'] = date("d-m-Y H:i:s");
 
-            $email_sender   = 'fulryumail@gmail.com';
-            $email_pass     = 'aeychingking';
+            $email_sender   = 'Piccurated@gmail.com';
+            $email_pass     = 'kingmeanae';
 
         /*    $email_sender   = 'info@acmeinvestor.com';
             $email_pass     = 'Iaminfoacmeinvestor';  */
@@ -1517,10 +1403,10 @@ return response()->json($response);
 
                         Mail::send('mail.index', $data_toview, function($message) use ($data)
                         {
-                            $message->from($data['sender'], 'fulryu e-commerce');
+                            $message->from($data['sender'], 'Piccurated e-commerce');
                             $message->to($data['sender'])
-                            ->replyTo($data['sender'], 'fulryu e-commerce.')
-                            ->subject('มีรายการใหม่จาก fulryu ');
+                            ->replyTo($data['sender'], 'Piccurated e-commerce.')
+                            ->subject('มีรายการใหม่จาก Piccurated ');
 
                             //echo 'Confirmation email after registration is completed.';
                         });
@@ -1528,10 +1414,10 @@ return response()->json($response);
 
                         Mail::send('mail.index', $data_toview, function($message) use ($data)
                         {
-                            $message->from($data['sender'], 'fulryu e-commerce');
+                            $message->from($data['sender'], 'Piccurated e-commerce');
                             $message->to($data['emailto'])
-                            ->replyTo($data['sender'], 'fulryu e-commerce.')
-                            ->subject('คุณได้ทำรายการจาก fulryu');
+                            ->replyTo($data['sender'], 'Piccurated e-commerce.')
+                            ->subject('คุณได้ทำรายการจาก Piccurated');
 
                             //echo 'Confirmation email after registration is completed.';
                         });

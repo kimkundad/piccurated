@@ -143,7 +143,7 @@ Payment | Fulryu
                                                     <thead>
                                                         <tr>
                                                             <th class="p-name alignleft">Product Name</th>
-                                                            <th class="p-amount">Price</th>
+                                                            <th class="p-amount"></th>
                                                             <th class="p-quantity">Qty</th>
                                                             <th class="p-total">SubTotal</th>
                                                         </tr>
@@ -152,7 +152,7 @@ Payment | Fulryu
                                                       @foreach($order_all as $u)
                                                         <tr>
                                                             <td class="p-name">{{$u->product_name}}</td>
-                                                            <td class="p-amount"><span class="amount">฿{{$u->options->pro_price}}</span></td>
+                                                            <td class="p-amount"></td>
                                                             <td class="p-quantity">{{$u->sum_item}}</td>
                                                             <td class="p-total alignright">฿{{$u->sum_money}}</td>
                                                         </tr>
@@ -165,7 +165,7 @@ Payment | Fulryu
                                                         </tr>
                                                         <tr>
                                                             <td colspan="3" class="alignright">Shipping &amp; Handling (Flat Rate - Fixed)    </td>
-                                                            <td>฿{{$order->shipping_price}}</td>
+                                                            <td>Free</td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="3" class="alignright">Discount    </td>

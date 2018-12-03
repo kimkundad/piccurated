@@ -68,7 +68,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                 <tr>
                                     <th class="p-image"></th>
                                     <th class="p-name">Product Name</th>
-                                    <th class="p-amount">Unit Price</th>
+                                    <th class="p-amount"></th>
                                     <th class="p-quantity">Qty</th>
                                     <th class="p-total">SubTotal</th>
                                     <th class="p-edit">Edit</th>
@@ -107,7 +107,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
                                         <a href="{{url('product/'.$u['data']['id'])}}"><img alt="" src="{{url('assets/image/product/'.$u['data']['image'])}}"></a>
                                     </td>
                                     <td class="p-name"><a href="{{url('product/'.$u['data']['id'])}}">{{$u['data']['name']}}</a></td>
-                                    <td class="p-amount">฿{{$u['data']['price']}}.00</td>
+                                    <td class="p-amount"></td>
                                     <td class="p-quantity"><input maxlength="12" type="text" value="{{$u['data'][1]['sum_item']}}" name="qty">
                                     <input type="hidden" value="{{$u['data']['id']}}" name="pro_id">
                                   </td>

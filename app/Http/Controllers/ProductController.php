@@ -95,6 +95,9 @@ class ProductController extends Controller
        $package->pro_image = $input['imagename'];
        $package->pro_status = 1;
        $package->total_product = $request['total_product'];
+       $package->shipping_price = $request['shipping_price'];
+       $package->search_tag = $request['search_tag'];
+       $package->pro_color = $request['pro_color'];
        $package->save();
 
        $the_id = $package->id;
@@ -244,6 +247,9 @@ class ProductController extends Controller
           $package->pro_code = $request['pro_code'];
           $package->pro_rating = $request['pro_rating'];
           $package->total_product = $request['total_product'];
+          $package->shipping_price = $request['shipping_price'];
+          $package->search_tag = $request['search_tag'];
+          $package->pro_color = $request['pro_color'];
           $package->save();
 
           DB::table('product_items')->where('product_set_id', $id)->delete();
@@ -296,6 +302,9 @@ class ProductController extends Controller
           $package->pro_rating = $request['pro_rating'];
           $package->pro_image = $input['imagename'];
           $package->total_product = $request['total_product'];
+          $package->shipping_price = $request['shipping_price'];
+          $package->search_tag = $request['search_tag'];
+          $package->pro_color = $request['pro_color'];
           $package->save();
 
           $objs = DB::table('product_items')

@@ -188,10 +188,9 @@ Check out | Fulryu
                                                         <input type="hidden" name="total_money" value="{{$total_price-Session::get('coupon.price')}}" required>
                                                         <input type="hidden" name="shipping_price" value="{{$price_s}}" required>
                                                         <input type="hidden" name="discount" value="{{$discount}}" required>
-                                                        <input type="hidden" name="sum_weight" value="{{$sum_weight}}" required>
 
-                                                        <input type="hidden" name="color" value="{{$color1}}" required>
-                                                        <input type="hidden" name="size" value="{{$size1}}" required>
+
+
                                                     </div>
 
                                                 </div>
@@ -236,35 +235,14 @@ Check out | Fulryu
 
                                                       <tbody>
                                                           <tr>
-                                                              <td colspan="3" class="text-left">Subtotal</td>
+                                                              <td colspan="3" class="text-left">Total</td>
                                                               <td>{{$total}}</td>
                                                           </tr>
-                                                          <tr>
-                                                              <td colspan="3" class="text-left">Weight</td>
-                                                              <td>{{$sum_weight}} g.</td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="3" class="text-left">Size</td>
-                                                              <td>
-                                                                @if($size != null)
-                                                                {{$size}}
-                                                                @else
-                                                                @endif
 
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td colspan="3" class="text-left">Color</td>
-                                                              <td>
-                                                                @if($color != null)
-                                                                {{$color}}
-                                                                @else
-                                                                @endif
-                                                                 </td>
-                                                          </tr>
+
                                                           <tr>
                                                               <td colspan="3" class="text-left">Shipping price    </td>
-                                                              <td>฿{{$price_s}}</td>
+                                                              <td>Free</td>
                                                           </tr>
                                                           <tr>
                                                               <td colspan="3" class="text-left">Discount    </td>
