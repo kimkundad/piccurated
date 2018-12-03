@@ -1758,7 +1758,7 @@ return response()->json($response);
 
             $data['cat1'] = $obj1;
 
-            if($cat->id_main == 1 || $cat->id_main == 3){
+            if($cat->id_main == 1){
               $check_option = 1;
             }else{
               $check_option = 0;
