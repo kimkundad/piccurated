@@ -12,12 +12,19 @@
 
                                 <div class="account-wishlist">
                                       @if (Auth::guest())
+                                      <a href="{{url('login')}}">Sign In</a>
                                       @else
-                                      <a href="{{url('user_profile')}}">My Account</a>
+
+                                        @if(Auth::user()->is_admin == 1)
+                                        <a href="{{url('admin/product')}}">My Account</a>
+                                        @else
+                                        <a href="{{url('user_profile')}}">My Account</a>
+                                        @endif
+
                                       @endif
 
-                                    <a href="#">My Wish List</a>
-                                    <a href="{{url('login')}}">Sign In</a>
+                                    <a href="{{url('wishlist')}}">My Wish List</a>
+
                                 </div>
 
 

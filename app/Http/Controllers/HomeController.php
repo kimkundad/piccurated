@@ -1597,6 +1597,10 @@ return response()->json($response);
 
     }
 
+    public function wishlist(){
+      return view('wishlist');
+    }
+
     public function update_cart(Request $request){
 
       $this->validate($request, [

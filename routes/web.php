@@ -62,6 +62,10 @@ Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->na
 Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
 
 Route::group(['middleware' => 'auth'], function () {
+
+
+
+  Route::get('/wishlist', 'HomeController@wishlist');
   Route::get('/user_profile', 'HomeController@user_profile');
   Route::post('/user_profile_update', 'HomeController@user_profile_update');
 
