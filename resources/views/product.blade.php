@@ -264,7 +264,7 @@
                                 }
                               </style>
 
-                              <div class="fb-comments" data-href="https://fulryu.com/product/{{$objs->id_p}}" data-width="100%" data-numposts="10"></div>
+                              <div class="fb-comments" data-href="https://piccurated.com/product/{{$objs->id_p}}" data-width="100%" data-numposts="10"></div>
 
                             </div>
                         </div>
@@ -336,7 +336,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.1&appId=203219603796007&autoLogAppEvents=1';
+  js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.2&appId=355004925273070&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
