@@ -1624,9 +1624,51 @@ return response()->json($response);
        ]);
 
        $id = $request['pro_id'];
+       $check_option = $request['check_option'];
+
+       if($check_option == 0){
+
+         $size = 0;
+         $paper = 0;
+         $frame = 0;
+         $frame_color = 0;
+
+         $totol_price_op = 0;
+
+       }else{
+
+         $size = $request['size'];
+         $paper = $request['paper'];
+         $frame = $request['frame'];
+         $frame_color = $request['frame_color'];
+
+         $totol_price_op = 0;
+
+         $get_pri_size = DB::table('option_items')
+               ->where('id', $size)
+               ->first();
+
+               $totol_price_op += $get_pri_size->item_price;
+
+               $get_pri_paper = DB::table('option_items')
+                     ->where('id', $paper)
+                     ->first();
+
+                     $totol_price_op += $get_pri_paper->item_price;
+
+                     $get_pri_frame = DB::table('option_items')
+                           ->where('id', $frame)
+                           ->first();
+
+                           $totol_price_op += $get_pri_frame->item_price;
+
+
+       }
 
        $size = $request['size'];
-       $color = $request['color'];
+       $paper = $request['paper'];
+       $frame = $request['frame'];
+       $frame_color = $request['frame_color'];
 
       $obj = DB::table('products')->select(
             'products.*'
@@ -1640,11 +1682,13 @@ return response()->json($response);
           'code' => $obj->pro_code,
           'name' => $obj->pro_name,
           'size' => $size,
-          'color' => $color,
+          'paper' => $paper,
+          'frame' => $frame,
+          'frame_color' => $frame_color,
           'price' => $obj->pro_price,
           ['status' => 0],
           ['sum_item' => $request['qty']],
-          ['sum_price' => $obj->pro_price]
+          ['sum_price' => ($obj->pro_price + $totol_price_op)]
         ];
 
         Session::put('cart.'.$obj->id, ['data' => $item]);

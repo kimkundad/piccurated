@@ -93,7 +93,7 @@ Cart | Fulryu ความรู้สึกที่สัมผัสได้
 
                                   foreach(Session::get('cart') as $u){
                                     $total += $u['data'][2]['sum_price'];
-                                    $total_sum = $u['data']['price']*$u['data'][1]['sum_item'];
+                                    $total_sum = $u['data'][2]['sum_price']*$u['data'][1]['sum_item'];
                                     $total_item += $u['data'][1]['sum_item'];
                                ?>
 

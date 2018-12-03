@@ -163,6 +163,7 @@
                                   <label for="qty">qty</label>
                                   <input type="text" name="qty" value="1" placeholder="1" >
                                   <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
+                                  <input type="hidden" name="check_option" value="{{$check_option}}" >
 
                                   <a href="javascript:$('#my_form').submit();" id="subtip_to" style="display:none">Add to cart</a>
                                   <a  id="subtip_weit" data-toggle="modal" data-target="#exampleModalCenter" style="display:none">Add to cart</a>
@@ -186,7 +187,7 @@
                               @foreach($k->options as $j)
 
                               <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
-                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                                 <span style="font-size:13px"> {{$j->item_name}}</span>
                               </label>
                               @endforeach
@@ -355,20 +356,54 @@ $(document).ready(function () {
       }
 
 
-$(".get_var_option").change(function () {
+$(".get_var_option5").change(function () {
 
-   val_op = $('.get_var_option:checked').val();
-   if(val_op != 0){
+   val_op = $('.get_var_option5:checked').val();
+
+
+   if(val_op == 11){
          var x = document.getElementById("subtip_to");
          x.style.display = "block";
          var y = document.getElementById("subtip_weit");
          y.style.display = "none";
+       } else if (val_op == 10){
+
+         var x = document.getElementById("subtip_to");
+         x.style.display = "none";
+         var y = document.getElementById("subtip_weit");
+         y.style.display = "block";
+
+         $(".get_var_option6").change(function () {
+          var val_op2 = $('.get_var_option6:checked').val();
+
+         if(val_op2 != 0){
+           var x = document.getElementById("subtip_to");
+           x.style.display = "block";
+           var y = document.getElementById("subtip_weit");
+           y.style.display = "none";
+         }else{
+
+
+
+         }
+
+         console.log(val_op2);
+         });
+
+
+       }else{
+
+
+
+
        }
   //  alert(val);
+
   console.log(val_op);
+
 });
 
-console.log(val_op);
+
 
 });
 
