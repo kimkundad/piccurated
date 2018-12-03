@@ -426,7 +426,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
     <div class="banner-area">
 	        <div class="container">
 
-            
+
 	            <div class="row">
                 @if($objs_rec)
                   @foreach($objs_rec as $objs_recs)
@@ -442,42 +442,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
 
-    <!-- Banner Area Start -->
-    <div class="product-area text-center pt-50 ">
-    <div class="container">
-        <div class="section-title">
 
-            <h2><span style="font-weight: 500;">NEW ITEMS</span></h2>
-        </div>
-    </div>
-
-    <div class="banner-area style-1 ">
-
-        <div class="container">
-            <div class="row">
-              @if($objs_new)
-                @foreach($objs_new as $u)
-                <div class="col-lg-4 col-md-6">
-                      <a class="banner-image" href="{{url('product/'.$u->id_p)}}">
-                        <img src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
-                        <div class="tour_title" >
-                          <h3> {{str_limit($u->pro_name, 38, '..')}}</h3>
-                          <div class="price_product">
-                            {{$u->pro_price}}
-                          </div>
-                            <p class="text_title" style="font-family: 'Prompt script=all rev=3', 'Adobe Blank'; font-weight: 100; font-style: normal; margin-top:10px;margin-bottom: 0rem;" >
-                              {{str_limit($u->pro_title, 260, '..')}}
-                            </p>
-                       </div>
-                      </a>
-                </div>
-                @endforeach
-       @endif
-
-            </div>
-        </div>
-    </div>
-    </div>
 
 
  <!--    -->
