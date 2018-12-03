@@ -412,16 +412,21 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
 
+      <div class="product-area text-center  ">
+          <div class="container">
+              <div class="section-title">
 
+                  <h2><span>RECOMMENDED ITEMS</span></h2>
+              </div>
+          </div>
+      </div>
 
 
 
     <div class="banner-area">
 	        <div class="container">
-            <div class="section-title">
 
-                <h2><span style="font-weight: 500;">RECOMMENDED ITEMS</span></h2>
-            </div>
+            
 	            <div class="row">
                 @if($objs_rec)
                   @foreach($objs_rec as $objs_recs)
