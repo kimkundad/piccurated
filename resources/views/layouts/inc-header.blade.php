@@ -150,7 +150,7 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li><a href="{{url('/')}}">Homee</a>
+                                    <li><a href="{{url('/')}}">Home</a>
 
                                     </li>
                                     <li class="megamenu"><a href="#">Product</a>
