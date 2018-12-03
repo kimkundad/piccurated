@@ -169,18 +169,24 @@
 
 
                             </div>
+                            <hr />
+                            <div class="row">
 
-                            @if($get_option != null)
-                            @foreach($get_option as $k)
-                            <div >
+
+                            @if($objs->id_main == 1 || $objs->id_main == 3)
+                            @foreach($my_option as $k)
+                            <div class="col-md-6">
                               <p class="model-stock">
-                                {{$k->head_label}}
+                                {{$k->option_name}}
+                                @if($k->id == 6)
+                                <span class="text-danger">*ถ้าเลือก No Frame ไม่ต้องเลือก</span>
+                                @endif
                               </p>
 
-                              @foreach($k->get_option_product as $j)
+                              @foreach($k->options as $j)
 
                               <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
-                                <input type="radio" name="{{$k->head_var}}" value="{{$j->id}}" class="get_var_option" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                                 <span style="font-size:13px"> {{$j->item_name}}</span>
                               </label>
                               @endforeach
@@ -188,6 +194,8 @@
                             </div>
                             @endforeach
                             @endif
+
+                            </div>
                             </form>
 
 
@@ -203,7 +211,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  กรุณาเลือก สี, ขนาด ของสินค้าที่มีอยู่ด้วยค่ะ
+                                  กรุณาเลือก ขนาดรูป, ชนิดกระดาษ เลือกกรอบรูปของสินค้าที่มีอยู่ด้วยค่ะ
                                 </div>
 
                               </div>

@@ -1804,7 +1804,36 @@ return response()->json($response);
                       ->get();
                     $u->options = $options;
                   }
+
+
+                  $my_option = DB::table('option_products')->select(
+                        'option_products.*',
+                        'option_products.id as id_op'
+                        )
+                        ->get();
+
+                        foreach($my_option as $b){
+
+                          $options_item = DB::table('option_items')
+                            ->where('item_option_id', $b->id)
+                            ->get();
+
+                            $b->options = $options_item;
+                        }
+
+
+                      //  dd($cat);
+
+                  $data['my_option'] = $my_option;
+
             $data['cat1'] = $obj1;
+
+            if($cat->id_main == 1 || $cat->id_main == 3){
+              $check_option = 1;
+            }else{
+              $check_option = 0;
+            }
+
           //  dd($check_option);
             $data['check_option'] = $check_option;
       $data['objs'] = $cat;
