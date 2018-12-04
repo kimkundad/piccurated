@@ -12,7 +12,7 @@ repeat-y;width:100%;display:block">
 <div style="border-bottom:1px solid #ededed"></div>
 <div style="margin:20px 0px;font-size:27px;line-height:30px;text-align:left">แจ้งการส่งสินค้า</div>
 <div style="margin-bottom:30px">
-<div>คุณสั่งซื้อ สินค้าจาก fulryu สำเร็จแล้ว</div>
+<div>คุณสั่งซื้อ สินค้าจาก piccurated สำเร็จแล้ว</div>
 <br>
 <div style="margin-bottom:20px;text-align:left">
   <b>หมายเลขคำสั่งซื้อ:</b> {{$data->id}}<br>
@@ -28,13 +28,13 @@ repeat-y;width:100%;display:block">
 <div style="border-bottom:1px solid #ededed">
 </div>
 <div style="margin:20px 0 40px 0;font-size:10px;color:#707070">
-ดู<a href="https://www.fulryu.com/my_order" target="_blank">ประวัติการสั่งซื้อ</a>
-บน fulryu ข้อมูลส่วนตัวของคุณ<br>
-ดู<a href="https://www.fulryu.com/return_policy" target="_blank" >นโยบายการคืนเงิน</a>ของ fulryu และ<a href="https://www.fulryu.com/term_of_service" target="_blank">ข้อกำหนดในการให้บริการ</a>
+ดู<a href="https://www.piccurated.com/my_order" target="_blank">ประวัติการสั่งซื้อ</a>
+บน piccurated ข้อมูลส่วนตัวของคุณ<br>
+ดู<a href="https://www.piccurated.com/return_policy" target="_blank" >นโยบายการคืนเงิน</a>ของ piccurated และ<a href="https://www.piccurated.com/term_of_service" target="_blank">ข้อกำหนดในการให้บริการ</a>
 </div>
 <div style="font-size:9px;color:#707070">
 
-<br>© 2019 fulryu | สงวนลิขสิทธิ์<br> fulryu ถนนพหลโยธิน แขวงลาดยาว
+<br>© 2019 piccurated | สงวนลิขสิทธิ์<br> piccurated ถนนพหลโยธิน แขวงลาดยาว
 เขตจตุจักร กรุงเทพมหานคร ประเทศไทย 10900</div>
 </div></div>
 <div class="yj6qo"></div>
