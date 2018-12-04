@@ -87,12 +87,7 @@
           														</div>
           												</div>
 
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">ค่าจัดส่งสินค้า*</label>
-          													<div class="col-md-8">
-          														<input type="text" class="form-control" name="shipping_price" value="{{ old('shipping_price')}}" placeholder="150">
-          														</div>
-          												</div>
+                                  
 
                                   <div class="form-group ">
             												<label for="tags-input" class="col-md-3 control-label text-lg-right pt-2">Tags Search</label>

@@ -95,7 +95,6 @@ class ProductController extends Controller
        $package->pro_image = $input['imagename'];
        $package->pro_status = 1;
        $package->total_product = $request['total_product'];
-       $package->shipping_price = $request['shipping_price'];
        $package->search_tag = $request['search_tag'];
        $package->pro_color = $request['pro_color'];
        $package->save();
@@ -247,7 +246,6 @@ class ProductController extends Controller
           $package->pro_code = $request['pro_code'];
           $package->pro_rating = $request['pro_rating'];
           $package->total_product = $request['total_product'];
-          $package->shipping_price = $request['shipping_price'];
           $package->search_tag = $request['search_tag'];
           $package->pro_color = $request['pro_color'];
           $package->save();
@@ -302,7 +300,6 @@ class ProductController extends Controller
           $package->pro_rating = $request['pro_rating'];
           $package->pro_image = $input['imagename'];
           $package->total_product = $request['total_product'];
-          $package->shipping_price = $request['shipping_price'];
           $package->search_tag = $request['search_tag'];
           $package->pro_color = $request['pro_color'];
           $package->save();
