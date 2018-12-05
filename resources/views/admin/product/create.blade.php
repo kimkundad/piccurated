@@ -80,26 +80,41 @@
           														</div>
           												</div>
 
-                                  <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">สีของสินค้า*</label>
-          													<div class="col-md-8">
-          														<input type="text" class="form-control" name="pro_color" value="{{ old('pro_color')}}" placeholder="RED">
-          														</div>
-          												</div>
-
                                   
 
-                                  <div class="form-group ">
-            												<label for="tags-input" class="col-md-3 control-label text-lg-right pt-2">Tags Search</label>
-            												<div class="col-md-8">
 
-                                      <input name="search_tag" id="tags-input" data-role="tagsinput" data-tag-class="badge badge-primary" class="form-control" value="{{ old('search_tag') }}" />
 
-            													<p>
-            														ป้อนคำที่ต้องการให้เจอ <code> ตัดคำด้วยเครื่องหมาย  " , "</code> จะได้ทำใหม่ขึ้นมา.
-            													</p>
-            												</div>
-            											</div>
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileAddress">สีของสินค้า*</label>
+          													<div class="col-md-8">
+          														<select name="pro_color" class="form-control mb-md" required>
+
+                                        <option value="purple">purple สีม่วง</option>
+                                        <option value="blue">blue สีน้ําเงิน</option>
+                                        <option value="white">white สีขาว</option>
+                                        <option value="gray">gray สีเทา</option>
+                                        <option value="cream">cream สีครีม</option>
+                                        <option value="orange">orange สีส้ม</option>
+                                        <option value="biege">biege สีเนื้อ</option>
+                                        <option value="red">red สีแดง</option>
+                                        <option value="green">green สีเขียว</option>
+                                        <option value="clear">clear สีใส</option>
+                                        <option value="gold">gold สีทอง</option>
+                                        <option value="silver">silver สีเงิน</option>
+                                        <option value="yellow">yellow สีเหลือง</option>
+                                        <option value="black">black สีดำ</option>
+                                        <option value="pink">pink สีชมพู </option>
+                                        <option value="khaki">khaki สีกากี</option>
+                                        <option value="old_rose">old rose สีโอรส</option>
+                                        <option value="indigo">indigo สีคราม</option>
+                                        <option value="navi_blue">navi blue สีกรม</option>
+                                        <option value="crimson">crimson สีเลือดหมู</option>
+
+
+  								                    </select>
+          								            </select>
+          													</div>
+          												</div>
 
 
                                   <div class="form-group">

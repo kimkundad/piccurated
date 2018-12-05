@@ -78,6 +78,32 @@
           												</div>
 
 
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileFirstName">ข้อความรูปภาพ*</label>
+          													<div class="col-md-8">
+          														<input type="text" class="form-control" name="text_banner" value="{{ $objs->text_banner}}" placeholder="text_banner">
+          														</div>
+          												</div>
+
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileAddress">สีข้อความ*</label>
+          													<div class="col-md-8">
+          														<select name="color_banner" class="form-control mb-md" required>
+
+                                        <option value="0" @if( $objs->color_banner == 0)
+                                        selected='selected'
+                                        @endif>-- สีดำ --</option>
+                                        <option value="1" @if( $objs->color_banner == 1)
+                                        selected='selected'
+                                        @endif>-- สีขาว --</option>
+
+  								                    </select>
+          								            </select>
+          													</div>
+          												</div>
+
+
 
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">Url Banner*</label>

@@ -85,16 +85,83 @@
 
 
 
+
+
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileFirstName">สีของสินค้า*</label>
+          													<label class="col-md-3 control-label" for="profileAddress">สีของสินค้า*</label>
           													<div class="col-md-8">
-          														<input type="text" class="form-control" name="pro_color" value="{{ $objs->pro_color }}" placeholder="RED">
-          														</div>
+          														<select name="pro_color" class="form-control mb-md" required>
+
+                                        <option value="purple" @if( $objs->pro_color == 'purple')
+                                        selected='selected'
+                                        @endif>purple สีม่วง</option>
+                                        <option value="blue"  @if( $objs->pro_color == 'blue')
+                                        selected='selected'
+                                        @endif>blue สีน้ําเงิน</option>
+                                        <option value="white" @if( $objs->pro_color == 'white')
+                                        selected='selected'
+                                        @endif>white สีขาว</option>
+                                        <option value="gray" @if( $objs->pro_color == 'gray')
+                                        selected='selected'
+                                        @endif>gray สีเทา</option>
+                                        <option value="cream" @if( $objs->pro_color == 'cream')
+                                        selected='selected'
+                                        @endif>cream สีครีม</option>
+                                        <option value="orange" @if( $objs->pro_color == 'orange')
+                                        selected='selected'
+                                        @endif>orange สีส้ม</option>
+                                        <option value="biege" @if( $objs->pro_color == 'biege')
+                                        selected='selected'
+                                        @endif>biege สีเนื้อ</option>
+                                        <option value="red" @if( $objs->pro_color == 'red')
+                                        selected='selected'
+                                        @endif>red สีแดง</option>
+                                        <option value="green" @if( $objs->pro_color == 'green')
+                                        selected='selected'
+                                        @endif>green สีเขียว</option>
+                                        <option value="clear" @if( $objs->pro_color == 'clear')
+                                        selected='selected'
+                                        @endif>clear สีใส</option>
+                                        <option value="gold" @if( $objs->pro_color == 'gold')
+                                        selected='selected'
+                                        @endif>gold สีทอง</option>
+                                        <option value="silver" @if( $objs->pro_color == 'silver')
+                                        selected='selected'
+                                        @endif>silver สีเงิน</option>
+                                        <option value="yellow" @if( $objs->pro_color == 'yellow')
+                                        selected='selected'
+                                        @endif>yellow สีเหลือง</option>
+                                        <option value="black" @if( $objs->pro_color == 'black')
+                                        selected='selected'
+                                        @endif>black สีดำ</option>
+                                        <option value="pink" @if( $objs->pro_color == 'pink')
+                                        selected='selected'
+                                        @endif>pink สีชมพู </option>
+                                        <option value="khaki" @if( $objs->pro_color == 'khaki')
+                                        selected='selected'
+                                        @endif>khaki สีกากี</option>
+                                        <option value="old_rose" @if( $objs->pro_color == 'old_rose')
+                                        selected='selected'
+                                        @endif>old rose สีโอรส</option>
+                                        <option value="indigo" @if( $objs->pro_color == 'indigo')
+                                        selected='selected'
+                                        @endif>indigo สีคราม</option>
+                                        <option value="navi_blue" @if( $objs->pro_color == 'navi_blue')
+                                        selected='selected'
+                                        @endif>navi blue สีกรม</option>
+                                        <option value="crimson" @if( $objs->pro_color == 'crimson')
+                                        selected='selected'
+                                        @endif>crimson สีเลือดหมู</option>
+
+
+  								                    </select>
+          								            </select>
+          													</div>
           												</div>
 
-                                
 
-                                  <div class="form-group ">
+
+                              <!--    <div class="form-group ">
             												<label for="tags-input" class="col-md-3 control-label text-lg-right pt-2">Tags Search</label>
             												<div class="col-md-8">
 
@@ -104,7 +171,7 @@
             														ป้อนคำที่ต้องการให้เจอ <code> ตัดคำด้วยเครื่องหมาย  " , "</code> จะได้ทำใหม่ขึ้นมา.
             													</p>
             												</div>
-            											</div>
+            											</div> -->
 
 
                                   <div class="form-group">
@@ -302,6 +369,41 @@
 
             <div class="col-md-8 col-md-offset-2">
                   <section class="panel">
+                    <form  method="POST" action="{{url('add_tags')}}" enctype="multipart/form-data">
+
+                                {{ csrf_field() }}
+                    <div class="panel-body">
+                      <h4 class="mb-xlg">เพิ่ม Tags สำหรับค้นหา</h4>
+                        <div class="form-group ">
+                              <label for="tags-input" class="col-md-3 control-label text-lg-right pt-2">Tags Search</label>
+                              <div class="col-md-8">
+
+<input name="search_tag" id="tags-input" data-role="tagsinput" data-tag-class="badge badge-primary" class="form-control" value="@if($get_tags) @foreach($get_tags as $get_tag){{$get_tag->tag_string}},@endforeach @endif" />
+                                <input name="pro_id" type="hidden" value="{{$objs->id_q}}" />
+                                <p>
+                                  ป้อนคำที่ต้องการให้เจอ <code> ตัดคำด้วยเครื่องหมาย  " , "</code> จะได้ทำใหม่ขึ้นมา.
+                                </p>
+                              </div>
+                            </div>
+
+              </div>
+
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-primary">อัพเดทข้อมูล</button>
+                    <button type="reset" class="btn btn-default">ยกเลิก</button>
+                  </div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+
+
+
+            <div class="col-md-8 col-md-offset-2">
+                  <section class="panel">
                     <div class="panel-body">
 											<form  method="POST" action="{{url('admin/add_gallery')}}" enctype="multipart/form-data">
 
@@ -431,6 +533,21 @@
           });
 </script>
 @endif
+
+
+@if ($message = Session::get('tags_success'))
+<script type="text/javascript">
+
+  var stack_topleft = {"dir1": "down", "dir2": "right", "push": "top"};
+      var notice = new PNotify({
+            title: 'ทำรายการสำเร็จ',
+            text: 'ยินดีด้วย ได้ทำการเพิ่ม Tags สำเร็จเรียบร้อยแล้วค่ะ',
+            type: 'success',
+            addclass: 'stack-topright'
+          });
+</script>
+@endif
+
 
 @if ($message = Session::get('edit_success'))
 <script type="text/javascript">

@@ -186,7 +186,7 @@ Check out | Fulryu
                                                         ?>
 
                                                         <input type="hidden" name="total_money" value="{{$total_price-Session::get('coupon.price')}}" required>
-                                                        <input type="hidden" name="shipping_price" value="{{$price_s}}" required>
+
                                                         <input type="hidden" name="discount" value="{{$discount}}" required>
 
 

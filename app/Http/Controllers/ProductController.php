@@ -10,6 +10,7 @@ use App\product;
 use App\category;
 use App\gallery;
 use App\product_item;
+use App\tag;
 
 class ProductController extends Controller
 {
@@ -95,7 +96,6 @@ class ProductController extends Controller
        $package->pro_image = $input['imagename'];
        $package->pro_status = 1;
        $package->total_product = $request['total_product'];
-       $package->search_tag = $request['search_tag'];
        $package->pro_color = $request['pro_color'];
        $package->save();
 
@@ -160,6 +160,12 @@ class ProductController extends Controller
     {
         //
 
+        $get_tags = DB::table('tags')->select(
+            'tags.*'
+            )
+            ->where('product_id', $id)
+            ->get();
+
         $img_all = DB::table('galleries')->select(
             'galleries.*'
             )
@@ -199,7 +205,7 @@ class ProductController extends Controller
               ->leftjoin('categories', 'categories.id',  'products.pro_category')
               ->where('products.id', $id)
               ->first();
-
+              $data['get_tags'] = $get_tags;
               $data['objs'] = $cat;
               $data['datahead'] = "แก้ไขข้อมูลสินค้า";
               $data['url'] = url('admin/product/'.$id);
@@ -246,7 +252,6 @@ class ProductController extends Controller
           $package->pro_code = $request['pro_code'];
           $package->pro_rating = $request['pro_rating'];
           $package->total_product = $request['total_product'];
-          $package->search_tag = $request['search_tag'];
           $package->pro_color = $request['pro_color'];
           $package->save();
 
@@ -300,7 +305,6 @@ class ProductController extends Controller
           $package->pro_rating = $request['pro_rating'];
           $package->pro_image = $input['imagename'];
           $package->total_product = $request['total_product'];
-          $package->search_tag = $request['search_tag'];
           $package->pro_color = $request['pro_color'];
           $package->save();
 
@@ -326,6 +330,43 @@ class ProductController extends Controller
         }
 
         return redirect(url('admin/product/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+    }
+
+
+    public function add_tags(Request $request){
+
+      $search_tag = $request['search_tag'];
+      $pro_id = $request['pro_id'];
+      $exp = array();
+      $path1 = explode(",", $search_tag);
+      $exp = array_merge($exp, $path1);
+    //  dd($exp);
+
+
+    DB::table('tags')
+        ->select(
+           'tags.*'
+           )
+        ->where('product_id', $pro_id)
+        ->delete();
+
+
+
+    if($exp != null){
+    if (sizeof($exp) > 0) {
+       for ($i = 0; $i < sizeof($exp); $i++) {
+         $admins[] = [
+             'product_id' => $pro_id,
+             'tag_string' => $exp[$i]
+         ];
+       }
+       tag::insert($admins);
+     }
+   }
+
+     return redirect(url('admin/product/'.$pro_id.'/edit'))->with('tags_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+
     }
 
 

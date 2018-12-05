@@ -70,6 +70,8 @@ class BannerController extends Controller
         $package->banner_sort = $request['banner_sort'];
         $package->url_banner = $request['url_banner'];
         $package->image_banner = $input['imagename'];
+        $package->text_banner = $request['text_banner'];
+        $package->color_banner = $request['color_banner'];
         $package->save();
         return redirect(url('admin/banner'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
     }
@@ -143,6 +145,8 @@ class BannerController extends Controller
           $package = banner::find($id);
           $package->banner_sort = $request['banner_sort'];
           $package->url_banner = $request['url_banner'];
+          $package->text_banner = $request['text_banner'];
+          $package->color_banner = $request['color_banner'];
           $package->save();
         }
         else{
@@ -167,6 +171,8 @@ class BannerController extends Controller
           $package->banner_sort = $request['banner_sort'];
           $package->url_banner = $request['url_banner'];
           $package->image_banner = $input['imagename'];
+          $package->text_banner = $request['text_banner'];
+          $package->color_banner = $request['color_banner'];
           $package->save();
 
         }

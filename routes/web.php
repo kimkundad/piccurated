@@ -19,6 +19,12 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('search', 'HomeController@search')->name('search');
+
+Route::get('search/{search_name}/{color}', 'HomeController@search2');
+Route::get('search/{tag1}', 'HomeController@search3');
+
+
 Route::get('/product/{id}', 'HomeController@product')->name('product');
 Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::post('add_cart', 'HomeController@add_cart')->name('add_cart');
@@ -85,6 +91,9 @@ Route::group(['middleware' => 'admin'], function() {
   Route::resource('admin/user', 'StudentController');
   Route::resource('admin/banner', 'BannerController');
   Route::resource('admin/main_category', 'McatController');
+
+
+  Route::post('add_tags/', 'ProductController@add_tags');
 
   Route::post('api/api_banner_status', 'BannerController@api_banner_status');
 

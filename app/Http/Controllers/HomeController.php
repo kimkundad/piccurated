@@ -286,6 +286,375 @@ class HomeController extends Controller
     }
 
 
+    public function search(Request $request){
+
+      $search = $request['search_name'];
+
+      $get_pro_count = DB::table('products')
+          ->select(
+          'products.*',
+          'products.id as id_pro',
+          'tags.*'
+          )
+          ->leftjoin('tags', 'tags.product_id',  'products.id')
+          ->where('products.pro_name', 'LIKE', "%$search%")
+          ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+          ->groupBy('products.id')
+          ->count();
+
+
+
+
+          $get_pro_tag = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$search%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+              ->groupBy('products.id')
+              ->get();
+
+              $color = [];
+              $tags = [];
+
+              $get_pro_color = DB::table('products')
+                  ->select(
+                  'products.*',
+                  'products.id as id_pro',
+                  'tags.*'
+                  )
+                  ->leftjoin('tags', 'tags.product_id',  'products.id')
+                  ->where('products.pro_name', 'LIKE', "%$search%")
+                  ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+                  ->groupBy('products.pro_color')
+                  ->get();
+
+        //  dd($get_pro_color);
+
+          foreach($get_pro_color as $c){
+            $color[] = $c->pro_color;
+          }
+
+
+
+          foreach($get_pro_tag as $k){
+
+            $gettag = DB::table('tags')
+                ->where('product_id', $k->id_pro)
+                ->get();
+
+                $gettag_count = DB::table('tags')
+                    ->where('product_id', $k->id_pro)
+                    ->count();
+
+                    if($gettag_count > 0){
+
+                      foreach($gettag as $d){
+                        $tags[] = $d->tag_string;
+                      }
+
+                    }
+
+
+
+
+
+        //    $color[] = $k->pro_color;
+
+
+          }
+
+
+          $get_pro = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$search%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+              ->groupBy('products.id')
+          ->paginate(25);
+
+
+          foreach($get_pro as $j){
+
+
+              $j->status_show_search = 1;
+
+
+          }
+
+          $get_pro->appends($request->only('search'));
+
+        //  dd($get_pro);
+
+
+      return view('search', compact('get_pro'))->with(['get_pro_count' => $get_pro_count, 'search' => $search, 'tags' => $tags, 'color' => $color]);
+    }
+
+
+    public function search2($search_name, $color1){
+
+      $search = $search_name;
+      //$color = $color;
+      //dd($search);
+
+    /*  $get_pro_count = DB::table('products')
+          ->select(
+          'products.*'
+          )
+          ->where('pro_name', 'LIKE', "%$search%")
+          ->orWhere('search_tag', 'LIKE', "%$search%")
+          ->count(); */
+
+
+          $get_pro_tag = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$search%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+              ->groupBy('products.id')
+          ->get();
+
+          $color = [];
+          $data2 = [];
+          $tags = [];
+          $get_pro_count = 0;
+
+
+          $get_pro_color = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$search%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+              ->groupBy('products.pro_color')
+              ->get();
+
+    //  dd($get_pro_color);
+
+      foreach($get_pro_color as $c){
+        $color[] = $c->pro_color;
+      }
+
+
+
+          foreach($get_pro_tag as $k){
+
+            $gettag = DB::table('tags')
+                ->where('product_id', $k->id_pro)
+                ->get();
+
+                $gettag_count = DB::table('tags')
+                    ->where('product_id', $k->id_pro)
+                    ->count();
+
+                    if($gettag_count > 0){
+
+                      foreach($gettag as $d){
+                        $tags[] = $d->tag_string;
+                      }
+
+                    }
+
+
+
+
+
+          //  $color[] = $k->pro_color;
+
+
+          }
+
+
+          $get_pro = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$search%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$search%")
+              ->groupBy('products.id')
+          ->paginate(25);
+
+          foreach($get_pro as $j){
+
+            if($color1 == $j->pro_color){
+              $j->status_show_search = 1;
+              $get_pro_count++;
+            }else{
+              $j->status_show_search = 0;
+            }
+
+          }
+        //  dd($get_pro);
+
+          $get_pro->appends($search);
+
+        //  dd($color);
+        //$get_pro_count
+
+      return view('search', compact('get_pro'))->with(['get_pro_count' => $get_pro_count, 'search' => $search, 'tags' => $tags, 'color' => $color, 'color1' => $color1]);
+    }
+
+
+    public function search3($tag1){
+
+      $search = $tag1;
+      $get_tag_first = [];
+
+      $get_tag = DB::table('tags')
+          ->where('tag_string', 'LIKE', "%$tag1%")
+          ->get();
+
+          $get_tag_check = DB::table('tags')
+              ->where('tag_string', 'LIKE', "%$tag1%")
+              ->count();
+
+
+              if($get_tag_check > 0){
+
+                foreach($get_tag as $w){
+                  $get_tag_first[] = $w->product_id;
+                }
+
+              }
+
+
+
+
+      //    dd($get_tag);
+
+
+          $get_pro_tag = DB::table('products')
+              ->select(
+              'products.*',
+              'products.id as id_pro',
+              'tags.*'
+              )
+              ->leftjoin('tags', 'tags.product_id',  'products.id')
+              ->where('products.pro_name', 'LIKE', "%$tag1%")
+              ->orWhere('tags.tag_string', 'LIKE', "%$tag1%")
+              ->groupBy('products.id')
+              ->get();
+
+              $color = [];
+              $tags = [];
+
+              $get_pro_color = DB::table('products')
+                  ->select(
+                  'products.*',
+                  'products.id as id_pro',
+                  'tags.*'
+                  )
+                  ->leftjoin('tags', 'tags.product_id',  'products.id')
+                  ->where('products.pro_name', 'LIKE', "%$tag1%")
+                  ->orWhere('tags.tag_string', 'LIKE', "%$tag1%")
+                  ->groupBy('products.pro_color')
+                  ->get();
+
+        //  dd($get_pro_color);
+
+          foreach($get_pro_color as $c){
+            $color[] = $c->pro_color;
+          }
+
+
+
+          foreach($get_pro_tag as $k){
+
+            $gettag = DB::table('tags')
+                ->where('product_id', $k->id_pro)
+                ->get();
+
+                $gettag_count = DB::table('tags')
+                    ->where('product_id', $k->id_pro)
+                    ->count();
+
+                    if($gettag_count > 0){
+
+                      foreach($gettag as $d){
+                        $tags[] = $d->tag_string;
+                      }
+
+                    }
+
+
+
+
+
+        //    $color[] = $k->pro_color;
+
+
+          }
+
+
+
+
+
+
+            $get_pro = DB::table('products')
+                ->select(
+                'products.*',
+                'products.id as id_pro'
+                )
+                ->whereIn('products.id', $get_tag_first)
+                ->groupBy('products.id')
+                ->get();
+
+
+                $get_pro_count = DB::table('products')
+                    ->select(
+                    'products.*',
+                    'products.id as id_pro'
+                    )
+                    ->whereIn('products.id', $get_tag_first)
+                    ->groupBy('products.id')
+                    ->count();
+
+
+
+
+
+
+
+
+
+
+
+
+          foreach($get_pro as $j){
+
+
+              $j->status_show_search = 1;
+
+
+          }
+
+        //  $get_pro->appends($search);
+
+        //  dd($get_pro);
+
+
+      return view('search', compact('get_pro'))->with(['get_pro_count' => $get_pro_count, 'search' => $search, 'tags' => $tags, 'color' => $color]);
+
+    }
+
+
     public function user_profile_update(Request $request){
 
       $this->validate($request, [

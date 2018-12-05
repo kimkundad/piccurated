@@ -93,6 +93,20 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	    </div>
 	    <!-- Slider Two Area End    -->
 
+<style>
+.top-left {
+    font-size: 32px;
+    position: absolute;
+    top: 8px;
+    left: 26px;
+}
+.text-0{
+  color:#000;
+}
+.text-1{
+  color:#fff;
+}
+</style>
 
       <!-- Banner Area Start -->
 	    <div class="banner-area pt-90">
@@ -103,11 +117,14 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
                   @if($k1->banner_sort == 2)
                   <div class="col-lg-6 col-md-6">
-                        <a class="banner-image" href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
+                        <a class="" href="{{$k1->url_banner}}">
+                          <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
+                          <img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
 	                </div>
                   @else
                   <div class="col-lg-3 col-md-3">
-                        <a class="banner-image" href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
+                    <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
+                        <a class="" href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
 	                </div>
                   @endif
 

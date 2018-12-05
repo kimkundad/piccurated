@@ -53,8 +53,9 @@
 
 
                         <div class="col-md-6">
-                            <form action="#" method="post" class="header-search">
-                                <input type="text" placeholder="Search for item...">
+                            <form action="{{url('search')}}" method="post" class="header-search">
+                              {{ csrf_field() }}
+                                <input type="text" name="search_name" placeholder="Search for item...">
                                 <button><i class="icon icon-Search"></i></button>
                             </form>
 
