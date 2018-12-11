@@ -2,7 +2,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{url('home/assets/img/favicon.png')}}">
 
 		<!-- all css here -->
-      
+
         <link rel="stylesheet" href="{{url('home/assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/owl.carousel.min.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/font-awesome.min.css')}}">
@@ -39,6 +39,7 @@
     content: ">";
 }
 .header-area .logo {
-    padding: 10px 0;
+    padding: 10px 0px 0px 0px;
 }
+
         </style>

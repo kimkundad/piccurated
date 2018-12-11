@@ -41,11 +41,11 @@
                         <div class="col-md-3">
                             <div class="logo">
 
-                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:100px"></a>
+                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:80px"></a>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <span class="email-image">
+                            <span class="email-image" style="padding: 20px 0;">
                                 <span><img src="{{url('home/assets/img/icon/email.png')}}" alt=""></span>
                                 <span><span>Email: </span>Piccurated@gmail.com</span>
                             </span>
@@ -53,7 +53,7 @@
 
 
                         <div class="col-md-6">
-                            <form action="{{url('search')}}" method="post" class="header-search">
+                            <form action="{{url('search')}}" method="post" class="header-search" style="margin: 25px 0;">
                               {{ csrf_field() }}
                                 <input type="text" name="search_name" placeholder="Search for item...">
                                 <button><i class="icon icon-Search"></i></button>
@@ -62,7 +62,7 @@
                             <?php
                               $set_num_date = count(Session::get('cart'));
                              ?>
-                            <div class="cart-box-wrapper">
+                            <div class="cart-box-wrapper" style="margin: 7px 0 29px;">
                                 <a class="cart-info" >
                                   <span>
                                     <img src="{{url('home/assets/img/icon/cart.png')}}" alt="">
