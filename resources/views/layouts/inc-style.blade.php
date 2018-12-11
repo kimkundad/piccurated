@@ -1,6 +1,6 @@
 <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{url('home/assets/img/favicon.png')}}">
-
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
 		<!-- all css here -->
 
         <link rel="stylesheet" href="{{url('home/assets/css/bootstrap.min.css')}}">
@@ -15,7 +15,7 @@
         <script src="{{url('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
         <style>
         body, body, h1, h2, h3, h4, h5, h6, p {
-            font-family: 'Prompt', sans-serif !important;
+            font-family: 'Crimson Text', serif !important;
 
         }
         .header-two-area .logo {
