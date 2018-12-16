@@ -284,6 +284,9 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
     position:relative;
 
 }
+.grid-item2{
+  margin-top:10px;
+}
 </style>
 
             <!-- Banner Area Start -->
@@ -308,7 +311,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
                 @if($objs_group)
                   @foreach($objs_group as $objs_groups)
-                  <div class="col-md-3 grid-item">
+                  <div class="col-md-3 grid-item grid-item2">
                   <div class="thumb1" style="background: url({{url('assets/image/product/'.$objs_groups->pro_image)}}) 50% 50% no-repeat;">
                     <a href="#">
                       <span class="banner-hover-text">{{str_limit($objs_groups->pro_name, 38, '..')}}<br />
