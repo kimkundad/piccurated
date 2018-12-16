@@ -97,7 +97,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 .top-left {
     font-size: 32px;
     position: absolute;
-    top: 8px;
+    bottom: 8px;
     left: 26px;
 }
 .text-0{
@@ -106,32 +106,62 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 .text-1{
   color:#fff;
 }
+.crop {
+  width:400px; /*container-width*/
+
+ overflow:hidden; /*hide bounds of image */
+
+}
+
+.crop img {
+  margin:0 -38.885%;
+   width:100%;
+
+}
+
+
+
 </style>
 
       <!-- Banner Area Start -->
 	    <div class="banner-area pt-90">
 	        <div class="container">
 	            <div class="row">
+
+                <!--
                 @if($banner)
                   @foreach($banner as $k1)
 
                   @if($k1->banner_sort == 2)
                   <div class="col-lg-6 col-md-6">
-                        <a class="" href="{{$k1->url_banner}}">
+                        <a class="crop banner-image" href="{{$k1->url_banner}}">
                           <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
                           <img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
 	                </div>
                   @else
                   <div class="col-lg-3 col-md-3">
                     <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
-                        <a class="" href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
+                        <a class="crop banner-image" href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt=""></a>
 	                </div>
                   @endif
 
 
                   @endforeach
   	            @endif
+              -->
+              @if($banner)
+                @foreach($banner as $k1)
 
+              <div class="col-md-4">
+
+                    <a class="banner-image" href="{{$k1->url_banner}}">
+                      <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
+                      <img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt="{{$k1->text_banner}}" style="min-height:247px; max-height:247px;">
+                    </a>
+              </div>
+
+              @endforeach
+            @endif
 
 
 	            </div>
