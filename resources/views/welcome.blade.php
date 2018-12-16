@@ -197,7 +197,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
        	                    <div class="custom-col">
        	                        <div class="product-item">
                                        <div class="product-image-hover">
-                                           <a href="{{url('product/'.$objs_awards->id_p)}}">
+                                           <a class="banner-image" href="{{url('product/'.$objs_awards->id_p)}}">
                                                <img class="primary-image" src="{{url('assets/image/product/'.$objs_awards->pro_image)}}" alt="{{$objs_awards->pro_name}}">
 
                                            </a>
