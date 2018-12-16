@@ -93,6 +93,22 @@
           												</div>
 
                                   <div class="form-group">
+                                    <label class="col-md-3 control-label" for="exampleInputUsername1">สีตัวอัพษร</label>
+                                    <div class="col-md-8">
+                                    <select name="text_color" class="form-control mb-md" required>
+
+                                            <option value="#252531" @if( $objs->text_color == "#252531")
+                                              selected='selected'
+                                              @endif>-- สีดำ --</option>
+                                            <option value="#fff" @if( $objs->text_color == "#fff")
+                                              selected='selected'
+                                              @endif>-- สีขาว --</option>
+
+                                          </select>
+                                          </div>
+                                  </div>
+
+                                  <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">Text Btn*</label>
           													<div class="col-md-8">
           														<input type="text" class="form-control" name="text_btn" value="{{ $objs->btn_slide }}" placeholder="Shop no*">

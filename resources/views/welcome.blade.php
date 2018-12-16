@@ -80,9 +80,9 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 	            <div class="single-slide" style="background-image: url('{{url('assets/image/slide/'.$slider->image_slide)}}');">
                 <div class="container">
                     <div class="slider-banner">
-                        <h1>{{$slider->text_slide1}}</h1>
-                        <h2>{{$slider->text_slide2}}</h2>
-                        <p>{{$slider->text_slide3}}</p>
+                        <h1 style="color:{{$slider->text_color}}">{{$slider->text_slide1}}</h1>
+                        <h2 style="color:{{$slider->text_color}}">{{$slider->text_slide2}}</h2>
+                        <p style="color:{{$slider->text_color}}">{{$slider->text_slide3}}</p>
                         <a href="{{$slider->btn_url}}" class="banner-btn">{{$slider->btn_slide}}</a>
                     </div>
                 </div>

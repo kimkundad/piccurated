@@ -74,6 +74,7 @@ class SlideController extends Controller
         $package->text_slide3 = $request['text_3'];
         $package->btn_slide = $request['text_btn'];
         $package->btn_url = $request['url_btn'];
+        $package->text_color = $request['text_color'];
         $package->image_slide = $input['imagename'];
         $package->save();
         return redirect(url('admin/slide'))->with('add_success','เพิ่ม เสร็จเรียบร้อยแล้ว');
@@ -131,6 +132,7 @@ class SlideController extends Controller
           $package->text_slide3 = $request['text_3'];
           $package->btn_slide = $request['text_btn'];
           $package->btn_url = $request['url_btn'];
+          $package->text_color = $request['text_color'];
           $package->save();
         }
         else{
@@ -160,6 +162,7 @@ class SlideController extends Controller
           $package->text_slide3 = $request['text_3'];
           $package->btn_slide = $request['text_btn'];
           $package->btn_url = $request['url_btn'];
+          $package->text_color = $request['text_color'];
           $package->image_slide = $input['imagename'];
           $package->save();
 

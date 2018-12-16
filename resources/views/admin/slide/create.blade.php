@@ -93,6 +93,18 @@
           												</div>
 
                                   <div class="form-group">
+                                      <label class="col-md-3 control-label"  for="exampleInputUsername1">สีตัวอักษร</label>
+                                      <div class="col-md-8">
+                                      <select name="text_color" class="form-control mb-md" required>
+
+                                              <option value="#252531">-- สีดำ --</option>
+                                              <option value="#fff">-- สีขาว --</option>
+
+                                            </select>
+                                    </div>
+                                      </div>
+
+                                  <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">Text Btn*</label>
           													<div class="col-md-8">
           														<input type="text" class="form-control" name="text_btn" value="{{ old('text_btn')}}" placeholder="Shop no*">
