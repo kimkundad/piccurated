@@ -251,105 +251,38 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
 <style>
+.thumb1 {
 
-.image_style1{
-  display: flex;
   width: 100%;
-  height: 320px;
+  height: 250px;
+}
+.banner-hover-text {
+    background: rgba(253, 253, 253, 0.0) none repeat scroll 0 0;
+    bottom: 20px;
+    color: #fff;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    left: 0;
+    margin: 0;
+    padding: 13px 0 12px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+.thumb1 button{
+  background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
 
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style1 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
-}
+    font-size: 12px;
+    font-size: .75rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    position:relative;
 
-.image_style2{
-  display: flex;
-  width: 100%;
-  height: 179px;
-
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style2 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
-}
-
-.image_style3{
-  display: flex;
-  width: 100%;
-  height: 529px;
-
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style3 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
-}
-
-.image_style4{
-  display: flex;
-  width: 100%;
-  height: 179px;
-
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style4 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
-}
-.image_style5{
-  display: flex;
-  width: 100%;
-  height: 320px;
-
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style5 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
-}
-.image_style6{
-  display: flex;
-  width: 100%;
-  height: 529px;
-
-  overflow: hidden;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.image_style6 img{
-  height: auto;
-  width: 100%;
-      transition: all .5s ease;
-      transform: scale(1.8);
 }
 </style>
 
@@ -360,6 +293,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 	            <div class="row grid">
 
+                <!--
                 @if($objs_group)
                   @foreach($objs_group as $objs_groups)
 	                <div class="col-md-3 grid-item">
@@ -369,8 +303,23 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                         </a>
 	                </div>
                   @endforeach
-         @endif
+                  @endif
+                -->
 
+                @if($objs_group)
+                  @foreach($objs_group as $objs_groups)
+                  <div class="col-md-3 grid-item">
+                  <div class="thumb1" style="background: url({{url('assets/image/product/'.$objs_groups->pro_image)}}) 50% 50% no-repeat;">
+                    <a href="#">
+                      <span class="banner-hover-text">{{str_limit($objs_groups->pro_name, 38, '..')}}<br />
+                        <button>฿{{number_format((float)$objs_groups->pro_price , 2, '.', '')}}</button>
+                      </span>
+                    </a>
+
+                  </div>
+                  </div>
+                  @endforeach
+                @endif
 
 
 	            </div>
