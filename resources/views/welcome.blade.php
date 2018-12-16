@@ -154,7 +154,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
               <div class="col-md-4">
 
-                    <a class="banner-image" href="{{$k1->url_banner}}">
+                    <a class="banner-image" href="{{$k1->url_banner}}" style="margin-top:20px;">
                       <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
                       <img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt="{{$k1->text_banner}}" style="min-height:247px; max-height:247px;">
                     </a>
