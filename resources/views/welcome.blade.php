@@ -287,6 +287,9 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 .grid-item2{
   margin-top:20px;
 }
+.product-text {
+    padding-top: 23px;
+}
 </style>
 
             <!-- Banner Area Start -->
@@ -313,7 +316,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                   @foreach($objs_group as $objs_groups)
                   <div class="col-md-3 grid-item grid-item2">
                   <div class="thumb1" style="background: url({{url('assets/image/product/'.$objs_groups->pro_image)}}) 50% 50% no-repeat;">
-                    <a href="#">
+                    <a href="{{url('product/'.$objs_groups->id_p)}}">
                       <span class="banner-hover-text">{{str_limit($objs_groups->pro_name, 38, '..')}}<br />
                         <button>฿{{number_format((float)$objs_groups->pro_price , 2, '.', '')}}</button>
                       </span>
@@ -450,7 +453,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 <style>
 .product-wid-img {
-    width: 35%;
+    width: 45%;
 }
 </style>
 
