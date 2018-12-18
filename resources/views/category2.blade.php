@@ -195,10 +195,9 @@
 
 
                         <div class="pagination-wrapper">
-                            <nav aria-label="navigation">
 
-                                {{$product->links()}}
-                            </nav>
+                          @include('pagination.default', ['paginator' => $product])
+                            
 
                         </div>
                     </div>
