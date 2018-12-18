@@ -137,6 +137,8 @@
 ---------------------------------------- */
     $('.blog-carousel').owlCarousel({
         items:3,
+        autoplay:true,
+        autoplayTimeout:2500,
         mouseDrag: false,
         responsive:{
             0:{
