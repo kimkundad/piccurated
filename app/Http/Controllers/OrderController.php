@@ -128,9 +128,26 @@ class OrderController extends Controller
 
                         $k->get_color = $get_color->item_name;
 
+                        $get_frame = DB::table('option_items')
+                        ->where('id', $k->frame)
+                        ->first();
+
+                        $k->get_frame = $get_frame->item_name;
+
+                        if($k->frame_color != null){
+                          $get_frame_color = DB::table('option_items')
+                          ->where('id', $k->frame_color)
+                          ->first();
+
+                          $k->get_frame_color = $get_frame_color->item_name;
+                        }else{
+                          $k->get_frame_color = null;
+                        }
+
                       }else{
                         $k->get_size = null;
                         $k->get_color = null;
+                        $k->get_frame = null;
 
                       }
 

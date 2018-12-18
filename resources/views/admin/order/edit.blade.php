@@ -186,8 +186,11 @@
           													<div class="col-md-6">
                                       สั่งจำนวน : {{$k->sum_item}} PCS / ฿ {{$k->pro_price}}<br />
                                       ราคารวม : {{$k->sum_money}}<br />
-                                      color : {{$k->get_color}} <br />
-                                      size : {{$k->get_size}} <br /><br />
+                                      ชนิดกระดาษ : {{$k->get_color}} <br />
+                                      ขนาดรูป : {{$k->get_size}} <br />
+                                      frame : {{$k->get_frame}} <br />
+                                      color frame : {{$k->get_frame_color}} <br /><br />
+
           														</div>
 
           												</div>
