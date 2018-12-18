@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-{{$objs->pro_name}} | Fulryu
+{{$objs->pro_name}} | Piccurated
 @stop
 
 @section('description')
@@ -172,7 +172,7 @@
                                   <a href="javascript:$('#my_form').submit();" id="subtip_to" style="display:none">Add to cart</a>
                                   <a  id="subtip_weit" data-toggle="modal" data-target="#exampleModalCenter" style="display:none">Add to cart</a>
 
-                                  <div class="fb-share-button" data-href="https://piccurated.com/product/{{$objs->id_p}}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+                                  <div style="padding-left:10px;" class="fb-share-button" data-href="https://piccurated.com/product/{{$objs->id_p}}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
                                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpiccurated.com%2Fproduct%2F{{$objs->id_p}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์</a>
                                   </div>
 
