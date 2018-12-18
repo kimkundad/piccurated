@@ -136,6 +136,7 @@
     Blog Carousel
 ---------------------------------------- */
     $('.blog-carousel').owlCarousel({
+      loop:true,
         items:3,
         autoplay:true,
         autoplayTimeout:2500,
