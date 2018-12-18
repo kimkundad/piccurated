@@ -51,5 +51,8 @@
 }
 }
 
+#scrollUp{
+  display: none !important;
+}
 
         </style>
