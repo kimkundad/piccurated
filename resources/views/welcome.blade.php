@@ -405,7 +405,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                             <div class="product-item mb-25">
                                 <span class="">New</span>
                                 <div class="product-image-hover">
-                                    <a href="shop.html">
+                                    <a href="{{url('product/'.$objs_news->id_p)}}">
                                         <img class="primary-image" src="{{url('assets/image/product/'.$objs_news->pro_image)}}" alt="{{$objs_news->pro_name}}">
 
                                     </a>
@@ -431,8 +431,8 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                                      ?>
 
                                   </div>
-                                    <h4><a href="shop.html">{{str_limit($objs_news->pro_name, 38, '..')}}</a></h4>
-                                    <div class="product-price">
+                                    <h4 style="margin-bottom: 0px; line-height: 20px;"><a href="shop.html">{{str_limit($objs_news->pro_name, 38, '..')}}</a></h4>
+                                    <div class="product-price" style="margin-bottom: 0px;">
                                         <span>฿{{number_format((float)$objs_news->pro_price , 2, '.', '')}}</span>
 
                                     </div>
