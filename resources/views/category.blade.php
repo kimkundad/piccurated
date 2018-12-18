@@ -78,6 +78,22 @@
                             </div>
                         </div>
 
+
+                        <style>
+                        .img_container {
+                      position: relative;
+                      max-height: 130px;
+                      }
+                        .img_container img {
+                      -webkit-transform: scale(1.2);
+                      transform: scale(1.2);
+                      -webkit-transition: all .5s ease;
+                      transition: all .5s ease;
+                      -webkit-backface-visibility: hidden;
+                      }
+                      </style>
+
+
                         <div class="ht-product-shop tab-content">
                             <div class="tab-pane active show fade text-center" id="grid" role="tabpanel">
                                 <div class="row">
@@ -87,9 +103,13 @@
                                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                         <div class="product-item">
                                             <div class="product-image-hover">
-                                                <a href="{{url('product/'.$u->id)}}">
+                                              <div class="img_container" style="min-height:130px; overflow: hidden;">
+
+                                                <a href="{{url('product/'.$u->id_pro)}}">
                                                     <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                                 </a>
+
+                                              </div>
                                             <!--    <div class="product-hover">
                                                     <button><i class="icon icon-FullShoppingCart"></i></button>
                                                     <a href="wishlist.htnl"><i class="icon icon-Heart"></i></a>
