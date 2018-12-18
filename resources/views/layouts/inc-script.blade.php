@@ -16,14 +16,7 @@
 
         <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
-<script>window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '943133742544793', // app id สามารถหาได้จากการสร้าง fb apps ดูลิงค์ด้านล่าง
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.12'
-    });
-  };
+<script>
 
   (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
