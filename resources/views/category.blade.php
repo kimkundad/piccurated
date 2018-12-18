@@ -288,7 +288,9 @@
                           @if($hot)
                             @foreach($hot as $k)
 	                        <div class="product-widget-item">
-
+	                            <div class="product-wid-img">
+	                                <a href="{{url('product/'.$k->id)}}"><img src="{{url('assets/image/product/'.$k->pro_image)}}" alt=""></a>
+	                            </div>
 
                               <div class="img_container" style="min-height:130px; overflow: hidden;">
 

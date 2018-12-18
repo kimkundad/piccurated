@@ -283,21 +283,39 @@
             <div class="container">
                 <div class="custom-row">
                     <div class="related-product-carousel owl-carousel carousel-style-one">
-
+                      <style>
+                      .img_container {
+                    position: relative;
+                    max-height: 130px;
+                    }
+                      .img_container img {
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);
+                    -webkit-transition: all .5s ease;
+                    transition: all .5s ease;
+                    -webkit-backface-visibility: hidden;
+                    }
+                    </style>
 
                       @if($related)
                         @foreach($related as $u)
 
-                        
+
 
 
                         <div class="custom-col">
                             <div class="product-item">
                                 <div class="product-image-hover">
-                                    <a href="{{url('product/'.$u->id_p)}}">
-                                        <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="{{$u->pro_title}}">
 
-                                    </a>
+
+                                    <div class="img_container" style="min-height:130px; overflow: hidden;">
+
+                                      <a href="{{url('product/'.$u->id_p)}}">
+                                          <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="{{$u->pro_title}}">
+
+                                      </a>
+
+                                    </div>
 
                                 </div>
                                 <div class="product-text">
