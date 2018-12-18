@@ -5,7 +5,7 @@
         <script src="{{url('home/assets/js/owl.carousel.min.js')}}"></script>
         <script src="{{url('home/assets/js/jquery.meanmenu.js')}}"></script>
         <script src="{{url('home/assets/js/plugins.js')}}"></script>
-        <script src="{{url('home/assets/js/main.js')}}?v1.5"></script>
+        <script src="{{url('home/assets/js/main.js')}}?v1.6"></script>
 
         <script>
                 $(document).ready(function(){

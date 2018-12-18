@@ -105,6 +105,7 @@
         autoplayTimeout:2500,
         mouseDrag: false,
         nav:true,
+        dots: false
         navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
         responsive:{
             0:{
