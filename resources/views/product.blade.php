@@ -272,6 +272,21 @@
                 </div>
             </div>
         </div>
+
+
+        <style>
+        .img_container {
+      position: relative;
+      max-height: 180px;
+      }
+        .img_container img {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      -webkit-transition: all .5s ease;
+      transition: all .5s ease;
+      -webkit-backface-visibility: hidden;
+      }
+      </style>
         <!-- Product Details Area End -->
         <!-- Related Products Area Start -->
         <div class="related-products-area text-center">
@@ -283,19 +298,7 @@
             <div class="container">
                 <div class="custom-row">
                     <div class="related-product-carousel owl-carousel carousel-style-one">
-                      <style>
-                      .img_container {
-                    position: relative;
-                    max-height: 180px;
-                    }
-                      .img_container img {
-                    -webkit-transform: scale(1.2);
-                    transform: scale(1.2);
-                    -webkit-transition: all .5s ease;
-                    transition: all .5s ease;
-                    -webkit-backface-visibility: hidden;
-                    }
-                    </style>
+
 
                       @if($related)
                         @foreach($related as $u)
