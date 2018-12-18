@@ -482,7 +482,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                 @if($objs_rec)
                   @foreach($objs_rec as $objs_recs)
 	                <div class="col-md-4">
-                        <a class="banner-image" href="{{url('product/'.$objs_recs->id_p)}}"><img src="{{url('assets/image/product/'.$objs_recs->pro_image)}}" alt="{{$objs_recs->pro_name}}"></a>
+                        <a class="banner-image" style="padding-top:10px;" href="{{url('product/'.$objs_recs->id_p)}}"><img src="{{url('assets/image/product/'.$objs_recs->pro_image)}}" alt="{{$objs_recs->pro_name}}"></a>
 	                </div>
                   @endforeach
          @endif
