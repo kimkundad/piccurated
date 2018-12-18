@@ -18,7 +18,7 @@
 <div id="fb-root"></div>
 <script>window.fbAsyncInit = function() {
     FB.init({
-      appId            : '943133742544793', // app id สามารถหาได้จากการสร้าง fb apps ดูลิงค์ด้านล่าง
+      appId            : '355004925273070', // app id สามารถหาได้จากการสร้าง fb apps ดูลิงค์ด้านล่าง
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v3.2'
