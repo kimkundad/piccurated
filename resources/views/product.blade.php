@@ -9,14 +9,14 @@
 @stop
 
 @section('og_tag')
-<meta property="og:url"           content="https://fulryu.com/product/{{$objs->id_p}}" />
+<meta property="og:url"           content="https://piccurated.com/product/{{$objs->id_p}}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{$objs->pro_name}}" />
 <meta property="og:image"         content="{{url('assets/image/product/'.$objs->pro_image)}}" />
 <meta property="og:description"   content="{{str_limit($objs->pro_title, 150, '..')}}" />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="314" />
-<meta property="fb:app_id" content="1916660355081132">
+<meta property="fb:app_id" content="355004925273070">
 <meta property="fb:admins" content="100002037238809">
 @stop
 
