@@ -46,6 +46,9 @@
   .header-area .logo {
   text-align: center;
 }
+.cart-box-wrapper{
+  padding-left: 10px;
+}
 }
 
 
