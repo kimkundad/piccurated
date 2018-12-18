@@ -1,11 +1,11 @@
 @extends('layouts.template')
 
 @section('title')
-Fulryu ความรู้สึกที่สัมผัสได้แต่ไม่สามารถมองเห็น
+piccurated  is online natural printing, art gallery
 @stop
 
 @section('description')
-ลม และ การไหลไป ความงามชั่วคราวซึ่งต้องมีประสบการณ์ตรง ณ ขณะนี้เท่านั้น เพราะในห้วงเวลาถัดไปความรู้สึกนั้นก็จะจางหายไปเหมือนหมอกเช้า
+piccurated is online natural printing, art gallery. Connecting between art, photos and inspiration with artists and photographers you love.
 @stop
 
 @section('og_tag')

@@ -42,4 +42,11 @@
     padding: 10px 0px 0px 0px;
 }
 
+@media (max-width: 767px){
+  .header-area .logo {
+  text-align: center;
+}
+}
+
+
         </style>
