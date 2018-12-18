@@ -1,3 +1,10 @@
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="943133742544793"
+  logged_in_greeting="Piccurated online printing"
+  logged_out_greeting="Piccurated online printing">
+</div>
+
 <!-- Footer Area Start -->
 	    <footer class="footer-area">
             <div class="footer-top pt-50 pb-50">
