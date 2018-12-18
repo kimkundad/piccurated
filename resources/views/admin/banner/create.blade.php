@@ -86,19 +86,20 @@
           														</div>
           												</div>
 
-
                                   <div class="form-group">
-          													<label class="col-md-3 control-label" for="profileAddress">สีข้อความ*</label>
-          													<div class="col-md-8">
-          														<select name="color_banner" class="form-control mb-md" required>
+                                      <label class="col-md-3 control-label"  for="exampleInputUsername1">สีตัวอักษร</label>
+                                      <div class="col-md-8">
+                                      <select name="color_banner" class="form-control mb-md" required>
 
-                                        <option value="0">-- สีดำ --</option>
-                                        <option value="1">-- สีขาว --</option>
+                                              <option value="#252531">-- สีดำ --</option>
+                                              <option value="#fff">-- สีขาว --</option>
 
-  								                    </select>
-          								            </select>
-          													</div>
-          												</div>
+                                            </select>
+                                    </div>
+                                      </div>
+
+
+
 
 
                                   <div class="form-group">

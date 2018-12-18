@@ -41,7 +41,7 @@
                         <div class="col-md-3">
                             <div class="logo">
 
-                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:80px"></a>
+                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:70px"></a>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -62,7 +62,7 @@
                             <?php
                               $set_num_date = count(Session::get('cart'));
                              ?>
-                            <div class="cart-box-wrapper" style="margin: 7px 0 29px;">
+                            <div class="cart-box-wrapper" style="margin: 7px 0 15px;">
                                 <a class="cart-info" >
                                   <span>
                                     <img src="{{url('home/assets/img/icon/cart.png')}}" alt="">
@@ -158,11 +158,23 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li><a href="{{url('/')}}">Home</a>
+                                    <li><a href="{{url('/')}}">Home</a></li>
 
-                                    </li>
 
-                                    <li><a href="{{url('category_main/1')}}">PRINT</a></li>
+
+                                    <li><a href="{{url('category_main/1')}}">PRINT</a>
+                                      <ul>
+                                        @if(get_cat())
+                                          @foreach(get_cat() as $j)
+                                          <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
+                                          @endforeach
+                                        @endif
+                                      </ul>
+                                  </li>
+
+
+                                
+
                                     <li><a href="{{url('category_main/4')}}">BOOK</a></li>
                                     <li><a href="{{url('category_main/3')}}">ART</a></li>
 

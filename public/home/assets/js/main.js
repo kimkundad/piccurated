@@ -58,8 +58,8 @@
         animateIn: 'fadeIn',
         smartSpeed: 2500,
         autoplay:true,
-        autoplayTimeout:4000,
-        autoplayHoverPause:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:false,
         items:1,
         nav:false,
         dots: true

@@ -119,8 +119,38 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 }
 
+.thumb2 {
 
+  width: 100%;
+  height: 350px;
+}
+.thumb2 button{
+  background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
 
+    font-size: 12px;
+    font-size: .75rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    position:relative;
+
+}
+
+.thumb2:hover button{
+  background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+
+    font-size: 12px;
+    font-size: .75rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    position:relative;
+
+}
 </style>
 
       <!-- Banner Area Start -->
@@ -152,13 +182,19 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
               @if($banner)
                 @foreach($banner as $k1)
 
-              <div class="col-md-4">
 
-                    <a class="banner-image" href="{{$k1->url_banner}}" style="margin-top:20px;">
-                      <h1 class="top-left text-{{$k1->color_banner}}">{{$k1->text_banner}}</h1>
-                      <img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt="{{$k1->text_banner}}" style="min-height:247px; max-height:247px;">
-                    </a>
-              </div>
+                <div class="col-md-4 grid-item grid-item2">
+                <div class="thumb2 banner-image" style="background: url({{url('assets/image/banner/'.$k1->image_banner)}}) 70% 70% no-repeat;">
+                  <a href="{{$k1->url_banner}}" style="color:{{$k1->color_banner}}">
+                    <span class="banner-hover-text">{{$k1->text_banner}}<br />
+                      <button>View Artworks</button>
+                    </span>
+                  </a>
+
+                </div>
+                </div>
+
+
 
               @endforeach
             @endif
@@ -179,7 +215,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
        <!-- Product Area Start -->
-       	    <div class="product-area text-center pt-50 pb-65">
+       	    <div class="product-area text-center pt-20 pb-50">
        	        <div class="container">
        	            <div class="section-title">
                            <span>FEATURED SHOP ITEMS</span>
@@ -204,7 +240,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
                                        </div>
                                        <div class="product-text">
-                                         <div class="product-rating">
+                                         <div class="product-rating" style="margin-bottom: 0px;">
                                             <?php
                                             for($i=1;$i <= $objs_awards->pro_rating;$i++){
                                             ?>
@@ -223,8 +259,8 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
                                             ?>
 
                                          </div>
-                                           <h4><a href="{{url('product/'.$objs_awards->id_p)}}">{{str_limit($objs_awards->pro_name, 38, '..')}}</a></h4>
-                                           <div class="product-price"><span>฿{{number_format((float)$objs_awards->pro_price , 2, '.', '')}}</span></div>
+                                           <h4 style="margin-bottom: 0px; line-height: 20px;"> <a href="{{url('product/'.$objs_awards->id_p)}}">{{str_limit($objs_awards->pro_name, 38, '..')}}</a></h4>
+                                           <div class="product-price" style="margin-bottom: 0px;"><span>฿{{number_format((float)$objs_awards->pro_price , 2, '.', '')}}</span></div>
                                        </div>
        	                        </div>
        	                    </div>
@@ -243,7 +279,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
             <div class="product-area text-center  ">
        	        <div class="container">
        	            <div class="section-title">
-
+                      <span>FEATURED SHOP ITEMS</span>
        	                <h2><span>GROUP PHOTO</span></h2>
        	            </div>
        	        </div>
@@ -288,7 +324,20 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
   margin-top:20px;
 }
 .product-text {
-    padding-top: 23px;
+    padding-top: 10px;
+}
+.thumb1:hover button{
+  background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+
+    font-size: 12px;
+    font-size: .75rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    position:relative;
+
 }
 </style>
 
@@ -417,7 +466,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
       <div class="product-area text-center  ">
           <div class="container">
               <div class="section-title">
-
+                <span>FEATURED SHOP ITEMS</span>
                   <h2><span>RECOMMENDED ITEMS</span></h2>
               </div>
           </div>
@@ -460,7 +509,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 
 
       <!-- Product Widget Area Start -->
-	    <div class="product-widget-area pt-50 pb-50">
+	    <div class="product-widget-area pt-40 pb-40">
 	        <div class="container">
 	            <div class="row">
 
