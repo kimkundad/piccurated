@@ -105,7 +105,7 @@
                                             <div class="product-image-hover">
                                               <div class="img_container" style="min-height:130px; overflow: hidden;">
 
-                                                <a href="{{url('product/'.$u->id_pro)}}">
+                                                <a href="{{url('product/'.$u->id)}}">
                                                     <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="">
                                                 </a>
 
