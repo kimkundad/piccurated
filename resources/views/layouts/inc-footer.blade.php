@@ -9,10 +9,11 @@
                                     <a href="#"><img src="{{url('assets/image/logo-website.png')}}" style="height:84px" alt=""></a>
                                 </div>
                                 <div class="single-footer-text">
-                                    <span>Addresss: 222/390 Soi Ruammitpattana yaak 5 Tarang Bangkhaen BKK 10220</span>
-                                    <span>Phone: +(66)639911075</span>
+                                    <span>Addresss: 2952/206 Sukhumvit Bangna Bangna BKK 10260</span>
+                                    <span>Phone: +(66) 865517336</span>
 
-                                    <span>Email: fulryumail@gmail.com</span>
+                                    <span>Email:  piccurated@gmail.com</span>
+																		<span>IG:  Piccurated</span>
                                 </div>
                             </div>
                         </div>
