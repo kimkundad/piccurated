@@ -12,7 +12,7 @@ Fulryu ความรู้สึกที่สัมผัสได้แต�
 <meta property="og:url"           content="https://piccurated.com" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="piccurated  is online natural printing, art gallery" />
-<meta property="og:image"         content="https://piccurated.com/assets/image/facebook_cover.png?v2s" />
+<meta property="og:image"         content="https://piccurated.com/assets/image/facebook_cover.png?v2" />
 <meta property="og:description"   content="piccurated is online natural printing, art gallery. Connecting between art, photos and inspiration with artists and photographers you love." />
 <meta property="og:image:width" content="600" />
 <meta property="og:image:height" content="314" />
