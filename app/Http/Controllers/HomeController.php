@@ -37,6 +37,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function test(){
+
+      return view('text');
+
+    }
     public function index()
     {
 

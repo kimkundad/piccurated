@@ -2,7 +2,7 @@
         <script src="{{url('home/assets/js/vendor/jquery-3.2.1.min.js')}}"></script>
 
 
-        
+
 
 
 
