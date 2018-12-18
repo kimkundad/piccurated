@@ -24,6 +24,7 @@ Route::post('search', 'HomeController@search')->name('search');
 Route::get('search/{search_name}/{color}', 'HomeController@search2');
 Route::get('search/{tag1}', 'HomeController@search3');
 
+Route::post('/post_subscribe','HomeController@post_subscribe');
 
 Route::get('/product/{id}', 'HomeController@product')->name('product');
 Route::get('/cart', 'HomeController@cart')->name('cart');

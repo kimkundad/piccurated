@@ -131,6 +131,9 @@ class HomeController extends Controller
     }
 
 
+
+
+
     public function delivery_information(){
 
       $obj1 = DB::table('categories')->select(
