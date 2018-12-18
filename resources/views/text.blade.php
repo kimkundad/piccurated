@@ -4,7 +4,7 @@
 <h2>Say Hi</h2>
 
 
-<script src="{{url('home/assets/js/vendor/jquery-3.2.1.min.js')}}"></script>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
