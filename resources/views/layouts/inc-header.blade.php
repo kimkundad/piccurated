@@ -23,7 +23,7 @@
 
                                       @endif
 
-                                    <a href="{{url('wishlist')}}">My Wish List</a>
+                                    <a href="{{url('confirm_payment')}}">แจ้งชำระเงิน</a>
 
                                 </div>
 
@@ -173,7 +173,7 @@
                                   </li>
 
 
-                                
+
 
                                     <li><a href="{{url('category_main/4')}}">BOOK</a></li>
                                     <li><a href="{{url('category_main/3')}}">ART</a></li>
