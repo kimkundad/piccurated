@@ -286,7 +286,7 @@
                       <style>
                       .img_container {
                     position: relative;
-                    max-height: 130px;
+                    max-height: 180px;
                     }
                       .img_container img {
                     -webkit-transform: scale(1.2);
@@ -308,7 +308,7 @@
                                 <div class="product-image-hover">
 
 
-                                    <div class="img_container" style="min-height:130px; overflow: hidden;">
+                                    <div class="img_container" style="min-height:180px; overflow: hidden;">
 
                                       <a href="{{url('product/'.$u->id_p)}}">
                                           <img class="primary-image" src="{{url('assets/image/product/'.$u->pro_image)}}" alt="{{$u->pro_title}}">

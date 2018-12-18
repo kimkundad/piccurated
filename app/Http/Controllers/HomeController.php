@@ -2094,6 +2094,7 @@ return response()->json($response);
                   )
                   ->where('products.pro_category', $cat->id_c)
                   ->where('products.pro_status', 1)
+                  ->limit(4)
                   ->get();
 
 
