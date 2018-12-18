@@ -4,7 +4,6 @@
 
         <!-- Load Facebook SDK for JavaScript -->
         <!-- Load Facebook SDK for JavaScript -->
-        <!-- Load Facebook SDK for JavaScript -->
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -17,11 +16,12 @@
         <!-- Your customer chat code -->
         <div class="fb-customerchat"
           attribution=setup_tool
-          page_id="943133742544793">
+          page_id="943133742544793"
+          theme_color="#6699cc">
         </div>
 
 
-        
+
         <script src="{{url('home/assets/js/popper.js')}}"></script>
         <script src="{{url('home/assets/js/bootstrap.min.js')}}"></script>
         <script src="{{url('home/assets/js/owl.carousel.min.js')}}"></script>
