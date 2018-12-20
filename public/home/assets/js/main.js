@@ -138,7 +138,6 @@
     $('.blog-carousel').owlCarousel({
       loop:true,
         items:3,
-        nav:true,
         mouseDrag: false,
         responsive:{
             0:{
