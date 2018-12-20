@@ -288,11 +288,14 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                           @if($hot)
                             @foreach($hot as $k)
 	                        <div class="product-widget-item">
-	                            <div class="product-wid-img">
-	                                <a href="{{url('product/'.$k->id)}}"><img src="{{url('assets/image/product/'.$k->pro_image)}}" alt=""></a>
-	                            </div>
 
-                            
+
+                              <div class="img_container" style="min-height:130px; overflow: hidden;">
+
+                                <a href="{{url('product/'.$k->id)}}"><img src="{{url('assets/image/product/'.$k->pro_image)}}" alt=""></a>
+
+                              </div>
+
 
                                 <div class="product-text">
                                     <h4><a href="product-details.html">{{$k->pro_name}}</a></h4>
