@@ -186,8 +186,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                           }
                                           ?>
                                         </div>
-                                        <h4><a href="{{url('product/'.$u->id_pro)}}">{{$u->pro_name}}</a></h4>
-                                        <div class="product-price"><span>฿{{$u->pro_price}}</span></div>
+                                        <h4 style="margin-bottom: 0px;"><a href="{{url('product/'.$u->id_pro)}}">{{$u->pro_name}}</a></h4>
+                                        <div class="product-price" style="margin-bottom: 0px;"><span>฿{{$u->pro_price}}</span></div>
                                         <p>{{$u->pro_title}}</p>
                                         <a href="{{url('product/'.$u->id)}}">ดูรายละเอียด</a>
                                     </div>
@@ -287,13 +287,13 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                           @if($hot)
                             @foreach($hot as $k)
 	                        <div class="product-widget-item">
-                            
+
 	                            <div class="product-wid-img">
 	                                <a href="{{url('product/'.$k->id_pro)}}"><img src="{{url('assets/image/product/'.$k->pro_image)}}" alt=""></a>
 	                            </div>
                                 <div class="product-text">
-                                    <h4><a href="{{url('product/'.$k->id_pro)}}">{{$k->pro_name}}</a></h4>
-                                    <div class="product-rating">
+                                    <h4 style="margin-bottom: 0px;"><a href="{{url('product/'.$k->id_pro)}}">{{$k->pro_name}}</a></h4>
+                                    <div style="margin-bottom: 0px;" class="product-rating">
                                       <?php
                                       for($i=1;$i <= $k->pro_rating;$i++){
                                       ?>
