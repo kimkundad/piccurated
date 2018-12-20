@@ -76,7 +76,7 @@ class HomeController extends Controller
                         )
                         ->where('products.pro_status_show', 3)
                         ->where('products.pro_status', 1)
-                        ->limit(6)
+                        ->limit(8)
                         ->get();
 
                   $cat_award = DB::table('products')->select(
