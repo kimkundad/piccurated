@@ -71,7 +71,9 @@
         loop:true,
         items:5,
         autoplay:true,
-        autoplayTimeout:2500,
+        slideTransition: 'linear',
+        autoplayTimeout: 0,
+        autoplaySpeed: 3000,
         nav:true,
         navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
         responsive:{
