@@ -579,7 +579,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 	        </div>
 	        <div class="container">
 	            <div class="custom-row">
-                    <div class="blog-carousel owl-carousel">
+                    <div class="">
                       @if($blog_new)
                         @foreach($blog_new as $u)
                         <div class="custom-col">
