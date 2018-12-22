@@ -104,7 +104,7 @@
         loop:true,
         autoplay:true,
         smartSpeed: 1000,
-        autoplayTimeout:2500,
+        autoplayTimeout:3000,
         mouseDrag: false,
         dots: false,
         navText : ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
