@@ -103,6 +103,7 @@
         items:5,
         loop:true,
         autoplay:true,
+        smartSpeed: 1000,
         autoplayTimeout:2500,
         mouseDrag: false,
         dots: false,
@@ -139,6 +140,7 @@
     $('.blog-carousel').owlCarousel({
       loop:true,
         items:3,
+        smartSpeed: 1000,
         mouseDrag: false,
         responsive:{
             0:{
@@ -160,7 +162,7 @@
     $('.product-carousel-two').owlCarousel({
         loop:true,
         items:4,
-        smartSpeed: 2500,
+        smartSpeed: 1000,
         autoplay:true,
         autoplayTimeout:4000,
         autoplayHoverPause:true,
