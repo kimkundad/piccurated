@@ -588,6 +588,11 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                         @foreach($blog_new as $u)
       	                <div class="col-md-4">
                               <a class="banner-image" style="padding-top:10px;" href="{{url('blog/'.$u->id)}}"><img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="{{$u->blog_title}}"></a>
+                              <div class="blog-text">
+                                  <h5><a href="{{url('blog/'.$u->id)}}">{{$u->blog_title}}</a></h5>
+                                  <p>{{str_limit($u->blog_header, 48, '..')}}</p>
+                                  <a href="{{url('blog/'.$u->id)}}">Read More</a>
+                              </div>
       	                </div>
                         @endforeach
                @endif
