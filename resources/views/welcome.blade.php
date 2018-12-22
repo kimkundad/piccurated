@@ -577,7 +577,27 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 	                <h2><span>FROM OUR BLOG</span></h2>
 	            </div>
 	        </div>
-	        <div class="container">
+
+
+          <div class="banner-area">
+      	        <div class="container">
+
+
+      	            <div class="row">
+                      @if($blog_new)
+                        @foreach($blog_new as $u)
+      	                <div class="col-md-4">
+                              <a class="banner-image" style="padding-top:10px;" href="{{url('product/'.$u->id_p)}}"><img src="{{url('assets/image/blog/'.$u->pro_image)}}" alt="{{$u->pro_name}}"></a>
+      	                </div>
+                        @endforeach
+               @endif
+
+      	            </div>
+      	        </div>
+      	    </div>
+
+
+	    <!--    <div class="container">
 	            <div class="custom-row">
                     <div class="blog-carousel owl-carousel">
                       @if($blog_new)
@@ -603,7 +623,10 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
                     </div>
 	            </div>
-	        </div>
+	        </div> -->
+
+
+
 	    </div>
 	    <!-- Blog Area End -->
 
