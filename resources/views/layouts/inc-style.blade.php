@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{url('home/assets/css/animate.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/bundle.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/style.css')}}?v1.2">
+        <link rel="stylesheet" href="{{url('assets/css/style2.css')}}">
         <link rel="stylesheet" href="{{url('home/assets/css/responsive.css')}}?v4.1">
         <script src="{{url('home/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
         <style>
@@ -54,5 +55,9 @@
 #scrollUp{
   display: none !important;
 }
+
+
+
+
 
         </style>

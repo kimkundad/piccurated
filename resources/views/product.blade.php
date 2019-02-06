@@ -159,7 +159,7 @@
                             </div>
                             <span class="p-d-price">฿{{number_format($objs->pro_price)}}.00</span>
                             <span class="model-stock">In stock : {{$objs->total_product}} pcs , <span><span>รหัสสินค้า</span>{{$objs->pro_code}}</span></span>
-                            <form action="{{url('add_cart/')}}" id="my_form" method="POST">
+                            <form action="{{url('add_cart/')}}" id="my_form" method="POST" class="f1">
                             <div class="qty-cart-add">
 
 
@@ -181,6 +181,8 @@
                             <div class="row">
 
 
+
+                          <!--
                             @if($objs->id_main == 1)
                             @foreach($my_option as $k)
                             <div class="col-md-6">
@@ -202,6 +204,32 @@
                             </div>
                             @endforeach
                             @endif
+                          -->
+
+
+                          <div class="f1-steps">
+                              <div class="f1-progress">
+                                  <div class="f1-progress-line" data-now-value="13.66" data-number-of-steps="4" style="width: 13.66%;"></div>
+                              </div>
+                              <div class="f1-step active">
+                                <div class="f1-step-icon">1</div>
+                                <p>SIZE</p>
+                              </div>
+                              <div class="f1-step">
+                                <div class="f1-step-icon">2</div>
+                                <p>ORIENTATION</p>
+                              </div>
+                                <div class="f1-step">
+                                <div class="f1-step-icon">3</div>
+                                <p>FRAMES</p>
+                              </div>
+
+                              <div class="f1-step">
+                              <div class="f1-step-icon">4</div>
+                              <p>Finish</p>
+                            </div>
+                            </div>
+
 
                             </div>
                             </form>
