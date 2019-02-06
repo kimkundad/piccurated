@@ -85,7 +85,6 @@ class HomeController extends Controller
                         )
                         ->where('products.pro_status_show', 2)
                         ->where('products.pro_status', 1)
-                        ->limit(15)
                         ->get();
 
 
