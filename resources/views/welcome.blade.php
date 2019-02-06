@@ -271,7 +271,12 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 
                  </div> -->
-
+<style>
+.sp-caption-container {
+  font-weight: 600;
+  font-size: 14px;
+}
+</style>
                  <div class="slider-pro" id="my-slider">
 
                   	<div class="sp-slides">
@@ -287,9 +292,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                 						data-src="{{url('assets/image/product/'.$objs_awards->pro_image)}}"
                 						data-retina="{{url('assets/image/product/'.$objs_awards->pro_image)}}"/>
                 				</a>
-                				<p class="sp-caption">{{str_limit($objs_awards->pro_name, 38, '..')}} <br />
-                          <div class="product-price" style="margin-bottom: 0px;"><span>฿{{number_format((float)$objs_awards->pro_price , 2, '.', '')}}</span></div>
-                        </p>
+                				<p class="sp-caption"><a class="banner-image" href="{{url('product/'.$objs_awards->id_p)}}">{{str_limit($objs_awards->pro_name, 38, '..')}} <br /> <span style="  font-weight: 400;">฿{{number_format((float)$objs_awards->pro_price , 2, '.', '')}}</span></a></p>
 
                 			</div>
 
