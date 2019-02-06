@@ -213,20 +213,20 @@
                               </div>
                               <div class="f1-step active">
                                 <div class="f1-step-icon">1</div>
-                                <p>SIZE</p>
+                                <p>ขนาดรูป</p>
                               </div>
                               <div class="f1-step">
                                 <div class="f1-step-icon">2</div>
-                                <p>ORIENTATION</p>
+                                <p>ชนิดกระดาษ</p>
                               </div>
                                 <div class="f1-step">
                                 <div class="f1-step-icon">3</div>
-                                <p>FRAMES</p>
+                                <p>เลือกกรอบรูป</p>
                               </div>
 
                               <div class="f1-step">
                               <div class="f1-step-icon">4</div>
-                              <p>Finish</p>
+                              <p>สีกรอบรูป</p>
                             </div>
                             </div>
 
