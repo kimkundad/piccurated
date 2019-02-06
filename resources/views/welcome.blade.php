@@ -21,7 +21,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 @stop
 
 @section('stylesheet')
-
+<link rel="stylesheet" href="{{url('assets/slider-pro/css/slider-pro.min.css')}}">
+<link rel="stylesheet" href="{{url('assets/fancybox/jquery.fancybox.css')}}">
 <style>
 
 .product-widget-title > h4 {
@@ -224,7 +225,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
        	        </div>
        	        <div class="container">
        	            <div class="custom-row">
-       	                <div class="product-carousel owl-carousel carousel-style-one">
+
+       	             <!--   <div class="product-carousel owl-carousel carousel-style-one">
 
 
                           @if($objs_award)
@@ -268,7 +270,40 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                    @endif
 
 
-       	                </div>
+                 </div> -->
+
+                 <div class="slider-pro" id="my-slider">
+
+                  	<div class="sp-slides">
+
+
+                      @if($objs_award)
+                        @foreach($objs_award as $objs_awards)
+
+
+                      <div class="sp-slide">
+                				<a href="{{url('product/'.$objs_awards->id_p)}}">
+                					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
+                						data-src="{{url('assets/image/product/'.$objs_awards->pro_image)}}"
+                						data-retina="{{url('assets/image/product/'.$objs_awards->pro_image)}}"/>
+                				</a>
+                				<p class="sp-caption">{{str_limit($objs_awards->pro_name, 38, '..')}}</p>
+                			</div>
+
+                      @endforeach
+             @endif
+
+
+
+
+
+
+
+                  	</div>
+
+                  </div>
+
+
        	            </div>
        	        </div>
        	    </div>
@@ -698,8 +733,51 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 @endsection
 
 @section('scripts')
+<script src="{{url('assets/slider-pro/js/jquery.sliderPro.min.js')}}"></script>
+<script src="{{url('assets/fancybox/jquery.fancybox.pack.js')}}"></script>
 
-<!-- Load Facebook SDK for JavaScript -->
+<!-- <script src="{{url('assets/slider-pro/examples.js')}}"></script> Load Facebook SDK for JavaScript -->
+<script type="text/javascript">
+	jQuery( document ).ready(function( $ ) {
+		$( '#my-slider' ).sliderPro({
+      width: 300,
+      height: 300,
+      visibleSize: '100%',
+      forceSize: 'fullWidth',
+      autoSlideSize: true
+    });
+
+    // instantiate fancybox when a link is clicked
+		$( ".slider-pro" ).each(function(){
+			var slider = $( this );
+			slider.find( ".sp-image" ).parent( "a" ).on( "click", function( event ) {
+				event.preventDefault();
+
+				if ( slider.hasClass( "sp-swiping" ) === false ) {
+					var sliderInstance = slider.data( "sliderPro" ),
+						isAutoplay = sliderInstance.settings.autoplay;
+					$.fancybox.open( slider.find( ".sp-image" ).parent( "a" ), {
+						index: $( this ).parents( ".sp-slide" ).index(),
+						afterShow: function() {
+							if ( isAutoplay === true ) {
+								sliderInstance.settings.autoplay = false;
+								sliderInstance.stopAutoplay();
+							}
+						},
+						afterClose: function() {
+							if ( isAutoplay === true ) {
+								sliderInstance.settings.autoplay = true;
+								sliderInstance.startAutoplay();
+							}
+						}
+
+					});
+				}
+			});
+		});
+
+	});
+</script>
 
 
 @stop('scripts')
