@@ -228,7 +228,38 @@
                               <div class="f1-step-icon">4</div>
                               <p>สีกรอบรูป</p>
                             </div>
-                            </div>
+                          </div <?php $i = 1; ?>>
+
+
+                            @if($objs->id_main == 1)
+                            @foreach($my_option as $k)
+                            <fieldset style="width: 100%;">
+                              <br />
+
+                              @foreach($k->options as $j)
+                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
+                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                                <span style="font-size:13px"> {{$j->item_name}}</span>
+                              </label>
+                              @endforeach
+
+                               <div class="f1-buttons">
+                                   <button type="button" class="btn btn-previous"
+                                   @if($i == 1)
+                                   style="display:none;"
+                                   @endif
+                                   >กลับ</button>
+                                   <button type="button" class="btn btn-next" @if($i == 4)
+                                   style="display:none;"
+                                   @endif >ต่อไป</button>
+
+                               </div>
+                               <br />
+                           </fieldset {{$i++}}>
+                           @endforeach
+                           @endif
+
+
 
 
                             </div>
@@ -480,6 +511,31 @@ $(".get_var_option5").change(function () {
 });
 
 
+
+</script>
+<script src="{{url('assets/js/jquery.backstretch.js')}}"></script>
+<script src="{{url('assets/js/scripts.js')}}"></script>
+<script type="text/javascript">
+
+$('input[name=step1]').on('ifChecked', function(event){
+  document.getElementById('step1').innerHTML = "Size : "+$(this).val();
+  console.log($(this).val());
+ });
+
+ $('input[name=step2]').on('ifChecked', function(event){
+   document.getElementById('step2').innerHTML = "ORIENTATION : "+$(this).val();
+   console.log($(this).val());
+  });
+
+  $('input[name=step3]').on('ifChecked', function(event){
+    document.getElementById('step3').innerHTML = "FRAMES : "+$(this).val();
+    console.log($(this).val());
+   });
+
+   $('input[name=step4]').on('ifChecked', function(event){
+     document.getElementById('step4').innerHTML = "Wood : "+$(this).val();
+     console.log($(this).val());
+    });
 
 </script>
 
