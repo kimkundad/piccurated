@@ -196,19 +196,19 @@
 
 
 
-                              <div id="step1" style="font-size: 14px; font-weight: 600;">
+                              <div id="step1" style="font-size: 14px; width: 100%; font-weight: 600;">
 
                                    </div>
 
-                                   <div id="step2" style="font-size: 14px; font-weight: 600;">
+                                   <div id="step2" style="font-size: 14px; width: 100%; font-weight: 600;">
 
                                    </div>
 
-                                   <div id="step3" style="font-size: 14px; font-weight: 600;">
+                                   <div id="step3" style="font-size: 14px; width: 100%; font-weight: 600;">
 
                                    </div>
 
-                                   <div id="step4" style="font-size: 14px; font-weight: 600;">
+                                   <div id="step4" style="font-size: 14px; width: 100%; font-weight: 600;">
 
                                    </div>
 
@@ -352,7 +352,7 @@
 
                           @foreach($my_option[1]->options  as $j)
                           <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
-                            <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                            <input type="radio" name="{{$my_option[1]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[1]->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                             <span style="font-size:13px"> {{$j->item_name}}</span>
                           </label>
                           @endforeach
@@ -371,7 +371,7 @@
 
                          @foreach($my_option[2]->options  as $j)
                          <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
-                           <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                           <input type="radio" name="{{$my_option[2]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[2]->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                            <span style="font-size:13px"> {{$j->item_name}}</span>
                          </label>
                          @endforeach
@@ -383,6 +383,25 @@
                           </div>
                           <br />
                       </fieldset >
+
+
+
+                      <fieldset style="width: 100%;" >
+                        <br />
+
+                        @foreach($my_option[3]->options  as $j)
+                        <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+                          <input type="radio" name="{{$my_option[3]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[3]->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                          <span style="font-size:13px"> {{$j->item_name}}</span>
+                        </label>
+                        @endforeach
+
+                         <div class="f1-buttons">
+                             <button type="button" class="btn btn-previous">กลับ</button>
+
+                         </div>
+                         <br />
+                     </fieldset >
 
 
 
@@ -644,22 +663,22 @@ $(".get_var_option5").change(function () {
 
 
 $('input[name=size]').click(function(){
-  document.getElementById('step1').innerHTML = "ขนาดรูป : "+$(this).data("name");;
+  document.getElementById('step1').innerHTML = "ขนาดรูป : "+$(this).data("name");
   console.log($(this).val());
  });
 
- $('input[name=step2]').on('ifChecked', function(event){
-   document.getElementById('step2').innerHTML = "ORIENTATION : "+$(this).val();
+ $('input[name=paper]').click(function(){
+   document.getElementById('step2').innerHTML = "ชนิดกระดาษ : "+$(this).data("name");
    console.log($(this).val());
   });
 
-  $('input[name=step3]').on('ifChecked', function(event){
-    document.getElementById('step3').innerHTML = "FRAMES : "+$(this).val();
+  $('input[name=frame]').click(function(){
+    document.getElementById('step3').innerHTML = "เลือกกรอบรูป : "+$(this).data("name");
     console.log($(this).val());
    });
 
-   $('input[name=step4]').on('ifChecked', function(event){
-     document.getElementById('step4').innerHTML = "Wood : "+$(this).val();
+   $('input[name=frame_color]').click(function(){
+     document.getElementById('step4').innerHTML = "สีกรอบรูป : "+$(this).data("name");
      console.log($(this).val());
     });
 
