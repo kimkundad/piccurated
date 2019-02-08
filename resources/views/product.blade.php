@@ -111,6 +111,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-12">
+
+                      <img src="{{url('assets/image/gallery/'.$img_all[0]->image)}}" name="image1" id="image1" ><br>
+
+                      <!--
                         <div class="single-product-image product-image-slider fix">
                           @if($img_all)
                           @foreach($img_all as $img_u)
@@ -130,6 +134,9 @@
 
 
                         </div>
+                      -->
+
+
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
                         <div class="p-d-wrapper">
@@ -182,6 +189,24 @@
 
 
 
+                              <div id="step1" style="font-size: 14px; font-weight: 600;">
+
+                                   </div>
+
+                                   <div id="step2" style="font-size: 14px; font-weight: 600;">
+
+                                   </div>
+
+                                   <div id="step3" style="font-size: 14px; font-weight: 600;">
+
+                                   </div>
+
+                                   <div id="step4" style="font-size: 14px; font-weight: 600;">
+
+                                   </div>
+
+
+
                           <!--
                             @if($objs->id_main == 1)
                             @foreach($my_option as $k)
@@ -231,14 +256,14 @@
                           </div <?php $i = 1; ?>>
 
 
-                            @if($objs->id_main == 1)
+                      <!-- @if($objs->id_main == 1)
                             @foreach($my_option as $k)
-                            <fieldset style="width: 100%;">
+                            <fieldset style="width: 100%;" >
                               <br />
 
                               @foreach($k->options as $j)
-                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
-                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
                                 <span style="font-size:13px"> {{$j->item_name}}</span>
                               </label>
                               @endforeach
@@ -259,6 +284,39 @@
                            @endforeach
                            @endif
 
+                         -->
+
+
+                         <fieldset style="width: 100%;" <?php $z = 0; ?>>
+                           <br  />
+
+
+                           @foreach($my_option[0]->options as $j)
+                           <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+
+                             <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}"
+                             @if($z <= 4)
+                             onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$z]->image)}}','image1'); images1num = 0;"
+                             @endif
+                              style="width: 30px; text-align: left; height: 18px;">
+
+                             <span style="font-size:13px"> {{$j->item_name}}</span>
+                           </label {{$z++}}>
+                           @endforeach
+
+                            <div class="f1-buttons">
+                                <button type="button" class="btn btn-previous"
+                                @if($i == 1)
+                                style="display:none;"
+                                @endif
+                                >กลับ</button>
+                                <button type="button" class="btn btn-next" @if($i == 4)
+                                style="display:none;"
+                                @endif >ต่อไป</button>
+
+                            </div>
+                            <br />
+                        </fieldset {{$i++}}>
 
 
 
@@ -517,7 +575,7 @@ $(".get_var_option5").change(function () {
 <script src="{{url('assets/js/scripts.js')}}"></script>
 <script type="text/javascript">
 
-$('input[name=step1]').on('ifChecked', function(event){
+$('input[name=size]').on('ifChecked', function(event){
   document.getElementById('step1').innerHTML = "Size : "+$(this).val();
   console.log($(this).val());
  });
@@ -536,6 +594,44 @@ $('input[name=step1]').on('ifChecked', function(event){
      document.getElementById('step4').innerHTML = "Wood : "+$(this).val();
      console.log($(this).val());
     });
+
+
+    function changeImage(imgName, name)
+     {
+        image = document.getElementById(name);
+        image.src = imgName;
+     }
+
+   var images1 = ["http://placehold.it/100x100","http://placehold.it/200x200","http://placehold.it/300x300"];
+   var images1num = 0;
+
+   function changeImageClick(num)
+   {
+           if(num == 1)
+           {
+               images1num = (images1num + 1) % images1.length;
+               changeImage(images1[images1num],'image1');
+
+               var input = document.getElementsByTagName('input');
+               var nextInput = false;
+
+               for(var i = 0; i < input.length; i++)
+               {
+                   if(input[i].checked == true && input[i].name == 'image1')
+                   {
+                       nextInput = true;
+
+                        if(nextInput)
+                       {
+                           input[(i+1)%images1.length].click();
+                           nextInput = false;
+                           break;
+                       }
+                   }
+               }
+           }
+   }
+
 
 </script>
 

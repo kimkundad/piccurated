@@ -2146,7 +2146,7 @@ return response()->json($response);
               $check_option = 0;
             }
 
-          //  dd($check_option);
+          //s  dd($my_option[0]);
             $data['check_option'] = $check_option;
       $data['objs'] = $cat;
 
