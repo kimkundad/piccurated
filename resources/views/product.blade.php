@@ -112,7 +112,14 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-12">
 
-                      <img src="{{url('assets/image/gallery/'.$img_all[0]->image)}}" name="image1" id="image1" ><br>
+                      <img src="{{url('assets/image/gallery/'.$img_all[0]->image)}}" name="image1" id="image1" ><br><br>
+                      <div class="row">
+                        @for ($x = 0; $x < $img_count; $x++)
+                            <img src="{{url('assets/image/gallery/'.$img_all[$x]->image)}}" onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$x]->image)}}','image1'); images1num = 0;" class="col-md-3"
+                            style="padding: 5px; height:100%"
+                            name="image1" id="image1" >
+                        @endfor
+                      </div>
 
                       <!--
                         <div class="single-product-image product-image-slider fix">
@@ -294,7 +301,7 @@
 
                            @foreach($my_option[0]->options as $j)
                            <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
-                            
+
                              <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}"
                              @if($img_count == 1)
 
