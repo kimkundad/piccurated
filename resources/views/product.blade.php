@@ -89,6 +89,16 @@
     text-transform: uppercase;
    font-weight: 100;
 }
+.add-to-cart{
+  background: #bda87f none repeat scroll 0 0;
+    border-radius: 29px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 40px;
+    margin-left: 15px;
+    padding: 0 41px;
+    text-transform: uppercase;
+}
 </style>
 @stop('stylesheet')
 @section('content')
@@ -183,8 +193,8 @@
                                   <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
                                   <input type="hidden" name="check_option" value="{{$check_option}}" >
 
-                                  <a href="javascript:$('#my_form').submit();" id="subtip_to" style="display:none">Add to cart</a>
-                                  <a  id="subtip_weit" data-toggle="modal" data-target="#exampleModalCenter" style="display:none">Add to cart</a>
+
+
 
                                   <div style="padding-left:10px;" class="fb-share-button" data-href="https://piccurated.com/product/{{$objs->id_p}}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
                                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpiccurated.com%2Fproduct%2F{{$objs->id_p}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์</a>
@@ -389,16 +399,19 @@
                       <fieldset style="width: 100%;" >
                         <br />
 
-                        @foreach($my_option[3]->options  as $j)
-                        <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
-                          <input type="radio" name="{{$my_option[3]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[3]->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
-                          <span style="font-size:13px"> {{$j->item_name}}</span>
-                        </label>
-                        @endforeach
+                        <div id="final">
+                          @foreach($my_option[3]->options  as $j)
+                          <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+                            <input type="radio" name="{{$my_option[3]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[3]->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                            <span style="font-size:13px"> {{$j->item_name}}</span>
+                          </label>
+                          @endforeach
+                        </div>
+
 
                          <div class="f1-buttons">
                              <button type="button" class="btn btn-previous">กลับ</button>
-
+                             <a href="javascript:$('#my_form').submit();" id="final-btn" class="btn add-to-cart">Add to cart</a>
                          </div>
                          <br />
                      </fieldset >
@@ -410,23 +423,8 @@
 
 
 
-                            <!-- Modal -->
-                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLongTitle">แจ้งเตือน</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                  กรุณาเลือก ขนาดรูป, ชนิดกระดาษ เลือกกรอบรูปของสินค้าที่มีอยู่ด้วยค่ะ
-                                </div>
 
-                              </div>
-                            </div>
-                          </div>
+
 
                             <div class="p-d-buttons">
                                 <a >รายละเอียดสินค้า</a>
@@ -585,73 +583,7 @@
 
 <script>
 
-$(document).ready(function () {
 
-  var val_op = {{$check_option}};
-
-  if(val_op == 1){
-        var x = document.getElementById("subtip_to");
-        x.style.display = "none";
-        var y = document.getElementById("subtip_weit");
-        y.style.display = "block";
-      }else{
-        var x = document.getElementById("subtip_to");
-        x.style.display = "block";
-        var y = document.getElementById("subtip_weit");
-        y.style.display = "none";
-      }
-
-
-$(".get_var_option5").change(function () {
-
-   val_op = $('.get_var_option5:checked').val();
-
-
-   if(val_op == 11){
-         var x = document.getElementById("subtip_to");
-         x.style.display = "block";
-         var y = document.getElementById("subtip_weit");
-         y.style.display = "none";
-       } else if (val_op == 10){
-
-         var x = document.getElementById("subtip_to");
-         x.style.display = "none";
-         var y = document.getElementById("subtip_weit");
-         y.style.display = "block";
-
-         $(".get_var_option6").change(function () {
-          var val_op2 = $('.get_var_option6:checked').val();
-
-         if(val_op2 != 0){
-           var x = document.getElementById("subtip_to");
-           x.style.display = "block";
-           var y = document.getElementById("subtip_weit");
-           y.style.display = "none";
-         }else{
-
-
-
-         }
-
-         console.log(val_op2);
-         });
-
-
-       }else{
-
-
-
-
-       }
-  //  alert(val);
-
-  console.log(val_op);
-
-});
-
-
-
-});
 
 
 
@@ -660,28 +592,54 @@ $(".get_var_option5").change(function () {
 <script src="{{url('assets/js/scripts.js')}}"></script>
 <script type="text/javascript">
 
+var step1_1 = 0;
+var step2_2 = 0;
+var step3_3 = 0;
+var step4_4 = 0;
 
+
+$('#final-btn').hide();
 
 $('input[name=size]').click(function(){
   document.getElementById('step1').innerHTML = "ขนาดรูป : "+$(this).data("name");
-  console.log($(this).val());
+  step1_1 = $(this).data("name");
+  console.log(step1_1);
  });
 
  $('input[name=paper]').click(function(){
    document.getElementById('step2').innerHTML = "ชนิดกระดาษ : "+$(this).data("name");
-   console.log($(this).val());
+   step2_2 = $(this).data("name");
+   console.log(step2_2);
   });
 
   $('input[name=frame]').click(function(){
     document.getElementById('step3').innerHTML = "เลือกกรอบรูป : "+$(this).data("name");
-    console.log($(this).val());
+    step3_3 = $(this).val();
+    console.log(step3_3);
+    console.log(step1_1);
+    if(step1_1 != 0 && step3_3 != 0){
+      $("#final-btn").show();
+    }
+    if(step3_3 == 11){
+      $("#final").hide();
+    }else{
+      $("#final").show();
+    }
+
+
    });
 
    $('input[name=frame_color]').click(function(){
      document.getElementById('step4').innerHTML = "สีกรอบรูป : "+$(this).data("name");
-     console.log($(this).val());
+     step4_4 = +$(this).data("name");
+     console.log(step4_4);
     });
 
+
+
+
+
+//final-btn
 
     function changeImage(imgName, name)
      {
