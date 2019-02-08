@@ -302,7 +302,7 @@
                            @foreach($my_option[0]->options as $j)
                            <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
 
-                             <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}"
+                             <input type="radio" name="{{$my_option[0]->option_title}}" value="{{$j->id}}" data-name="{{$j->item_name}}"  class="get_var_option{{$my_option[0]->id_op}}" data-value="{{$j->id}}"
                              @if($img_count == 1)
 
                              @if($z <= 0)
@@ -339,18 +339,50 @@
                            @endforeach
 
                             <div class="f1-buttons">
-                                <button type="button" class="btn btn-previous"
-                                @if($i == 1)
-                                style="display:none;"
-                                @endif
-                                >กลับ</button>
-                                <button type="button" class="btn btn-next" @if($i == 4)
-                                style="display:none;"
-                                @endif >ต่อไป</button>
+                              <button type="button" class="btn btn-next">ต่อไป</button>
 
                             </div>
                             <br />
                         </fieldset {{$i++}}>
+
+
+
+                        <fieldset style="width: 100%;" >
+                          <br />
+
+                          @foreach($my_option[1]->options  as $j)
+                          <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+                            <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                            <span style="font-size:13px"> {{$j->item_name}}</span>
+                          </label>
+                          @endforeach
+
+                           <div class="f1-buttons">
+                               <button type="button" class="btn btn-previous">กลับ</button>
+                               <button type="button" class="btn btn-next">ต่อไป</button>
+
+                           </div>
+                           <br />
+                       </fieldset >
+
+
+                       <fieldset style="width: 100%;" >
+                         <br />
+
+                         @foreach($my_option[2]->options  as $j)
+                         <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
+                           <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
+                           <span style="font-size:13px"> {{$j->item_name}}</span>
+                         </label>
+                         @endforeach
+
+                          <div class="f1-buttons">
+                              <button type="button" class="btn btn-previous">กลับ</button>
+                              <button type="button" class="btn btn-next">ต่อไป</button>
+
+                          </div>
+                          <br />
+                      </fieldset >
 
 
 
@@ -609,8 +641,10 @@ $(".get_var_option5").change(function () {
 <script src="{{url('assets/js/scripts.js')}}"></script>
 <script type="text/javascript">
 
-$('input[name=size]').on('ifChecked', function(event){
-  document.getElementById('step1').innerHTML = "Size : "+$(this).val();
+
+
+$('input[name=size]').click(function(){
+  document.getElementById('step1').innerHTML = "ขนาดรูป : "+$(this).data("name");;
   console.log($(this).val());
  });
 
