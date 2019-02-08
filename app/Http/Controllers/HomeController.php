@@ -2152,7 +2152,7 @@ return response()->json($response);
               $check_option = 0;
             }
 
-          //s  dd($my_option[0]);
+          //  dd($img_count);
             $data['check_option'] = $check_option;
             $data['img_count'] = $img_count;
       $data['objs'] = $cat;
