@@ -2072,6 +2072,12 @@ return response()->json($response);
 
       $data['get_option'] = $get_option;
 
+      $img_count = DB::table('galleries')->select(
+          'galleries.*'
+          )
+          ->where('pro_id', $id)
+          ->count();
+
 
       $img_all = DB::table('galleries')->select(
           'galleries.*'
@@ -2148,6 +2154,7 @@ return response()->json($response);
 
           //s  dd($my_option[0]);
             $data['check_option'] = $check_option;
+            $data['img_count'] = $img_count;
       $data['objs'] = $cat;
 
       return view('product', $data);

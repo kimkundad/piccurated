@@ -295,9 +295,35 @@
                            <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
 
                              <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}"
+                             @if($img_count == 1)
+
+                             @if($z <= 1)
+                             onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$z]->image)}}','image1'); images1num = 0;"
+                             @endif
+
+                             @elseif($img_count == 2)
+
+                             @if($z <= 2)
+                             onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$z]->image)}}','image1'); images1num = 0;"
+                             @endif
+
+                             @elseif($img_count == 3)
+
+                             @if($z <= 3)
+                             onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$z]->image)}}','image1'); images1num = 0;"
+                             @endif
+
+                             @else
+
                              @if($z <= 4)
                              onclick="changeImage('{{url('assets/image/gallery/'.$img_all[$z]->image)}}','image1'); images1num = 0;"
                              @endif
+
+                             @endif
+
+
+
+
                               style="width: 30px; text-align: left; height: 18px;">
 
                              <span style="font-size:13px"> {{$j->item_name}}</span>
