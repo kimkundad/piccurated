@@ -21,7 +21,6 @@
       appId            : '355004925273070', // app id สามารถหาได้จากการสร้าง fb apps ดูลิงค์ด้านล่าง
       autoLogAppEvents : true,
       xfbml            : true,
-      greeting_dialog_display : hide,
       version          : 'v3.2'
     });
   };
@@ -38,6 +37,7 @@
 <div class="fb-customerchat"
   attribution=setup_tool
   page_id="943133742544793"
+  greeting_dialog_display="hide"
   theme_color="#6699cc">
 </div>
 
