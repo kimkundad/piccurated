@@ -94,7 +94,7 @@ class HomeController extends Controller
                   )
                   ->where('products.pro_status_show', 5)
                   ->where('products.pro_status', 1)
-                  ->limit(10)
+                  ->limit(20)
                   ->get();
 
                   $cat_rec = DB::table('products')->select(

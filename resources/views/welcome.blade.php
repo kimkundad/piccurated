@@ -435,9 +435,11 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 	                <h2><span>New products</span></h2>
 	            </div>
 	        </div>
-	        <div class="container fix">
+	        <div class="container">
 	            <div class="custom-row">
-                    <div class="feature-product-carousel owl-carousel">
+
+
+              <!--      <div class="feature-product-carousel owl-carousel">
 
 
                       @if($objs_new)
@@ -484,13 +486,47 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                         @endforeach
                @endif
 
+             </div> -->
+
+
+
+
+
+                    <div class="slider-pro" id="my-slider2">
+
+                     	<div class="sp-slides">
+
+
+                         @if($objs_new)
+                           @foreach($objs_new as $objs_news)
+
+
+                         <div class="sp-slide">
+                   				<a href="{{url('assets/image/product/'.$objs_news->pro_image)}}">
+                   					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
+                   						data-src="{{url('assets/image/product/'.$objs_news->pro_image)}}"
+                   						data-retina="{{url('assets/image/product/'.$objs_news->pro_image)}}"/>
+                   				</a>
+                   				<p class="sp-caption"><a class="banner-image" href="{{url('product/'.$objs_news->id_p)}}">{{str_limit($objs_news->pro_name, 38, '..')}} <br /> <span style="  font-weight: 400;">฿{{number_format((float)$objs_news->pro_price , 2, '.', '')}}</span></a></p>
+
+                   			</div>
+
+                         @endforeach
+                @endif
 
 
 
 
 
 
-                    </div>
+
+                     	</div>
+
+                     </div>
+
+
+
+
 	            </div>
 	        </div>
 	    </div>
@@ -519,16 +555,43 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 	        <div class="container">
 
 
-	            <div class="row">
-                @if($objs_rec)
-                  @foreach($objs_rec as $objs_recs)
-	                <div class="col-md-4">
-                        <a class="banner-image" style="padding-top:10px;" href="{{url('product/'.$objs_recs->id_p)}}"><img src="{{url('assets/image/product/'.$objs_recs->pro_image)}}" alt="{{$objs_recs->pro_name}}"></a>
+
+
+
+              <div class="row grid">
+
+                <!--
+                @if($objs_group)
+                  @foreach($objs_group as $objs_groups)
+	                <div class="col-md-3 grid-item">
+                        <a class="banner-image" href="{{url('product/'.$objs_groups->id_p)}}">
+                            <img src="{{url('assets/image/product/'.$objs_groups->pro_image)}}" alt="{{$objs_groups->pro_name}}">
+                            <span class="banner-hover-text">{{str_limit($objs_groups->pro_name, 38, '..')}}</span>
+                        </a>
 	                </div>
                   @endforeach
-         @endif
+                  @endif
+                -->
+
+                @if($objs_rec)
+                  @foreach($objs_rec as $objs_recs)
+                  <div class="col-md-4 grid-item grid-item2">
+                  <div class="thumb1" style="background: url({{url('assets/image/product/'.$objs_recs->pro_image)}}) 50% 50% no-repeat;">
+                    <a href="{{url('product/'.$objs_recs->id_p)}}">
+                      <span class="banner-hover-text">{{str_limit($objs_recs->pro_name, 38, '..')}}<br />
+                        <button>฿{{number_format((float)$objs_recs->pro_price , 2, '.', '')}}</button>
+                      </span>
+                    </a>
+
+                  </div>
+                  </div>
+                  @endforeach
+                @endif
+
 
 	            </div>
+
+
 	        </div>
 	    </div>
 
@@ -753,6 +816,14 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
       autoSlideSize: true
     });
 
+    $( '#my-slider2' ).sliderPro({
+      width: 300,
+      height: 300,
+      visibleSize: '100%',
+      forceSize: 'fullWidth',
+      autoSlideSize: true
+    });
+
     // instantiate fancybox when a link is clicked
 		$( ".slider-pro" ).each(function(){
 			var slider = $( this );
@@ -784,6 +855,9 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 	});
 </script>
+
+
+
 
 
 @stop('scripts')
