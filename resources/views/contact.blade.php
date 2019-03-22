@@ -154,7 +154,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                     map: map
                 });
             }
-            
+
 
         </script>
 
