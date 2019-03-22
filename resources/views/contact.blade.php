@@ -81,7 +81,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                       <strong>Please enter your message!</strong>
                                   </span>
                               @endif
-                            <div class="g-recaptcha" data-sitekey="6LfYpXAUAAAAADHUnng4xf7L4T2HI58XnpmNYfoI"></div>
+                            <div class="g-recaptcha" data-sitekey="6Lc9dJkUAAAAAJBSI2GooWzxuGPcYiTcVmFO44JX"></div>
                             @if ($errors->has('g-recaptcha-response'))
                                   <span class="help-block">
                                       <strong>Robot?!</strong>
