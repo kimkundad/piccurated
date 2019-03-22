@@ -68,7 +68,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                 <tr>
                                     <th class="p-image"></th>
                                     <th class="p-name">Product Name</th>
-                                    <th class="p-amount"></th>
+                                    <th class="p-amount">Price</th>
                                     <th class="p-quantity">Qty</th>
                                     <th class="p-total">SubTotal</th>
                                     <th class="p-edit">Edit</th>
@@ -92,8 +92,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                   $total_sum = 0;
 
                                   foreach(Session::get('cart') as $u){
-                                    $total += $u['data'][2]['sum_price'];
-                                    $total_sum = $u['data'][2]['sum_price']*$u['data'][1]['sum_item'];
+                                    $total += ($u['data'][2]['sum_price']+$u['data']['option_price'])*$u['data'][1]['sum_item'];
+                                    $total_sum = $u['data'][2]['sum_price']+$u['data']['option_price'];
                                     $total_item += $u['data'][1]['sum_item'];
                                ?>
 
@@ -106,14 +106,26 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                     <td class="p-image">
                                         <a href="{{url('product/'.$u['data']['id'])}}"><img alt="" src="{{url('assets/image/product/'.$u['data']['image'])}}"></a>
                                     </td>
-                                    <td class="p-name"><a href="{{url('product/'.$u['data']['id'])}}">{{$u['data']['name']}}</a></td>
-                                    <td class="p-amount"></td>
+                                    <td class="p-name">
+                                      <a href="{{url('product/'.$u['data']['id'])}}">{{$u['data']['name']}}</a>
+                                      @if($u['data']['size'] != null)
+                                        <p>
+                                          {{$u['data']['size_name']}}<br />
+                                          {{$u['data']['paper_name']}}<br />
+                                          {{$u['data']['frame_name']}}<br />
+                                          {{$u['data']['frame_color_name']}}
+                                        </p>
+                                      @else
+
+                                      @endif
+                                    </td>
+                                    <td class="p-amount">{{$u['data']['price']}} </td>
                                     <td class="p-quantity"><input maxlength="12" type="text" value="{{$u['data'][1]['sum_item']}}" name="qty">
                                     <input type="hidden" value="{{$u['data']['id']}}" name="pro_id">
                                   </td>
-                                    <td class="p-total"><span>฿{{$total_sum}}.00</span></td>
+                                    <td class="p-total"><span>฿{{$total_sum*$u['data'][1]['sum_item']}} </span></td>
                                     <td class="edit">
-                                      <a href="{{url('/')}}"><img src="{{url('home/assets/img/icon/delte.png')}}" style="margin-right:8px;" alt="Delete Item" title="Delete Item"></a>
+                                      <a href="{{url('del_cart/'.$u['data']['id'])}}"><img src="{{url('home/assets/img/icon/delte.png')}}" style="margin-right:8px;" alt="Delete Item" title="Delete Item"></a>
                                       <a href="#" onclick="document.getElementById('myform-{{$u['data']['id']}}').submit(); return false;"><img src="{{url('home/assets/img/icon/32303.svg')}}" alt="Update Cart" style="height:20px;" title="Update Cart"></a>
                                     </td>
                                     </form>
@@ -177,7 +189,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                       ฿{{Session::get('coupon.price')}}
                                       @endif
                                     </span></p>
-                                    <p class="total">Grandtotal <span>฿{{$total-Session::get('coupon.price')}}.00</span></p>
+                                    <p class="total">Grandtotal <span>฿{{$total-Session::get('coupon.price')}}</span></p>
                                     <a class="buttons" href="{{url('/checkout')}}"><span>Procced to checkout</span></a>
                                     <div class="clearfix"></div>
 

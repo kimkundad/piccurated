@@ -99,6 +99,63 @@
     padding: 0 41px;
     text-transform: uppercase;
 }
+
+
+/*  */
+
+.numbers-row {
+    position: relative;
+    width: 97px;
+    height: 40px;
+    overflow: visible;
+}
+input.qty2 {
+    position: relative;
+    width: 35px;
+    height: 40px;
+    border-radius: none;
+    text-align: center;
+    left: 31px;
+    font-size: 12px;
+    padding: 5px;
+}
+.button_inc {
+    text-indent: -9999px;
+    cursor: pointer;
+    position: absolute;
+    width: 33px;
+    height: 40px;
+    z-index: 9;
+}
+.inc {
+    background: #fff url({{url('assets/image/plus.png')}}) no-repeat center center;
+    right: 0;
+    top: 0;
+    border: 1px solid #ccc;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.dec {
+    background: #fff url({{url('assets/image/minus.png')}}) no-repeat center center;
+    border: 1px solid #ccc;
+    left: 0;
+    top: 0;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.f1-buttons {
+    text-align: center;
+}
+/*  */
+
 </style>
 @stop('stylesheet')
 @section('content')
@@ -188,8 +245,12 @@
 
 
                                   {{ csrf_field() }}
-                                  <label for="qty">qty</label>
-                                  <input type="text" name="qty" value="1" placeholder="1" >
+
+                                  <div class="numbers-row">
+
+                                  <input type="text" value="1" id="quantity_" class="qty2 form-control" placeholder="1" name="qty">
+                                  </div>
+
                                   <input type="hidden" name="pro_id" value="{{$objs->id_p}}" >
                                   <input type="hidden" name="check_option" value="{{$check_option}}" >
 
@@ -347,8 +408,9 @@
                              <span style="font-size:13px"> {{$j->item_name}}</span>
                            </label {{$z++}}>
                            @endforeach
-
+<br /><br />
                             <div class="f1-buttons">
+
                               <button type="button" class="btn btn-next">ต่อไป</button>
 
                             </div>
@@ -366,7 +428,7 @@
                             <span style="font-size:13px"> {{$j->item_name}}</span>
                           </label>
                           @endforeach
-
+                          <br />
                            <div class="f1-buttons">
                                <button type="button" class="btn btn-previous">กลับ</button>
                                <button type="button" class="btn btn-next">ต่อไป</button>
@@ -385,10 +447,10 @@
                            <span style="font-size:13px"> {{$j->item_name}}</span>
                          </label>
                          @endforeach
-
+<br />
                           <div class="f1-buttons">
                               <button type="button" class="btn btn-previous">กลับ</button>
-                              <button type="button" class="btn btn-next">ต่อไป</button>
+                              <button type="button" class="btn btn-next next_step3">ต่อไป</button>
 
                           </div>
                           <br />
@@ -408,7 +470,7 @@
                           @endforeach
                         </div>
 
-
+<br />
                          <div class="f1-buttons">
                              <button type="button" class="btn btn-previous">กลับ</button>
                              <a href="javascript:$('#my_form').submit();" id="final-btn" class="btn add-to-cart">Add to cart</a>
@@ -609,6 +671,10 @@ $('input[name=size]').click(function(){
  $('input[name=paper]').click(function(){
    document.getElementById('step2').innerHTML = "ชนิดกระดาษ : "+$(this).data("name");
    step2_2 = $(this).data("name");
+
+   if(step2_2 == 'canvas'){
+     $("#final").hide();
+   }
    console.log(step2_2);
   });
 
@@ -616,18 +682,42 @@ $('input[name=size]').click(function(){
     document.getElementById('step3').innerHTML = "เลือกกรอบรูป : "+$(this).data("name");
     step3_3 = $(this).val();
     console.log(step3_3);
-    console.log(step1_1);
+  //  console.log(step1_1);
     if(step1_1 != 0 && step3_3 != 0){
       $("#final-btn").show();
     }
     if(step3_3 == 11){
       $("#final").hide();
     }else{
-      $("#final").show();
+
+      if(step2_2 == 'canvas' && step3_3 == 10){
+        $("#final").hide();
+      }else{
+        $("#final").show();
+      }
+
     }
 
 
    });
+
+   $('.next_step3').click(function(){
+
+     if(step2_2 == 'canvas' && step3_3 == 10 || step2_2 == 'canvas' && step3_3 == 11){
+       $("#final").hide();
+     }
+
+     if(step3_3 == null){
+       $("#final").hide();
+     }
+
+     if(step2_2 == 'Paper' && step3_3 == 10){
+       $("#final").show();
+     }
+
+     });
+
+
 
    $('input[name=frame_color]').click(function(){
      document.getElementById('step4').innerHTML = "สีกรอบรูป : "+$(this).data("name");
@@ -677,6 +767,25 @@ $('input[name=size]').click(function(){
            }
    }
 
+
+   $(".numbers-row").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
+       $(".button_inc").on("click", function () {
+
+           var $button = $(this);
+           var oldValue = $button.parent().find("input").val();
+
+           if ($button.text() == "+") {
+               var newVal = parseFloat(oldValue) + 1;
+           } else {
+               // Don't allow decrementing below zero
+               if (oldValue > 1) {
+                   var newVal = parseFloat(oldValue) - 1;
+               } else {
+                   newVal = 1;
+               }
+           }
+           $button.parent().find("input").val(newVal);
+       });
 
 </script>
 

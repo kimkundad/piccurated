@@ -135,7 +135,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK4LGFBZ_9xcolNkmikZcMrv22xvOBYhM"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK4LGFBZ_9xcolNkmikZcMrv22xvOBYhM&callback=initMap"></script>
         <script>
             google.maps.event.addDomListener(window, 'load', init);
             function init() {

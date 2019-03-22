@@ -100,10 +100,10 @@
 
                                  <div class="cart-dropdown-item">
                                      <div class="cart-p-image">
-                                         <a href="cart.html"><img src="{{url('assets/image/product/'.$u['data']['image'])}}" style="height:70px;" alt=""></a>
+                                         <a href="{{url('cart')}}"><img src="{{url('assets/image/product/'.$u['data']['image'])}}" style="height:70px;" alt=""></a>
                                      </div>
                                      <div class="cart-p-text">
-                                         <a href="cart.html" class="cart-p-name">{{$u['data']['name']}}</a>
+                                         <a href="{{url('cart')}}" class="cart-p-name">{{$u['data']['name']}}</a>
                                          <span>฿{{$u['data']['price']}}.00</span>
                                          <div class="cart-p-qty">
 

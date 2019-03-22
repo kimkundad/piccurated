@@ -1403,7 +1403,7 @@ return response()->json($response);
 
     public function cart(){
 
-    //  dd(Session::get('cart'));
+    //dd(Session::get('cart'));
 
       $obj1 = DB::table('categories')->select(
             'categories.*'
@@ -1898,6 +1898,11 @@ return response()->json($response);
 
          $totol_price_op = 0;
 
+         $size_name = null;
+         $paper_name = null;
+         $frame_name = null;
+         $frame_color_name = null;
+
        }else{
 
          $size = $request['size'];
@@ -1925,6 +1930,26 @@ return response()->json($response);
 
                            $totol_price_op += $get_pri_frame->item_price;
 
+                           if(isset($frame_color)){
+
+                             $get_frame_color = DB::table('option_items')
+                                   ->where('id', $frame_color)
+                                   ->first();
+
+                                   $frame_color_name = $get_frame_color->item_name;
+
+                           }else{
+                             $frame_color_name = ' ';
+                           }
+
+
+
+
+                           $size_name = $get_pri_size->item_name;
+                           $paper_name = $get_pri_paper->item_name;
+                           $frame_name = $get_pri_frame->item_name;
+
+
 
        }
 
@@ -1932,6 +1957,12 @@ return response()->json($response);
        $paper = $request['paper'];
        $frame = $request['frame'];
        $frame_color = $request['frame_color'];
+
+       if(isset($totol_price_op)){
+
+       }else{
+         $totol_price_op = 0;
+       }
 
       $obj = DB::table('products')->select(
             'products.*'
@@ -1948,10 +1979,15 @@ return response()->json($response);
           'paper' => $paper,
           'frame' => $frame,
           'frame_color' => $frame_color,
+          'size_name' => $size_name,
+          'paper_name' => $paper_name,
+          'frame_name' => $frame_name,
+          'frame_color_name' => $frame_color_name,
           'price' => $obj->pro_price,
+          'option_price' => $totol_price_op,
           ['status' => 0],
           ['sum_item' => $request['qty']],
-          ['sum_price' => ($obj->pro_price + $totol_price_op)]
+          ['sum_price' => ($obj->pro_price)]
         ];
 
         Session::put('cart.'.$obj->id, ['data' => $item]);
@@ -1969,6 +2005,8 @@ return response()->json($response);
                 $u->options = $options;
               }
         $data['cat1'] = $obj1;
+
+
 
        return view('cart', $data);
 
@@ -1995,7 +2033,7 @@ return response()->json($response);
 
              $total_money_ses= $obj->pro_price * $qty;
           //   dd($total_money_ses)
-       session()->put('cart.'.$id.'.data.2', ['sum_price' => $total_money_ses]);
+
        session()->put('cart.'.$id.'.data.1', ['sum_item' => $qty]);
 
        $obj1 = DB::table('categories')->select(
