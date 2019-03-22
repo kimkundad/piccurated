@@ -133,7 +133,9 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 @endsection
 
 @section('scripts')
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlY4fHuhl7V8DTkRV2y_wLSqsdDQrEsXI&callback=initMap"></script>
@@ -154,6 +156,15 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                     map: map
                 });
             }
+
+
         </script>
+
+
+        <script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
 
 @stop('scripts')
