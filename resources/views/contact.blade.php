@@ -133,7 +133,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 @endsection
 
 @section('scripts')
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+<script src="https://www.google.com/recaptcha/api.js"
         async defer>
     </script>
 
@@ -162,9 +162,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 
         <script type="text/javascript">
-  var onloadCallback = function() {
-    alert("grecaptcha is ready!");
-  };
+
 </script>
 
 @stop('scripts')
