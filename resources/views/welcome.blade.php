@@ -677,8 +677,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
       <div class="blog-area pb-55">
 	        <div class="container text-center">
 	            <div class="section-title">
-                    <span>Latest New</span>
-	                <h2><span>FROM OUR BLOG</span></h2>
+                    <!--<span>Latest New</span>-->
+	                <h2><span>NEW MENU</span></h2>
 	            </div>
 	        </div>
 
@@ -688,14 +688,13 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 
       	            <div class="row">
-                      @if($blog_new)
-                        @foreach($blog_new as $u)
+                      @if($cattegory_subs)
+                        @foreach($cattegory_subs as $u)
       	                <div class="col-md-4">
-                              <a class="banner-image" style="padding-top:10px;" href="{{url('blog/'.$u->id)}}"><img src="{{url('assets/image/blog/'.$u->blog_img)}}" alt="{{$u->blog_title}}"></a>
+                              <a class="banner-image" style="padding-top:10px;" href="{{url('cattegory_subs/'.$u->id)}}"><img src="{{url('assets/image/category_img_a/'.$u->image_cat)}}" alt="{{$u->name_cat}}"></a>
                               <div class="blog-text">
-                                  <h5><a href="{{url('blog/'.$u->id)}}">{{$u->blog_title}}</a></h5>
+                                  <h5><a href="{{url('blog/'.$u->id)}}">{{$u->name_cat}}</a></h5>
 
-                                  <a href="{{url('blog/'.$u->id)}}">Read More</a>
                               </div>
       	                </div>
                         @endforeach

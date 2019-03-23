@@ -37,6 +37,7 @@ Route::get('category_blog/{id}', 'HomeController@category_blog')->name('category
 Route::get('get_blog', 'HomeController@get_blog')->name('blog');
 Route::post('/add_contact', 'HomeController@add_contact');
 
+Route::get('cattegory_subs/{id}', 'HomeController@cattegory_subs');
 Route::get('/contact_success', 'HomeController@contact_success');
 
 Route::get('/paypal_success', 'HomeController@paypal_success');
@@ -95,7 +96,6 @@ Route::group(['middleware' => 'admin'], function() {
   Route::resource('admin/banner', 'BannerController');
   Route::resource('admin/main_category', 'McatController');
 
-
   Route::post('add_tags/', 'ProductController@add_tags');
 
   Route::post('api/api_banner_status', 'BannerController@api_banner_status');
@@ -122,5 +122,12 @@ Route::group(['middleware' => 'admin'], function() {
   Route::post('admin/file/posts', 'BlogController@imagess');
 
   Route::resource('admin/contact_admin', 'EnvelopeController');
+
+  Route::get('admin/get_pay_info', 'PaymentController@get_pay_info');
+  Route::post('admin/del_pay_info', 'PaymentController@del_pay_info');
+  Route::get('admin/edit_pay_info/{id}/edit', 'PaymentController@edit_pay_info');
+  Route::post('admin/uodate_pay_user', 'PaymentController@uodate_pay_user');
+  Route::resource('admin/cattegory_subs', 'CarSubaController');
+
 
   });

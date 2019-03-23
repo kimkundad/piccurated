@@ -194,6 +194,25 @@
 
 
                                   <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่พิเศษ*</label>
+          													<div class="col-md-8">
+          														<select name="pro_category" class="form-control mb-md" required>
+
+                                        <option value="">-- เลือกหมวดหมู่พิเศษ --</option>
+  								                        @foreach($cattegory_sub as $cattegory_subs)
+  													                 <option value="{{$cattegory_subs->id}}"
+                                               @if( $objs->cattegory_subs_id == $cattegory_subs->id)
+                                               selected='selected'
+                                               @endif
+                                               >{{$cattegory_subs->name_cat}}</option>
+  													              @endforeach
+  								                    </select>
+
+          													</div>
+          												</div>
+
+
+                                  <div class="form-group">
           													<label class="col-md-3 control-label" for="profileAddress">ประเภทสินค้า*</label>
           													<div class="col-md-8">
           														<select name="pro_status_show" class="form-control mb-md" required>

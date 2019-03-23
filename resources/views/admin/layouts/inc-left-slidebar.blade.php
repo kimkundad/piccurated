@@ -56,6 +56,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										</a>
 									</li>
 
+                  <li {{ (Request::is('admin/cattegory_subs*') ? 'class=nav-expanded' : '') }} >
+										<a href="{{url('admin/cattegory_subs/')}}"  >
+											<i class="fa fa-tasks" aria-hidden="true"></i>
+											<span>หมวดหมู่พิเศษ</span>
+										</a>
+									</li>
+
 
 
                   <li {{ (Request::is('admin/product*') ? 'class=nav-expanded' : '') }} >
@@ -76,6 +83,13 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 										<a href="{{url('admin/order/')}}"  >
 											<i class="fa fa-copy" aria-hidden="true"></i>
 											<span>Order สินค้า</span>
+										</a>
+									</li>
+
+                  <li {{ (Request::is('admin/get_pay_info*') ? 'class=nav-expanded' : '') }}  {{ (Request::is('admin/edit_pay_info*') ? 'class=nav-expanded' : '') }}>
+										<a href="{{url('admin/get_pay_info/')}}" >
+											<i class="fa fa-coffee" aria-hidden="true"></i>
+											<span>แจ้งการชำระเงิน</span>
 										</a>
 									</li>
 

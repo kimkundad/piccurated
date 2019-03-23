@@ -80,7 +80,7 @@
           														</div>
           												</div>
 
-                                  
+
 
 
 
@@ -125,6 +125,21 @@
                                         <option value="">-- เลือกหมวดหมู่ --</option>
   								                        @foreach($category as $categorys)
   													                 <option value="{{$categorys->id}}">{{$categorys->name_cat}}</option>
+  													              @endforeach
+  								                    </select>
+          								            </select>
+          													</div>
+          												</div>
+
+
+                                  <div class="form-group">
+          													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่พิเศษ*</label>
+          													<div class="col-md-8">
+          														<select name="pro_category" class="form-control mb-md" required>
+
+                                        <option value="">-- เลือกหมวดหมู่พิเศษ --</option>
+  								                        @foreach($cattegory_sub as $cattegory_subs)
+  													                 <option value="{{$cattegory_subs->id}}">{{$cattegory_subs->name_cat}}</option>
   													              @endforeach
   								                    </select>
           								            </select>

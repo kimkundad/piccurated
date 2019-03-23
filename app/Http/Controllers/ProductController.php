@@ -10,6 +10,7 @@ use App\product;
 use App\category;
 use App\gallery;
 use App\product_item;
+use App\cattegory_sub;
 use App\tag;
 
 class ProductController extends Controller
@@ -46,6 +47,9 @@ class ProductController extends Controller
     public function create()
     {
         //
+
+        $cattegory_sub = cattegory_sub::all();
+        $data['cattegory_sub'] = $cattegory_sub;
         $sub_category = category::all();
         $data['category'] = $sub_category;
         $data['method'] = "post";
@@ -195,6 +199,9 @@ class ProductController extends Controller
             $data['img_all'] = $img_all;
             $sub_category = category::all();
             $data['category'] = $sub_category;
+
+            $cattegory_sub = cattegory_sub::all();
+            $data['cattegory_sub'] = $cattegory_sub;
 
             $cat = DB::table('products')->select(
               'products.*',

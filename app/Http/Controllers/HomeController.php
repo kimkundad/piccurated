@@ -106,6 +106,14 @@ class HomeController extends Controller
                         ->limit(8)
                         ->get();
 
+                        $cattegory_subs = DB::table('cattegory_subs')->select(
+                              'cattegory_subs.*'
+                              )
+                              ->limit(3)
+                              ->get();
+
+                        $data['cattegory_subs'] = $cattegory_subs;
+
       $data['objs_group'] = $cat_group;
       $data['objs_award'] = $cat_award;
       $data['objs_new'] = $cat_new;
@@ -1264,6 +1272,75 @@ return response()->json($response);
 
 
       return view('category2', $data);
+    }
+
+
+    public function cattegory_subs(Request $request, $id){
+
+      $Sort_by = $request['Sort_by'];
+
+      $cat1= DB::table('cattegory_subs')->select(
+            'cattegory_subs.*'
+            )
+            ->get();
+
+            foreach($cat1 as $u){
+
+
+              $get_count = DB::table('products')->select(
+                    'products.*'
+                    )
+                    ->where('cattegory_subs_id', $u->id)
+                    ->count();
+            $u->count = $get_count;
+
+            }
+
+
+      $data['cat1'] = $cat1;
+
+      $obj1 = DB::table('cattegory_subs')->select(
+            'cattegory_subs.*'
+            )
+            ->where('id', $id)
+            ->first();
+
+
+            $category_count = DB::table('products')->select(
+                  'products.*'
+                  )
+                  ->where('cattegory_subs_id', $id)
+                  ->count();
+
+            $data['category_count'] = $category_count;
+            $data['category'] = $obj1;
+
+
+            if($Sort_by == 'p-name'){
+              $sort_set = 1;
+
+              $product = DB::table('products')
+                ->where('cattegory_subs_id', $id)
+                ->orderBy('pro_name', 'asc')
+                ->paginate(16);
+
+            }else{
+              $sort_set = 2;
+
+              $product = DB::table('products')
+                ->where('cattegory_subs_id', $id)
+                ->orderBy('pro_price', 'asc')
+                ->paginate(16);
+
+            }
+            $data['product'] = $product;
+            $data['sort_set'] = $sort_set;
+
+
+
+
+            return view('cattegory_subs', $data);
+
     }
 
 

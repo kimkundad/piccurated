@@ -10,6 +10,7 @@ use PayPal\Api\Item;
 use Illuminate\Support\Facades\DB;
 use PayPal\Api\ItemList;
 use App\order;
+use App\confirm_payment;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
@@ -38,6 +39,49 @@ class PaymentController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
+    }
+
+    public function get_pay_info(){
+
+      $cat = DB::table('confirm_payments')->select(
+            'confirm_payments.*',
+            'confirm_payments.id as ids',
+            'banks.*'
+            )
+            ->leftjoin('banks', 'banks.id',  'confirm_payments.bank')
+            ->get();
+
+            $data['objs'] = $cat;
+            $data['datahead'] = "แจ้งการชำระเงิน";
+            return view('admin.get_pay_info.index', $data);
+    }
+
+    public function edit_pay_info($id){
+
+      $cat = DB::table('confirm_payments')->select(
+            'confirm_payments.*',
+            'confirm_payments.id as ids',
+            'banks.*'
+            )
+            ->leftjoin('banks', 'banks.id',  'confirm_payments.bank')
+            ->where('confirm_payments.id', $id)
+            ->first();
+
+            $data['objs'] = $cat;
+
+          $data['datahead'] = "แจ้งการชำระเงิน";
+          return view('admin.get_pay_info.edit', $data);
+    }
+
+    public function uodate_pay_user(Request $request){
+
+      $id = $request['id'];
+      $package = confirm_payment::find($id);
+      $package->note = $request['note_detail'];
+      $package->confirm_status = $request['confirm_status'];
+      $package->save();
+
+      return redirect(url('admin/edit_pay_info/'.$id.'/edit'))->with('edit_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
 
     public function payWithpaypal(Request $request)
