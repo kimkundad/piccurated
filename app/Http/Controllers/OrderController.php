@@ -302,10 +302,10 @@ class OrderController extends Controller
 
                                  Mail::send('mail.ems_tracking', $data_toview, function($message) use ($data)
                                  {
-                                     $message->from($data['sender'], 'fulryu แจ้งการส่งสินค้า');
+                                     $message->from($data['sender'], 'Piccurated แจ้งการส่งสินค้า');
                                      $message->to($data['emailto'])
-                                     ->replyTo($data['sender'], 'fulryu แจ้งการส่งสินค้า.')
-                                     ->subject('แจ้งการส่งสินค้า fulryu');
+                                     ->replyTo($data['sender'], 'Piccurated แจ้งการส่งสินค้า.')
+                                     ->subject('แจ้งการส่งสินค้า Piccurated');
 
                                      //echo 'Confirmation email after registration is completed.';
                                  });

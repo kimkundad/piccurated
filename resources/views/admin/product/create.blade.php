@@ -4,7 +4,30 @@
 
 
 
+<link href="{{url('assets/text/dist/summernote.css')}}?v2" rel="stylesheet">
+
 @section('admin.content')
+<style>
+.note-editor.note-frame .note-editing-area .note-editable{
+      padding: 30px;
+}
+.select2-search-choice-close{
+  top: 10px !important;
+  color: #999;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 3px;
+    background:none !important;
+}
+.select2-search-choice-close:after {
+    content: 'x';
+    font-size: 10px;
+    color: #000!important;
+    padding: 0 4px;
+    font-weight: bold;
+}
+</style>
 
 
 
@@ -135,7 +158,7 @@
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileAddress">หมวดหมู่พิเศษ*</label>
           													<div class="col-md-8">
-          														<select name="pro_category" class="form-control mb-md" required>
+          														<select name="pro_category_a" class="form-control mb-md" >
 
                                         <option value="">-- เลือกหมวดหมู่พิเศษ --</option>
   								                        @foreach($cattegory_sub as $cattegory_subs)
@@ -198,7 +221,7 @@
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">คำอธิบาย*</label>
           													<div class="col-md-8">
-          														<textarea class="form-control" name="pro_title" rows="5">{{ old('pro_title') }}</textarea>
+          														<textarea class="form-control" name="pro_title" id="summernote" rows="5">{{ old('pro_title') }}</textarea>
           														</div>
           												</div>
 
@@ -225,7 +248,7 @@
                                   <div class="form-group">
           													<label class="col-md-3 control-label" for="profileFirstName">รายละเอียดสินค้า*</label>
           													<div class="col-md-8">
-          														<textarea class="form-control" name="pro_name_detail" rows="6">{{ old('pro_name_detail') }}</textarea>
+          														<textarea class="form-control" name="pro_name_detail" id="summernote2" rows="6">{{ old('pro_name_detail') }}</textarea>
           														</div>
           												</div>
 
@@ -317,5 +340,32 @@ var notice = new PNotify({
     });
 </script>
 @endif
+
+
+<script src="{{URL::asset('assets/text/dist/summernote.js?v4')}}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#summernote').summernote({
+
+    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    disableDragAndDrop: true,            // set editor height
+    placeholder: 'เนื้อหาบทความ',
+    minHeight: 300,
+    focus: true                // set focus to editable area after initializing summernote
+  });
+  $('#summernote2').summernote({
+
+    fontNames: ['Prompt' ,'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+    disableDragAndDrop: true,            // set editor height
+    placeholder: 'เนื้อหาบทความ',
+    minHeight: 300,
+    focus: true                // set focus to editable area after initializing summernote
+  });
+});
+var postForm = function() {
+var content = $('textarea[name="blog_detail"]').html($('#summernote').code());
+}
+</script>
 
 @stop('scripts')

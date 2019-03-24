@@ -261,8 +261,22 @@ input.qty2 {
                                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpiccurated.com%2Fproduct%2F{{$objs->id_p}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์</a>
                                   </div>
 
+                                  @if($objs->id_main == 1)
+                                  @else
+                                  <a href="javascript:$('#my_form').submit();"  class="btn add-to-cart">Add to cart</a>
+                                  @endif
+
+
                             </div>
+
+
+
+
+
+                            @if($objs->id_main == 1)
+
                             <hr />
+
                             <div class="row">
 
 
@@ -285,29 +299,7 @@ input.qty2 {
 
 
 
-                          <!--
-                            @if($objs->id_main == 1)
-                            @foreach($my_option as $k)
-                            <div class="col-md-6">
-                              <p class="model-stock">
-                                {{$k->option_name}}
-                                @if($k->id == 6)
-                                <span class="text-danger">*ถ้าเลือก No Frame ไม่ต้องเลือก</span>
-                                @endif
-                              </p>
 
-                              @foreach($k->options as $j)
-
-                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;">
-                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}" class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
-                                <span style="font-size:13px"> {{$j->item_name}}</span>
-                              </label>
-                              @endforeach
-
-                            </div>
-                            @endforeach
-                            @endif
-                          -->
 
 
                           <div class="f1-steps">
@@ -333,36 +325,6 @@ input.qty2 {
                             </div>
                           </div <?php $i = 1; ?>>
 
-
-                      <!-- @if($objs->id_main == 1)
-                            @foreach($my_option as $k)
-                            <fieldset style="width: 100%;" >
-                              <br />
-
-                              @foreach($k->options as $j)
-                              <label style="width: 100%; display: inline-flex; margin-bottom: 10px;" data-slick-index="0" tabindex="-1">
-                                <input type="radio" name="{{$k->option_title}}" value="{{$j->id}}"  class="get_var_option{{$k->id_op}}" data-value="{{$j->id}}" style="width: 30px; text-align: left; height: 18px;">
-                                <span style="font-size:13px"> {{$j->item_name}}</span>
-                              </label>
-                              @endforeach
-
-                               <div class="f1-buttons">
-                                   <button type="button" class="btn btn-previous"
-                                   @if($i == 1)
-                                   style="display:none;"
-                                   @endif
-                                   >กลับ</button>
-                                   <button type="button" class="btn btn-next" @if($i == 4)
-                                   style="display:none;"
-                                   @endif >ต่อไป</button>
-
-                               </div>
-                               <br />
-                           </fieldset {{$i++}}>
-                           @endforeach
-                           @endif
-
-                         -->
 
 
 
@@ -481,6 +443,12 @@ input.qty2 {
 
 
                             </div>
+                            @else
+
+                            @endif
+
+
+
                             </form>
 
 
@@ -498,7 +466,8 @@ input.qty2 {
 
 
                             <p>
-                              {{$objs->pro_title}}
+
+                              {!! $objs->pro_title !!}
                             </p>
                         </div>
                     </div>
@@ -516,7 +485,9 @@ input.qty2 {
                         <div class="tab-pane active show fade" id="tab1" role="tabpanel">
                             <div class="tab-items">
                                 <div class="p-details-list">
-                                    {{$objs->pro_name_detail}}
+
+                                    {!! $objs->pro_name_detail !!}
+
                                 </div>
                             </div>
                         </div>

@@ -1539,12 +1539,12 @@ return response()->json($response);
       //    $shipping_price = ($product->pro_weight * $u['data'][1]['sum_item']);
 
 
+  //    $total += ($u['data'][2]['sum_price']+$u['data']['option_price'])*$u['data'][1]['sum_item'];
 
 
-
-
+    //  $total += ($u['data'][2]['sum_price']+$u['data']['option_price'])*$u['data'][1]['sum_item'];
       //    $total += $u['data'][2]['sum_price'];
-          $total_sum += $u['data'][2]['sum_price']*$u['data'][1]['sum_item'];
+          $total_sum += ($u['data'][2]['sum_price']+$u['data']['option_price'])*$u['data'][1]['sum_item'];
           $total_item += $u['data'][1]['sum_item'];
 
 
@@ -1742,6 +1742,7 @@ return response()->json($response);
                 'address' => $request['address'],
                 'phone' => $request['phone'],
                 'country' => $request['country'],
+                'city' => $request['city'],
                 'zipcode' => $request['zip_code'],
                 'province' => $request['province']
               ]
@@ -1796,6 +1797,7 @@ return response()->json($response);
          $obj->frame = $u['data']['frame'];
          $obj->frame_color = $u['data']['frame_color'];
          $obj->product_id = $product->id;
+         $obj->option_price = $u['data']['option_price'];
          $obj->product_name = $product->pro_name;
          $obj->sum_item = $u['data'][1]['sum_item'];
          $obj->sum_money = $u['data'][2]['sum_price'];
@@ -2132,6 +2134,7 @@ return response()->json($response);
 
     public function product($id){
 
+
       $check_option = DB::table('product_items')
         ->where('product_set_id', $id)
         ->count();
@@ -2212,6 +2215,9 @@ return response()->json($response);
             ->leftjoin('categories', 'categories.id',  'products.pro_category')
             ->where('products.id', $id)
             ->first();
+
+
+          //  dd($cat->id_main);
 
 
             $related = DB::table('products')->select(

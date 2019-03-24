@@ -115,7 +115,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                                                 <div class="city-country">
                                                     <div class="city">
                                                         <p>City<span>*</span></p>
-                                                        <input type="text" name="city" value="{{ old('city')}}" required>
+                                                        <input type="text" name="city" value="{{old('city', Auth::user()->city)}}" required>
                                                         @if ($errors->has('city'))
                                                         <p class="text-danger">
                                                           *required City

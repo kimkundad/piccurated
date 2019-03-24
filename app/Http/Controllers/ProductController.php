@@ -93,6 +93,7 @@ class ProductController extends Controller
        $package->pro_title = $request['pro_title'];
        $package->pro_name_detail = $request['pro_name_detail'];
        $package->pro_category = $request['pro_category'];
+       $package->cattegory_subs_id = $request['pro_category_a'];
        $package->pro_price = $request['pro_price'];
        $package->pro_code = $request['pro_code'];
        $package->pro_rating = $request['pro_rating'];
@@ -254,6 +255,7 @@ class ProductController extends Controller
           $package->pro_title = $request['pro_title'];
           $package->pro_name_detail = $request['pro_name_detail'];
           $package->pro_category = $request['pro_category'];
+          $package->cattegory_subs_id = $request['pro_category_a'];
           $package->pro_price = $request['pro_price'];
           $package->pro_status_show = $request['pro_status_show'];
           $package->pro_code = $request['pro_code'];
@@ -306,6 +308,7 @@ class ProductController extends Controller
           $package->pro_title = $request['pro_title'];
           $package->pro_name_detail = $request['pro_name_detail'];
           $package->pro_category = $request['pro_category'];
+          $package->cattegory_subs_id = $request['pro_category_a'];
           $package->pro_price = $request['pro_price'];
           $package->pro_code = $request['pro_code'];
           $package->pro_status_show = $request['pro_status_show'];

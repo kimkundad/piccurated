@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'file/post',
-        'admin/blog*'
+        'admin/blog*',
+        'admin/product*'
     ];
 }

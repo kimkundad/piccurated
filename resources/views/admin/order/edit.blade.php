@@ -185,12 +185,13 @@
                                     <div class="col-md-2"><img src="{{url('assets/image/product/'.$k->pro_image)}}" class="img-responsive" style=" width:100%" /></div>
           													<div class="col-md-6">
                                       สั่งจำนวน : {{$k->sum_item}} PCS / ฿ {{$k->pro_price}}<br />
-                                      ราคารวม : {{$k->sum_money}}<br />
+                                      ราคารวม : {{($k->sum_money+$k->option_price)*$k->sum_item}}<br />
+                                      @if(isset($k->get_color))
                                       ชนิดกระดาษ : {{$k->get_color}} <br />
                                       ขนาดรูป : {{$k->get_size}} <br />
                                       frame : {{$k->get_frame}} <br />
                                       color frame : {{$k->get_frame_color}} <br /><br />
-
+                                      @endif
           														</div>
 
           												</div>
