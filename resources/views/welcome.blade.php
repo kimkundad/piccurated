@@ -184,7 +184,19 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                 @foreach($banner as $k1)
 
 
-                <div class="col-md-4 grid-item grid-item2">
+                <div class="col-md-3 grid-item grid-item2">
+                <div class="thumb1" style="background: url({{url('assets/image/banner/'.$k1->image_banner)}}) 50% 50% no-repeat;">
+                  <a  href="{{$k1->url_banner}}">
+                    <span class="banner-hover-text">{{$k1->text_banner}}<br />
+                      <button>View Artworks</button>
+                    </span>
+                  </a>
+
+                </div>
+                </div>
+
+
+            <!--    <div class="col-md-4 grid-item grid-item2">
                 <div class="thumb2 banner-image" style="background: url({{url('assets/image/banner/'.$k1->image_banner)}}) 70% 70% no-repeat;">
                   <a href="{{$k1->url_banner}}" style="color:{{$k1->color_banner}}">
                     <span class="banner-hover-text">{{$k1->text_banner}}<br />
@@ -193,7 +205,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                   </a>
 
                 </div>
-                </div>
+              </div> -->
 
 
 
