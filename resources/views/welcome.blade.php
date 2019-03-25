@@ -414,14 +414,15 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                 @if($objs_group)
                   @foreach($objs_group as $objs_groups)
                   <div class="col-md-3 grid-item grid-item2">
-                  <div class="thumb1" style="background: url({{url('assets/image/product/'.$objs_groups->pro_image)}}) 50% 50% no-repeat;">
+                  
                     <a href="{{url('product/'.$objs_groups->id_p)}}">
+                      <img src="{{url('assets/image/product/'.$objs_groups->pro_image)}}" alt="{{str_limit($objs_groups->pro_name, 38, '..')}}" class="img-responsive">
                       <span class="banner-hover-text">{{str_limit($objs_groups->pro_name, 38, '..')}}<br />
                         <button>฿{{number_format((float)$objs_groups->pro_price , 2, '.', '')}}</button>
                       </span>
                     </a>
 
-                  </div>
+
                   </div>
                   @endforeach
                 @endif
