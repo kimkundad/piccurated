@@ -50,6 +50,7 @@ class HomeController extends Controller
             'categories.*',
             'categories.id as cat_id'
             )
+            ->where('id', '<=', 14)
             ->get();
 
             foreach($obj1 as $u){
