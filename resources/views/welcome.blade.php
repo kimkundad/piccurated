@@ -187,7 +187,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                 <div class="col-md-4">
 
 
-                <div class="box-col"><a href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt="{{$k1->text_banner}}" class="img-responsive"></a></div>
+                <div class="box-col" style="margin-bottom:15px;"><a href="{{$k1->url_banner}}"><img src="{{url('assets/image/banner/'.$k1->image_banner)}}" alt="{{$k1->text_banner}}" class="img-responsive"></a></div>
 
 
                 </div>
