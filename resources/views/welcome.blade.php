@@ -296,7 +296,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 
                       <div class="sp-slide">
-                				<a href="{{url('assets/image/product/'.$objs_awards->pro_image)}}">
+                				<a href="{{url('product/'.$objs_awards->id_p)}}">
                 					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
                 						data-src="{{url('assets/image/product/'.$objs_awards->pro_image)}}"
                 						data-retina="{{url('assets/image/product/'.$objs_awards->pro_image)}}"/>
@@ -512,7 +512,7 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
 
 
                          <div class="sp-slide">
-                   				<a href="{{url('assets/image/product/'.$objs_news->pro_image)}}">
+                   				<a href="{{url('product/'.$objs_news->id_p)}}">
                    					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
                    						data-src="{{url('assets/image/product/'.$objs_news->pro_image)}}"
                    						data-retina="{{url('assets/image/product/'.$objs_news->pro_image)}}"/>
