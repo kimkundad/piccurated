@@ -156,6 +156,21 @@ input.qty2 {
 }
 /*  */
 
+.btn-previou{
+  color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+
+}
+
+.btn-nex{
+  color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #0088cc;
+    border-color: #0088cc;
+}
+
+
 </style>
 @stop('stylesheet')
 @section('content')
