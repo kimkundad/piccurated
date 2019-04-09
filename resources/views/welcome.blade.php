@@ -514,7 +514,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                          <div class="sp-slide">
                    				<a href="{{url('product/'.$objs_news->id_p)}}">
                    					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
-                   						/>
+                   						data-src="{{url('assets/image/product/'.$objs_news->pro_image)}}"
+                   						data-retina="{{url('assets/image/product/'.$objs_news->pro_image)}}"/>
                    				</a>
                    				<p class="sp-caption"><a class="banner-image" href="{{url('product/'.$objs_news->id_p)}}">{{str_limit($objs_news->pro_name, 38, '..')}} <br /> <span style="  font-weight: 400;">฿{{number_format((float)$objs_news->pro_price , 2, '.', '')}}</span></a></p>
 
