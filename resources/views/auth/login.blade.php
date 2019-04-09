@@ -9,9 +9,18 @@
 .g-login {
     border: 1px solid #f2f2f2;
     padding: 13px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     background: transparent;
+}
+.form-fields p label {
+    font-size: 14px;
+}
+.form-fields p input {
+    font-size: 14px;
+}
+body, body, h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Crimson Text', serif !important;
 }
 </style>
 @stop('stylesheet')

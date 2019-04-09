@@ -386,7 +386,7 @@ input.qty2 {
                            </label {{$z++}}>
                            @endforeach
 <br /><br />
-                            <div class="f1-buttons">
+                            <div class="f1-buttons" id="f1-buttons" style="display:none">
 
                               <button type="button" class="btn btn-next" style="color: #ffffff;
                                 text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -413,7 +413,7 @@ input.qty2 {
                                <button type="button" class="btn btn-previous" style="color: #333;
                                    background-color: #fff;
                                    border-color: #ccc;">กลับ</button>
-                               <button type="button" class="btn btn-next" style="color: #ffffff;
+                               <button type="button" class="btn btn-next" id="f2-buttons" style=" display:none; color: #ffffff;
                                  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
                                  background-color: #0088cc;
                                  border-color: #0088cc;">ต่อไป</button>
@@ -437,7 +437,7 @@ input.qty2 {
                               <button type="button" class="btn btn-previous" style="color: #333;
                                   background-color: #fff;
                                   border-color: #ccc;">กลับ</button>
-                              <button type="button" class="btn btn-next next_step3" style="color: #ffffff;
+                              <button type="button" class="btn btn-next next_step3" id="f3-buttons" style="display:none; color: #ffffff;
                                 text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
                                 background-color: #0088cc;
                                 border-color: #0088cc;">ต่อไป</button>
@@ -666,6 +666,12 @@ $('#final-btn').hide();
 $('input[name=size]').click(function(){
   document.getElementById('step1').innerHTML = "ขนาดรูป : "+$(this).data("name");
   step1_1 = $(this).data("name");
+
+  if(step1_1 != null){
+
+    $("#f1-buttons").delay(300).fadeIn(300);
+  }
+
   console.log(step1_1);
  });
 
@@ -676,6 +682,13 @@ $('input[name=size]').click(function(){
    if(step2_2 == 'canvas'){
      $("#final").hide();
    }
+
+   if(step2_2 != null){
+
+     $("#f2-buttons").delay(300).fadeIn(300);
+   }
+
+
    console.log(step2_2);
   });
 
@@ -698,6 +711,12 @@ $('input[name=size]').click(function(){
       }
 
     }
+
+    if(step3_3 != null){
+
+      $("#f3-buttons").delay(300).fadeIn(300);
+    }
+
 
 
    });
