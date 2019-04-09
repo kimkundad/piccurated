@@ -156,14 +156,14 @@ input.qty2 {
 }
 /*  */
 
-.btn-previou{
+.f1-buttons .btn-previou{
   color: #333;
       background-color: #fff;
       border-color: #ccc;
 
 }
 
-.btn-nex{
+.f1-buttons .btn-nex{
   color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #0088cc;
@@ -388,7 +388,10 @@ input.qty2 {
 <br /><br />
                             <div class="f1-buttons">
 
-                              <button type="button" class="btn btn-next">ต่อไป</button>
+                              <button type="button" class="btn btn-next" style="color: #ffffff;
+                                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+                                background-color: #0088cc;
+                                border-color: #0088cc;">ต่อไป</button>
 
                             </div>
                             <br />
@@ -407,8 +410,13 @@ input.qty2 {
                           @endforeach
                           <br />
                            <div class="f1-buttons">
-                               <button type="button" class="btn btn-previous">กลับ</button>
-                               <button type="button" class="btn btn-next">ต่อไป</button>
+                               <button type="button" class="btn btn-previous" style="color: #333;
+                                   background-color: #fff;
+                                   border-color: #ccc;">กลับ</button>
+                               <button type="button" class="btn btn-next" style="color: #ffffff;
+                                 text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+                                 background-color: #0088cc;
+                                 border-color: #0088cc;">ต่อไป</button>
 
                            </div>
                            <br />
@@ -426,8 +434,13 @@ input.qty2 {
                          @endforeach
 <br />
                           <div class="f1-buttons">
-                              <button type="button" class="btn btn-previous">กลับ</button>
-                              <button type="button" class="btn btn-next next_step3">ต่อไป</button>
+                              <button type="button" class="btn btn-previous" style="color: #333;
+                                  background-color: #fff;
+                                  border-color: #ccc;">กลับ</button>
+                              <button type="button" class="btn btn-next next_step3" style="color: #ffffff;
+                                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+                                background-color: #0088cc;
+                                border-color: #0088cc;">ต่อไป</button>
 
                           </div>
                           <br />
@@ -449,7 +462,9 @@ input.qty2 {
 
 <br />
                          <div class="f1-buttons">
-                             <button type="button" class="btn btn-previous">กลับ</button>
+                             <button type="button" class="btn btn-previous" style="color: #333;
+                                 background-color: #fff;
+                                 border-color: #ccc;">กลับ</button>
                              <a href="javascript:$('#my_form').submit();" id="final-btn" class="btn add-to-cart">Add to cart</a>
                          </div>
                          <br />
