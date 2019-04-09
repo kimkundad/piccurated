@@ -295,12 +295,17 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                         @foreach($objs_award as $objs_awards)
 
 
-                      <div class="sp-slide">
+                      <div class="sp-slide" onclick="window.location = '{{url('product/'.$objs_awards->id_p)}}' ">
+                        <div class="text-url">
                 				<a href="{{url('product/'.$objs_awards->id_p)}}">
-                					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
-                						data-src="{{url('assets/image/product/'.$objs_awards->pro_image)}}"
-                						data-retina="{{url('assets/image/product/'.$objs_awards->pro_image)}}"/>
+
+                            <img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
+                  						data-src="{{url('assets/image/product/'.$objs_awards->pro_image)}}"
+                  						data-retina="{{url('assets/image/product/'.$objs_awards->pro_image)}}"/>
+
+
                 				</a>
+                        </div>
                 				<p class="sp-caption"><a class="banner-image" href="{{url('product/'.$objs_awards->id_p)}}">{{str_limit($objs_awards->pro_name, 38, '..')}} <br /> <span style="  font-weight: 400;">฿{{number_format((float)$objs_awards->pro_price , 2, '.', '')}}</span></a></p>
 
                 			</div>
@@ -511,8 +516,8 @@ piccurated is online natural printing, art gallery. Connecting between art, phot
                            @foreach($objs_new as $objs_news)
 
 
-                         <div class="sp-slide">
-                   				<a href="{{url('product/'.$objs_news->id_p)}}">
+                         <div class="sp-slide" onclick="window.location = '{{url('product/'.$objs_awards->id_p)}}' ">
+                   				<a href="{{url('product/'.$objs_awards->id_p)}}">
                    					<img class="sp-image" src="{{url('assets/slider-pro/css/images/blank.gif')}}"
                    						data-src="{{url('assets/image/product/'.$objs_news->pro_image)}}"
                    						data-retina="{{url('assets/image/product/'.$objs_news->pro_image)}}"/>
