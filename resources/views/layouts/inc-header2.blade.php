@@ -5,19 +5,26 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="welcome-text">Welcome you to ArtFurniture store!</span>
+                            <span class="welcome-text">Welcome you to Piccurated store!</span>
                         </div>
                         <div class="col-md-8">
                             <div class="header-top-links">
 
                                 <div class="account-wishlist">
                                       @if (Auth::guest())
+                                      <a href="{{url('login')}}">Sign In</a>
                                       @else
-                                      <a href="account.html">My Account</a>
+
+                                        @if(Auth::user()->is_admin == 1)
+                                        <a href="{{url('admin/product')}}">My Account</a>
+                                        @else
+                                        <a href="{{url('user_profile')}}">My Account</a>
+                                        @endif
+
                                       @endif
 
-                                    <a href="wishlist.html">My Wish List</a>
-                                    <a href="account.html">Sign In</a>
+                                    <a href="{{url('confirm_payment')}}">แจ้งชำระเงิน</a>
+
                                 </div>
 
 
@@ -34,30 +41,34 @@
                         <div class="col-md-3">
                             <div class="logo">
 
-                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu"></a>
+                                <a href="{{url('/')}}"><img src="{{url('assets/image/logo-website.png')}}?v1" alt="fulryu" style="height:70px"></a>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <span class="email-image">
-                                <span><img src="assets/img/icon/email.png" alt=""></span>
-                                <span><span>Email: </span>admin@artfurniture.com</span>
+                            <span class="email-image" style="padding: 20px 0;">
+                                <span><img src="{{url('home/assets/img/icon/email.png')}}" alt=""></span>
+                                <span><span>Email: </span>Piccurated@gmail.com</span>
                             </span>
                         </div>
 
 
                         <div class="col-md-6">
-                            <form action="#" method="post" class="header-search">
-                                <input type="text" placeholder="Search for item...">
+                            <form action="{{url('search')}}" method="post" class="header-search" style="margin: 25px 0;">
+                              {{ csrf_field() }}
+                                <input type="text" name="search_name" placeholder="Search for item...">
                                 <button><i class="icon icon-Search"></i></button>
                             </form>
 
                             <?php
                               $set_num_date = count(Session::get('cart'));
                              ?>
-                            <div class="cart-box-wrapper">
+                            <div class="cart-box-wrapper" style="margin: 7px 0 15px;">
                                 <a class="cart-info" >
-                                    <img src="{{url('home/assets/img/icon/cart-2.png')}}" alt="">
+                                  <span>
+                                    <img src="{{url('home/assets/img/icon/cart.png')}}" alt="">
                                     <span>{{$set_num_date}}</span>
+                                    </span>
+                                    <span>My Cart</span>
                                 </a>
                                 <div class="cart-dropdown">
                                 <?php
@@ -89,10 +100,10 @@
 
                                  <div class="cart-dropdown-item">
                                      <div class="cart-p-image">
-                                         <a href="cart.html"><img src="{{url('assets/image/product/'.$u['data']['image'])}}" style="height:70px;" alt=""></a>
+                                         <a href="{{url('cart')}}"><img src="{{url('assets/image/product/'.$u['data']['image'])}}" style="height:70px;" alt=""></a>
                                      </div>
                                      <div class="cart-p-text">
-                                         <a href="cart.html" class="cart-p-name">{{$u['data']['name']}}</a>
+                                         <a href="{{url('cart')}}" class="cart-p-name">{{$u['data']['name']}}</a>
                                          <span>฿{{$u['data']['price']}}.00</span>
                                          <div class="cart-p-qty">
 
@@ -147,30 +158,33 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li><a href="{{url('/')}}">Homee</a>
+                                    <li><a href="{{url('/')}}">Home</a></li>
 
-                                    </li>
-                                    <li class="megamenu"><a href="#">Product</a>
-                                        <ul>
-                                            <li>
-                                                <ul>
-                                                @if($cat1)
-                                                  @foreach($cat1 as $j)
-                                                  <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
-                                                  @endforeach
-                                                @endif
-                                                </ul>
-                                            </li>
 
-                                        </ul>
-                                    </li>
+
+                                    <li><a href="{{url('category_main/1')}}">PRINT</a>
+                                      <ul>
+                                        @if(get_cat())
+                                          @foreach(get_cat() as $j)
+                                          <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
+                                          @endforeach
+                                        @endif
+                                      </ul>
+                                  </li>
+
+
+
+
+                                    <li><a href="{{url('category_main/4')}}">BOOK</a></li>
+                                    <li><a href="{{url('category_main/3')}}">ART</a></li>
+
                                     <li><a href="{{url('get_blog')}}">Blog</a>
 
                                     </li>
-                                    <li><a href="{{url('/about')}}">About</a></li>
+
 
                                     <li><a href="{{url('/contact')}}">Contact</a></li>
-                                    <li><a href="{{url('/confirm_payment')}}">Payment</a></li>
+
 
                                 </ul>
                             </nav>
@@ -188,20 +202,14 @@
                           <li ><a href="{{url('/')}}">Home</a>
                           </li>
 
-                          <li><a >Product</a>
-                              <ul>
-                                @if($cat1)
-                                  @foreach($cat1 as $j)
-                                  <li><a href="{{url('category/'.$j->id)}}">{{$j->name_cat}}</a></li>
-                                  @endforeach
-                                @endif
-                              </ul>
-                          </li>
+                          <li><a href="{{url('category_main/1')}}">PRINT</a></li>
+                          <li><a href="{{url('category_main/4')}}">BOOK</a></li>
+                          <li><a href="{{url('category_main/3')}}">ART</a></li>
+
                           <li ><a href="{{url('get_blog')}}">Blog</a>
                           </li>
 
-                            <li ><a href="{{url('/about')}}">About</a>
-                            </li>
+
                             <li ><a href="{{url('/contact')}}">Contact</a>
                             </li>
                       </ul>
