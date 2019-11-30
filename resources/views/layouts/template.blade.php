@@ -27,7 +27,7 @@
 
 
 
-        @include('layouts.inc-header')
+     
 
 
 
